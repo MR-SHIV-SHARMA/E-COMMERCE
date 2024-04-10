@@ -7,6 +7,7 @@ import Wedding from "./components/Wedding/Wedding";
 import GenderCard from "./components/GenderCard/GenderCard";
 import Footer from "./components/Footer/Footer";
 // import ProductDetailPagePage from './components/ProductDetailPage/ProductDetailPage'
+import OrderDetailsForm from './components2/OrderDetailsForm/OrderDetailsForm';
 
 function Layout() {
   return (
@@ -18,6 +19,7 @@ function Layout() {
       <GenderCard />
       <Footer />
       {/* <ProductDetailPagePage /> */}
+      <OrderDetailsForm />
     </>
   );
 }
