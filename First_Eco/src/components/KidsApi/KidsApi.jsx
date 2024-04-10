@@ -1,0 +1,208 @@
+const kids = [
+  {
+    id: 1,
+    title: "Kids Striped T-Shirt",
+    brand: "XYZ Kids",
+    category: "tops",
+    images: [
+      "https://images.pexels.com/photos/2231267/pexels-photo-2231267.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "https://images.pexels.com/photos/2231267/pexels-photo-2231267.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    ],
+    stock: 100,
+    thumbnail:
+      "https://images.pexels.com/photos/1231215/pexels-photo-1231215.jpeg?auto=compress&cs=tinysrgb&w=600",
+    discountPercentage: 10,
+    rating: 4.5,
+    description: "Comfortable and stylish striped t-shirt for kids.",
+    price: 19.99,
+  },
+  {
+    id: 2,
+    title: "Kids Denim Jeans",
+    brand: "ABC Kids",
+    category: "bottoms",
+    images: [
+      "https://images.pexels.com/photos/2422461/pexels-photo-2422461.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "https://images.pexels.com/photos/2422461/pexels-photo-2422461.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    ],
+    stock: 80,
+    thumbnail:
+      "https://images.pexels.com/photos/296308/pexels-photo-296308.jpeg?auto=compress&cs=tinysrgb&w=600",
+    discountPercentage: 15,
+    rating: 4.2,
+    description: "Stylish denim jeans for kids.",
+    price: 29.99,
+  },
+  {
+    id: 3,
+    title: "Kids Hooded Jacket",
+    brand: "PQR Kids",
+    category: "jackets",
+    images: [
+      "https://images.pexels.com/photos/2365597/pexels-photo-2365597.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "https://images.pexels.com/photos/2365597/pexels-photo-2365597.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    ],
+    stock: 50,
+    thumbnail:
+      "https://images.pexels.com/photos/2365597/pexels-photo-2365597.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    discountPercentage: 20,
+    rating: 4.8,
+    description: "Warm and cozy hooded jacket for kids.",
+    price: 39.99,
+  },
+  {
+    id: 4,
+    title: "Kids Floral Dress",
+    brand: "EFG Kids",
+    category: "dresses",
+    images: [
+      "https://images.pexels.com/photos/1548107/pexels-photo-1548107.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "https://images.pexels.com/photos/1548107/pexels-photo-1548107.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    ],
+    stock: 70,
+    thumbnail:
+      "https://images.pexels.com/photos/4302090/pexels-photo-4302090.jpeg?auto=compress&cs=tinysrgb&w=600",
+    discountPercentage: 10,
+    rating: 4.6,
+    description: "Beautiful floral dress for little girls.",
+    price: 24.99,
+  },
+  {
+    id: 5,
+    title: "Kids Casual Shirt",
+    brand: "LMN Kids",
+    category: "tops",
+    images: [
+      "https://images.pexels.com/photos/3543981/pexels-photo-3543981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "https://images.pexels.com/photos/3543981/pexels-photo-3543981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    ],
+    stock: 90,
+    thumbnail:
+      "https://images.pexels.com/photos/35537/child-children-girl-happy.jpg?auto=compress&cs=tinysrgb&w=600",
+    discountPercentage: 10,
+    rating: 4.4,
+    description: "Casual shirt for boys in vibrant colors.",
+    price: 18.99,
+  },
+  {
+    id: 6,
+    title: "Kids Plaid Skirt",
+    brand: "IJK Kids",
+    category: "skirts",
+    images: [
+      "https://images.pexels.com/photos/370093/pexels-photo-370093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "https://images.pexels.com/photos/370093/pexels-photo-370093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    ],
+    stock: 60,
+    thumbnail:
+      "https://images.pexels.com/photos/18418351/pexels-photo-18418351/free-photo-of-happy-little-girl-on-carousel.jpeg?auto=compress&cs=tinysrgb&w=600",
+    discountPercentage: 10,
+    rating: 4.3,
+    description: "Stylish plaid skirt for girls.",
+    price: 21.99,
+  },
+  {
+    id: 7,
+    title: "Kids Sports Shoes",
+    brand: "STU Kids",
+    category: "shoes",
+    images: [
+      "https://images.pexels.com/photos/1425406/pexels-photo-1425406.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "https://images.pexels.com/photos/1425406/pexels-photo-1425406.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    ],
+    stock: 85,
+    thumbnail:
+      "https://images.pexels.com/photos/3074920/pexels-photo-3074920.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    discountPercentage: 15,
+    rating: 4.7,
+    description: "Comfortable sports shoes for active kids.",
+    price: 34.99,
+  },
+  {
+    id: 8,
+    title: "Kids Printed T-Shirt",
+    brand: "VWX Kids",
+    category: "tops",
+    images: [
+      "https://images.pexels.com/photos/4465700/pexels-photo-4465700.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "https://images.pexels.com/photos/4465700/pexels-photo-4465700.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    ],
+    stock: 75,
+    thumbnail:
+      "https://images.pexels.com/photos/8430596/pexels-photo-8430596.jpeg?auto=compress&cs=tinysrgb&w=600",
+    discountPercentage: 10,
+    rating: 4.4,
+    description: "Colorful printed t-shirt for kids.",
+    price: 17.99,
+  },
+  {
+    id: 9,
+    title: "Kids Party Dress",
+    brand: "YZ Kids",
+    category: "dresses",
+    images: [
+      "https://images.pexels.com/photos/1287145/pexels-photo-1287145.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "https://images.pexels.com/photos/1287145/pexels-photo-1287145.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    ],
+    stock: 55,
+    thumbnail:
+      "https://images.pexels.com/photos/1287145/pexels-photo-1287145.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    discountPercentage: 20,
+    rating: 4.9,
+    description: "Beautiful party dress for special occasions.",
+    price: 29.99,
+  },
+  {
+    id: 10,
+    title: "Kids Sweatshirt",
+    brand: "LMN Kids",
+    category: "tops",
+    images: [
+      "https://images.pexels.com/photos/416809/pexels-photo-416809.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "https://images.pexels.com/photos/416809/pexels-photo-416809.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    ],
+    stock: 65,
+    thumbnail:
+      "https://images.pexels.com/photos/9727545/pexels-photo-9727545.jpeg?auto=compress&cs=tinysrgb&w=600",
+    discountPercentage: 10,
+    rating: 4.3,
+    description: "Warm and cozy sweatshirt for kids.",
+    price: 23.99,
+  },
+  {
+    id: 11,
+    title: "Kids Checked Shirt",
+    brand: "ABC Kids",
+    category: "tops",
+    images: [
+      "https://images.pexels.com/photos/4773362/pexels-photo-4773362.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "https://images.pexels.com/photos/4773362/pexels-photo-4773362.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    ],
+    stock: 70,
+    thumbnail:
+      "https://images.pexels.com/photos/9428732/pexels-photo-9428732.jpeg?auto=compress&cs=tinysrgb&w=600",
+    discountPercentage: 15,
+    rating: 4.5,
+    description: "Smart checked shirt for boys.",
+    price: 21.99,
+  },
+  {
+    id: 12,
+    title: "Kids Summer Dress",
+    brand: "PQR Kids",
+    category: "dresses",
+    images: [
+      "https://images.pexels.com/photos/1644706/pexels-photo-1644706.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "https://images.pexels.com/photos/1644706/pexels-photo-1644706.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    ],
+    stock: 60,
+    thumbnail:
+      "https://images.pexels.com/photos/1644706/pexels-photo-1644706.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    discountPercentage: 10,
+    rating: 4.4,
+    description: "Light and breezy summer dress for girls.",
+    price: 19.99,
+  },
+];
+
+export default kids;
