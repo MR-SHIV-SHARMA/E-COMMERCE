@@ -4,12 +4,15 @@ import App from "./App.jsx";
 import "./index.css";
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "./Layout.jsx";
-import Main from "./components/Main/Main";
-import Card from "./components/Card/Card";
-import Wedding from "./components/Wedding/Wedding";
+// import Main from "./components/Main/Main";
+// import Card from "./components/Card/Card";
+// import Wedding from "./components/Wedding/Wedding";
 import Layout2 from "./Layout2.jsx";
-import GenderCard from "./components/GenderCard/GenderCard";
-// import ProductDetailPagePage from './components/ProductDetailPage/ProductDetailPage.jsx'
+// import GenderCard from "./components/GenderCard/GenderCard";
+import ProductDetailPagePage from './components/ProductDetailPage/ProductDetailPage.jsx'
+// import ProductOverviews from "./components2/ProductOverviews/ProductOverviews.jsx";
+import ParentComponent from "./components2/ParentComponent/ParentComponent.jsx";
+
 import OrderDetailsForm from './components2/OrderDetailsForm/OrderDetailsForm.jsx';
 import WomanClothingCollection from "./components/WomanClothingCollection/WomanClothingCollection.jsx";
 import KidsClothingCollection from "./components/KidsClothingCollection/KidsClothingCollection.jsx";
@@ -26,29 +29,37 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layout />,
     children: [
-      {
-        path: "/",
-        element: <Main />,
-      },
-      {
-        path: "/",
-        element: <Card />,
-      },
-      {
-        path: "/",
-        element: <Wedding />,
-      },
-      {
-        path: "/",
-        element: <GenderCard />,
-      },
       // {
       //   path: "/",
-      //   element: <ProductDetailPagePage />,
+      //   element: <Main />,
+      // },
+      // {
+      //   path: "/",
+      //   element: <Card />,
+      // },
+      // {
+      //   path: "/",
+      //   element: <Wedding />,
+      // },
+      // {
+      //   path: "/",
+      //   element: <GenderCard />,
       // },
       {
         path: "/",
+        element: <ProductDetailPagePage />,
+      },
+      {
+        path: "/",
         element: <OrderDetailsForm />,
+      },
+      // {
+      //   path: "/",
+      //   element: <ProductOverviews />,
+      // },
+      {
+        path: "/",
+        element: <ParentComponent />,
       },
     ],
   },

@@ -62,49 +62,43 @@ function getProducts() {
         </p>
         <div className="text-center pt-4">
           <button
-            className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${
-              activeButton === "shirt" ? "bg-black text-white" : ""
-            }`}
+            className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${activeButton === "shirt" ? "bg-black text-white" : ""
+              }`}
             onClick={() => handleClick("shirt")}
           >
             Shirts
           </button>
           <button
-            className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${
-              activeButton === "tshart" ? "bg-black text-white" : ""
-            }`}
+            className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${activeButton === "tshart" ? "bg-black text-white" : ""
+              }`}
             onClick={() => handleClick("tshart")}
           >
             T-shirts
           </button>
           <button
-            className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${
-              activeButton === "jecet" ? "bg-black text-white" : ""
-            }`}
+            className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${activeButton === "jecet" ? "bg-black text-white" : ""
+              }`}
             onClick={() => handleClick("jecet")}
           >
             Jeans
           </button>
           <button
-            className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${
-              activeButton === "paints" ? "bg-black text-white" : ""
-            }`}
+            className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${activeButton === "paints" ? "bg-black text-white" : ""
+              }`}
             onClick={() => handleClick("paints")}
           >
             Pants
           </button>
           <button
-            className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${
-              activeButton === "jinse" ? "bg-black text-white" : ""
-            }`}
+            className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${activeButton === "jinse" ? "bg-black text-white" : ""
+              }`}
             onClick={() => handleClick("jinse")}
           >
             Jackets
           </button>
           <button
-            className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${
-              activeButton === "hoodie" ? "bg-black text-white" : ""
-            }`}
+            className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${activeButton === "hoodie" ? "bg-black text-white" : ""
+              }`}
             onClick={() => handleClick("hoodie")}
           >
             Hoodies
@@ -118,19 +112,19 @@ function getProducts() {
             if (top.category === "tops") {
               return (
                 <div key={top.id} className="sm:w-1/2 md:w-1/2 lg:w-1/3 2xl:w-1/4 p-4 justify-center">
-                <KidsClothingCollection
-                  key={top.id}
-                  title={top.title}
-                  brand={top.brand}
-                  category={top.category}
-                  images={top.images}
-                  stock={top.stock}
-                  thumbnail={top.thumbnail}
-                  discountPercentage={top.discountPercentage}
-                  rating={top.rating}
-                  description={top.description}
-                  price={top.price}
-                />
+                  <KidsClothingCollection
+                    key={top.id}
+                    title={top.title}
+                    brand={top.brand}
+                    category={top.category}
+                    images={top.images}
+                    stock={top.stock}
+                    thumbnail={top.thumbnail}
+                    discountPercentage={top.discountPercentage}
+                    rating={top.rating}
+                    description={top.description}
+                    price={top.price}
+                  />
                 </div>
               );
             }
