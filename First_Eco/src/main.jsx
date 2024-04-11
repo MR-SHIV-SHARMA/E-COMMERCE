@@ -9,9 +9,10 @@ import Layout from "./Layout.jsx";
 // import Wedding from "./components/Wedding/Wedding";
 import Layout2 from "./Layout2.jsx";
 // import GenderCard from "./components/GenderCard/GenderCard";
-import ProductDetailPagePage from './components/ProductDetailPage/ProductDetailPage.jsx'
+// import ProductDetailPagePage from './components/ProductDetailPage/ProductDetailPage.jsx'
 // import ProductOverviews from "./components2/ProductOverviews/ProductOverviews.jsx";
-import ParentComponent from "./components2/ParentComponent/ParentComponent.jsx";
+// import ParentComponent from "./components2/ParentComponent/ParentComponent.jsx";
+import ShoppingCarts from "./components2/ShoppingCarts/ShoppingCarts.jsx";
 
 import OrderDetailsForm from './components2/OrderDetailsForm/OrderDetailsForm.jsx';
 import WomanClothingCollection from "./components/WomanClothingCollection/WomanClothingCollection.jsx";
@@ -45,10 +46,10 @@ const router = createBrowserRouter([
       //   path: "/",
       //   element: <GenderCard />,
       // },
-      {
-        path: "/",
-        element: <ProductDetailPagePage />,
-      },
+      // {
+      //   path: "/",
+      //   element: <ProductDetailPagePage />,
+      // },
       {
         path: "/",
         element: <OrderDetailsForm />,
@@ -57,9 +58,13 @@ const router = createBrowserRouter([
       //   path: "/",
       //   element: <ProductOverviews />,
       // },
+      // {
+      //   path: "/",
+      //   element: <ParentComponent />,
+      // },
       {
         path: "/",
-        element: <ParentComponent />,
+        element: <ShoppingCarts />,
       },
     ],
   },

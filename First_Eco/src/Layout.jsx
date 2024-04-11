@@ -6,10 +6,11 @@ import React from "react";
 // import Wedding from "./components/Wedding/Wedding";
 // import GenderCard from "./components/GenderCard/GenderCard";
 // import Footer from "./components/Footer/Footer";
-import ProductDetailPagePage from './components/ProductDetailPage/ProductDetailPage'
+// import ProductDetailPagePage from './components/ProductDetailPage/ProductDetailPage'
+import ShoppingCarts from './components2/ShoppingCarts/ShoppingCarts'
 import OrderDetailsForm from './components2/OrderDetailsForm/OrderDetailsForm';
 // import ProductOverviews from "./components2/ProductOverviews/ProductOverviews";
-import ParentComponent from './components2/ParentComponent/ParentComponent'
+// import ParentComponent from './components2/ParentComponent/ParentComponent'
 
 function Layout() {
   return (
@@ -20,10 +21,11 @@ function Layout() {
       <Wedding />
       <GenderCard />
       <Footer /> */}
-      <ProductDetailPagePage />
+      {/* <ProductDetailPagePage /> */}
       <OrderDetailsForm />
       {/* <ProductOverviews /> */}
-      <ParentComponent />
+      {/* <ParentComponent /> */}
+      <ShoppingCarts />
     </>
   );
 }
