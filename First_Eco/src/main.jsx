@@ -12,7 +12,10 @@ import Layout2 from "./Layout2.jsx";
 // import ProductDetailPagePage from './components/ProductDetailPage/ProductDetailPage.jsx'
 // import ProductOverviews from "./components2/ProductOverviews/ProductOverviews.jsx";
 // import ParentComponent from "./components2/ParentComponent/ParentComponent.jsx";
-import ShoppingCarts from "./components2/ShoppingCarts/ShoppingCarts.jsx";
+// import ShoppingCarts from "./components2/ShoppingCarts/ShoppingCarts.jsx";
+// import AboutPages from './components2/AboutPages/AboutPages.jsx'
+// import ContactPages from './components2/ContactPages/ContactPages.jsx'
+// import MarketingFeatures from './components2/MarketingFeatures/MarketingFeatures.jsx'
 
 import OrderDetailsForm from './components2/OrderDetailsForm/OrderDetailsForm.jsx';
 import WomanClothingCollection from "./components/WomanClothingCollection/WomanClothingCollection.jsx";
@@ -62,10 +65,22 @@ const router = createBrowserRouter([
       //   path: "/",
       //   element: <ParentComponent />,
       // },
-      {
-        path: "/",
-        element: <ShoppingCarts />,
-      },
+      // {
+      //   path: "/",
+      //   element: <ShoppingCarts />,
+      // },
+      // {
+      //   path: "/",
+      //   element: <AboutPages />,
+      // },
+      // {
+      //   path: "/",
+      //   element: <ContactPages />,
+      // },
+      // {
+      //   path: "/",
+      //   element: <MarketingFeatures />,
+      // },
     ],
   },
   {
