@@ -53,114 +53,148 @@ function getProducts() {
   };
   const users = user;
   return (
-    <div>
-      {/* h1 p button tags */}
-      <div className="flex mt-5 flex-col items-center">
-        <h1 className="text-5xl font-extrabold text-center">
-          MAN CLOTHING COLLECTION
-        </h1>
-        <p className="text-xl p-4 font-medium text-center">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-          nostrum. Quidem veritatis debitis maxime
-        </p>
-        <div className="text-center pt-4">
-          <button
-            className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${
-              activeButton === "shirt" ? "bg-black text-white" : ""
-            }`}
-            onClick={() => handleClick("shirt")}
-          >
-            Shirts
-          </button>
-          <button
-            className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${
-              activeButton === "tshart" ? "bg-black text-white" : ""
-            }`}
-            onClick={() => handleClick("tshart")}
-          >
-            T-shirts
-          </button>
-          <button
-            className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${
-              activeButton === "jecet" ? "bg-black text-white" : ""
-            }`}
-            onClick={() => handleClick("jecet")}
-          >
-            Jeans
-          </button>
-          <button
-            className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${
-              activeButton === "paints" ? "bg-black text-white" : ""
-            }`}
-            onClick={() => handleClick("paints")}
-          >
-            Pants
-          </button>
-          <button
-            className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${
-              activeButton === "jinse" ? "bg-black text-white" : ""
-            }`}
-            onClick={() => handleClick("jinse")}
-          >
-            Jackets
-          </button>
-          <button
-            className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${
-              activeButton === "hoodie" ? "bg-black text-white" : ""
-            }`}
-            onClick={() => handleClick("hoodie")}
-          >
-            Hoodies
-          </button>
-        </div>
-      </div>
+    <>
 
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex flex-wrap justify-around">
-          {users.map((sunglasses) => {
-            if (sunglasses.category === "sunglasses") {
-              return (
-                <div
-                  key={sunglasses.id}
-                  className="sm:w-1/2 md:w-1/2 lg:w-1/3 2xl:w-1/4 p-4 justify-center"
-                >
-                  <ManClothingCollection
+      <div>
+        {/* h1 p button tags */}
+        <div className="flex mt-5 flex-col items-center">
+          <h1 className="text-5xl font-extrabold text-center">
+            MAN CLOTHING COLLECTION
+          </h1>
+          <p className="text-xl p-4 font-medium text-center">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
+            nostrum. Quidem veritatis debitis maxime
+          </p>
+          <div className="text-center pt-4">
+            <button
+              className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${activeButton === "shirt" ? "bg-black text-white" : ""
+                }`}
+              onClick={() => handleClick("shirt")}
+            >
+              Shirts
+            </button>
+            <button
+              className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${activeButton === "tshart" ? "bg-black text-white" : ""
+                }`}
+              onClick={() => handleClick("tshart")}
+            >
+              T-shirts
+            </button>
+            <button
+              className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${activeButton === "jecet" ? "bg-black text-white" : ""
+                }`}
+              onClick={() => handleClick("jecet")}
+            >
+              Jeans
+            </button>
+            <button
+              className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${activeButton === "paints" ? "bg-black text-white" : ""
+                }`}
+              onClick={() => handleClick("paints")}
+            >
+              Pants
+            </button>
+            <button
+              className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${activeButton === "jinse" ? "bg-black text-white" : ""
+                }`}
+              onClick={() => handleClick("jinse")}
+            >
+              Jackets
+            </button>
+            <button
+              className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${activeButton === "hoodie" ? "bg-black text-white" : ""
+                }`}
+              onClick={() => handleClick("hoodie")}
+            >
+              Hoodies
+            </button>
+          </div>
+        </div>
+
+        <div className="container mx-auto px-4 py-8">
+          <div className="flex flex-wrap justify-around">
+            {users.map((sunglasses) => {
+              if (sunglasses.category === "sunglasses") {
+                return (
+                  <div
                     key={sunglasses.id}
-                    title={sunglasses.title}
-                    thumbnail={sunglasses.thumbnail}
-                    description={sunglasses.description}
-                    price={sunglasses.price}
-                  />
-                </div>
-              );
-            }
-            return null; // Skip rendering if not a sunglasses
-          })}
+                    className="sm:w-1/2 md:w-1/2 lg:w-1/3 2xl:w-1/4 p-4 justify-center"
+                  >
+                    <ManClothingCollection
+                      key={sunglasses.id}
+                      title={sunglasses.title}
+                      thumbnail={sunglasses.thumbnail}
+                      description={sunglasses.description}
+                      price={sunglasses.price}
+                    />
+                  </div>
+                );
+              }
+              return null; // Skip rendering if not a sunglasses
+            })}
+          </div>
         </div>
-      </div>
 
-      <div className="mt-1">
-        <h2 className="text-2xl ml-14 font-semibold mb-4">
-          Recommended Products
-        </h2>
-        <div className="flex flex-wrap justify-around">
-          {/* Render recommended products here */}
-          {users
-            .filter((sunglasses) => sunglasses.category === "sunglasses") // Filter sunglasses category
-            .slice(0, 3) // Limit to three elements
-            .map((sunglasses) => (
-              <RecommendedProduct
-                key={sunglasses.id}
-                title={sunglasses.title}
-                images={sunglasses.images}
-                stock={sunglasses.stock}
-                thumbnail={sunglasses.thumbnail}
-                price={sunglasses.price}
-              />
-            ))}
+        <div className="mt-1">
+          <h2 className="text-2xl ml-14 font-semibold mb-4">
+            Recommended Products
+          </h2>
+          <div className="flex flex-wrap justify-around">
+            {/* Render recommended products here */}
+            {users
+              .filter((sunglasses) => sunglasses.category === "sunglasses") // Filter sunglasses category
+              .slice(0, 3) // Limit to three elements
+              .map((sunglasses) => (
+                <RecommendedProduct
+                  key={sunglasses.id}
+                  title={sunglasses.title}
+                  images={sunglasses.images}
+                  stock={sunglasses.stock}
+                  thumbnail={sunglasses.thumbnail}
+                  price={sunglasses.price}
+                />
+              ))}
+          </div>
         </div>
       </div>
-    </div>
+      <div className="flex mb-5 flex-col items-center">
+      <div class="flex items-center">
+        <a
+          href="#"
+          class="mx-1 cursor-not-allowed text-sm font-semibold text-gray-900"
+        >
+          ← Previous
+        </a>
+        <a
+          href="#"
+          class="mx-1 flex items-center rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105"
+        >
+          1
+        </a>
+        <a
+          href="#"
+          class="mx-1 flex items-center rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105"
+        >
+          2
+        </a>
+        <a
+          href="#"
+          class="mx-1 flex items-center rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105"
+        >
+          3
+        </a>
+        <a
+          href="#"
+          class="mx-1 flex items-center rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105"
+        >
+          4
+        </a>
+        <a href="#" class="mx-2 text-sm font-semibold text-gray-900">
+          Next →
+        </a>
+      </div>
+      </div>
+    </>
   );
 }
 

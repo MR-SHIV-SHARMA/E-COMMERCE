@@ -5,7 +5,7 @@ function AboutPages() {
     <>
       <div>
         <div class="mx-auto max-w-7xl px-4">
-          <div class="flex flex-col space-y-8 pb-10 pt-12 md:pt-24">
+          <div class="flex flex-col space-y-8 pb-10 pt-6 md:pt-16">
             <div class="max-w-max rounded-full border bg-gray-50 p-1 px-3">
               <p class="text-xs font-semibold leading-normal md:text-sm">
                 About the company
