@@ -1,9 +1,35 @@
 import React from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
 function Header() {
+  const [showInput, setShowInput] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (inputRef.current && !inputRef.current.contains(event.target)) {
+        setShowInput(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleSearchClick = () => {
+    setShowInput(!showInput);
+  };
+
+  const handleInputChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
   return (
     <div className="bg-gray-700 text-white relative z-40 w-full">
       {/*   
@@ -1055,10 +1081,30 @@ function Header() {
                 </div>
 
                 {/* <!-- Search --> */}
-                <div className="flex lg:ml-6">
+                {/* <div className="flex lg:ml-6">
                   <Link
                     to="#"
                     className="p-2 text-gray-400 hover:text-gray-500"
+                  >
+                    <span className="sr-only">Search</span>
+                    <FaSearch />
+                  </Link>
+                </div> */}
+
+                <div className="flex lg:ml-6" ref={inputRef}>
+                  {showInput && (
+                    <input
+                      type="text"
+                      placeholder="Search items"
+                      value={searchQuery}
+                      onChange={handleInputChange}
+                      className="px-2 py-1 border text-black font-semibold border-gray-300 rounded-md focus:outline-none"
+                    />
+                  )}
+                  <Link
+                    to="#"
+                    className="p-2 text-gray-400 hover:text-gray-500"
+                    onClick={handleSearchClick}
                   >
                     <span className="sr-only">Search</span>
                     <FaSearch />
