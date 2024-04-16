@@ -63,43 +63,49 @@ function getProducts() {
           </p>
           <div className="text-center pt-4">
             <button
-              className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${activeButton === "shirt" ? "bg-black text-white" : ""
-                }`}
+              className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${
+                activeButton === "shirt" ? "bg-black text-white" : ""
+              }`}
               onClick={() => handleClick("shirt")}
             >
               Shirts
             </button>
             <button
-              className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${activeButton === "tshart" ? "bg-black text-white" : ""
-                }`}
+              className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${
+                activeButton === "tshart" ? "bg-black text-white" : ""
+              }`}
               onClick={() => handleClick("tshart")}
             >
               T-shirts
             </button>
             <button
-              className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${activeButton === "jecet" ? "bg-black text-white" : ""
-                }`}
+              className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${
+                activeButton === "jecet" ? "bg-black text-white" : ""
+              }`}
               onClick={() => handleClick("jecet")}
             >
               Jeans
             </button>
             <button
-              className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${activeButton === "paints" ? "bg-black text-white" : ""
-                }`}
+              className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${
+                activeButton === "paints" ? "bg-black text-white" : ""
+              }`}
               onClick={() => handleClick("paints")}
             >
               Pants
             </button>
             <button
-              className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${activeButton === "jinse" ? "bg-black text-white" : ""
-                }`}
+              className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${
+                activeButton === "jinse" ? "bg-black text-white" : ""
+              }`}
               onClick={() => handleClick("jinse")}
             >
               Jackets
             </button>
             <button
-              className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${activeButton === "hoodie" ? "bg-black text-white" : ""
-                }`}
+              className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${
+                activeButton === "hoodie" ? "bg-black text-white" : ""
+              }`}
               onClick={() => handleClick("hoodie")}
             >
               Hoodies
@@ -112,19 +118,22 @@ function getProducts() {
             {kidss.map((top) => {
               if (top.category === "tops") {
                 return (
-                  <div key={top.id} className="sm:w-1/2 md:w-1/2 lg:w-1/3 2xl:w-1/4 p-4 justify-center">
+                  <div
+                    key={top.id}
+                    className="sm:w-1/2 md:w-1/2 lg:w-1/3 2xl:w-1/4 p-4 justify-center"
+                  >
                     <KidsClothingCollection
                       key={top.id}
                       title={top.title}
-                      brand={top.brand}
-                      category={top.category}
-                      images={top.images}
-                      stock={top.stock}
                       thumbnail={top.thumbnail}
-                      discountPercentage={top.discountPercentage}
-                      rating={top.rating}
                       description={top.description}
                       price={top.price}
+                      // brand={top.brand}
+                      // category={top.category}
+                      // images={top.images}
+                      // stock={top.stock}
+                      // discountPercentage={top.discountPercentage}
+                      // rating={top.rating}
                     />
                   </div>
                 );
@@ -135,7 +144,9 @@ function getProducts() {
         </div>
 
         <div className="mt-12">
-          <h2 className="text-2xl ml-14 font-semibold mb-4">Recommended Products</h2>
+          <h2 className="text-2xl ml-14 font-semibold mb-4">
+            Recommended Products
+          </h2>
           <div className="flex flex-wrap justify-around">
             {/* Render recommended products here */}
             {kidss
@@ -155,41 +166,41 @@ function getProducts() {
         </div>
       </div>
       <div className="flex mb-5 flex-col items-center">
-      <div className="flex items-center">
-        <a
-          href="#"
-          className="mx-1 cursor-not-allowed text-sm font-semibold text-gray-900"
-        >
-          ← Previous
-        </a>
-        <a
-          href="#"
-          className="mx-1 flex items-center rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105"
-        >
-          1
-        </a>
-        <a
-          href="#"
-          className="mx-1 flex items-center rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105"
-        >
-          2
-        </a>
-        <a
-          href="#"
-          className="mx-1 flex items-center rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105"
-        >
-          3
-        </a>
-        <a
-          href="#"
-          className="mx-1 flex items-center rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105"
-        >
-          4
-        </a>
-        <a href="#" className="mx-2 text-sm font-semibold text-gray-900">
-          Next →
-        </a>
-      </div>
+        <div className="flex items-center">
+          <a
+            href="#"
+            className="mx-1 cursor-not-allowed text-sm font-semibold text-gray-900"
+          >
+            ← Previous
+          </a>
+          <a
+            href="#"
+            className="mx-1 flex items-center rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105"
+          >
+            1
+          </a>
+          <a
+            href="#"
+            className="mx-1 flex items-center rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105"
+          >
+            2
+          </a>
+          <a
+            href="#"
+            className="mx-1 flex items-center rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105"
+          >
+            3
+          </a>
+          <a
+            href="#"
+            className="mx-1 flex items-center rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105"
+          >
+            4
+          </a>
+          <a href="#" className="mx-2 text-sm font-semibold text-gray-900">
+            Next →
+          </a>
+        </div>
       </div>
     </>
   );

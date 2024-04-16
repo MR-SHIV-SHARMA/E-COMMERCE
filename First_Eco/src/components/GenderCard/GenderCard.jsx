@@ -46,7 +46,7 @@ function ThreeCardMWC() {
       username: "KIDS",
       btntext: "KidsClothingCollection",
       thumbnail:
-        "https://images.pexels.com/photos/2026960/pexels-photo-2026960.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/325521/pexels-photo-325521.jpeg?auto=compress&cs=tinysrgb&w=400",
     },
   ];
   return (

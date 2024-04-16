@@ -1,16 +1,14 @@
-import Header from './components/Header/Header'
-import Main from './components/Main/Main'
-import Footer from './components/Footer/Footer'
+import { Profile } from "./components/Profile/Profile";
+import UserContextProvider from "./context/UserContextProvider";
+import ApplicationUISignIn from "./components/ApplicationUISignIn/ApplicationUISignIn";
 
 function App() {
-
   return (
-    <>
-      <Header />
-      <Main />
-      <Footer />
-    </>
-  )
+    <UserContextProvider>
+      <ApplicationUISignIn />
+      <Profile />
+    </UserContextProvider>
+  );
 }
 
-export default App
+export default App;

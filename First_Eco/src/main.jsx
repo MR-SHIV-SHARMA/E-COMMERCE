@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
-import { createBrowserRouter } from "react-router-dom";
+
+import { RouterProvider, createBrowserRouter } from "react-router-dom"; // Import RouterProvider and createBrowserRouter
 import Layout from "./Layout.jsx";
 import Main from "./components/Main/Main";
 import Card from "./components/Card/Card";
@@ -16,19 +17,14 @@ import AboutPages from "./components2/AboutPages/AboutPages.jsx";
 import ContactPages from "./components2/ContactPages/ContactPages.jsx";
 import MarketingFeatures from "./components2/MarketingFeatures/MarketingFeatures.jsx";
 import ShoppingCart from "./components2/ShoppingCart/ShoppingCart.jsx";
-
 import OrderDetailsForm from "./components2/OrderDetailsForm/OrderDetailsForm.jsx";
 import WomanClothingCollection from "./components/WomanClothingCollection/WomanClothingCollection.jsx";
 import KidsClothingCollection from "./components/KidsClothingCollection/KidsClothingCollection.jsx";
 import ManClothingCollection from "./components/ManClothingCollection/ManClothingCollection.jsx";
 import ApplicationUISignIn from "./components/ApplicationUISignIn/ApplicationUISignIn.jsx";
-import CreateAccount from "./components/CreateAccount/CreateAccount.jsx";
-
-import {
-  Route,
-  RouterProvider,
-  createRoutesFromElements,
-} from "react-router-dom";
+import App2 from "./App2.jsx";
+// import Item from "./componentscart/Item.jsx";
+// import CreateAccount from "./components/CreateAccount/CreateAccount.jsx";
 
 const router = createBrowserRouter([
   {
@@ -87,16 +83,16 @@ const router = createBrowserRouter([
       },
       {
         path: "ApplicationUISignIn",
-        element: <ApplicationUISignIn />,
+        element: <App />,
       },
-      {
-        path: "CreateAccount",
-        element: <CreateAccount />,
-      },
-      {
-        path: "ShoppingCart",
-        element: <ShoppingCart />,
-      },
+      // {
+      //   path: "CreateAccount",
+      //   element: <CreateAccount />,
+      // },
+      // {
+      //   path: "ShoppingCart",
+      //   element: <Item />,
+      // },
       {
         path: "AboutPages",
         element: <AboutPages />,

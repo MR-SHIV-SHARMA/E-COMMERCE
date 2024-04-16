@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import user from "../ProductsApiData/ProductsApiData";
 
 function WomanClothingCollection({ thumbnail, title, price, description }) {
@@ -45,6 +45,12 @@ function RecommendedProduct({ title, thumbnail, price }) {
 }
 
 function WomanClothingCollectionPage() {
+  const [activeButton, setActiveButton] = useState(null);
+
+  // Function to handle button click
+  const handleClick = (category) => {
+    setActiveButton(category); // Update active button state
+  };
   const users = user;
 
   return (
@@ -59,23 +65,53 @@ function WomanClothingCollectionPage() {
             nostrum. Quidem veritatis debitis maxime
           </p>
           <div className="text-center pt-4">
-            <button className="px-6 py-2 border border-gray-900 rounded-full text-black mx-2 active:bg-black active:text-white">
-              shirt
+            <button
+              className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${
+                activeButton === "shirt" ? "bg-black text-white" : ""
+              }`}
+              onClick={() => handleClick("shirt")}
+            >
+              Shirts
             </button>
-            <button className="px-6 py-2 border border-gray-900 rounded-full text-black mx-2 active:bg-black active:text-white">
-              tshart
+            <button
+              className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${
+                activeButton === "tshart" ? "bg-black text-white" : ""
+              }`}
+              onClick={() => handleClick("tshart")}
+            >
+              T-shirts
             </button>
-            <button className="px-6 py-2 border border-gray-900 rounded-full text-black mx-2 active:bg-black active:text-white">
-              jecet
+            <button
+              className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${
+                activeButton === "jecet" ? "bg-black text-white" : ""
+              }`}
+              onClick={() => handleClick("jecet")}
+            >
+              Jeans
             </button>
-            <button className="px-6 py-2 border border-gray-900 rounded-full text-black mx-2 active:bg-black active:text-white">
-              paints
+            <button
+              className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${
+                activeButton === "paints" ? "bg-black text-white" : ""
+              }`}
+              onClick={() => handleClick("paints")}
+            >
+              Pants
             </button>
-            <button className="px-6 py-2 border border-gray-900 rounded-full text-black mx-2 active:bg-black active:text-white">
-              jinse
+            <button
+              className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${
+                activeButton === "jinse" ? "bg-black text-white" : ""
+              }`}
+              onClick={() => handleClick("jinse")}
+            >
+              Jackets
             </button>
-            <button className="px-6 py-2 border border-gray-900 rounded-full text-black mx-2 active:bg-black active:text-white">
-              hoodie
+            <button
+              className={`px-6 py-2 border border-gray-900 rounded-full text-black mx-2 ${
+                activeButton === "hoodie" ? "bg-black text-white" : ""
+              }`}
+              onClick={() => handleClick("hoodie")}
+            >
+              Hoodies
             </button>
           </div>
         </div>
@@ -126,41 +162,41 @@ function WomanClothingCollectionPage() {
         </div>
       </div>
       <div className="flex mb-5 flex-col items-center">
-      <div class="flex items-center">
-        <a
-          href="#"
-          class="mx-1 cursor-not-allowed text-sm font-semibold text-gray-900"
-        >
-          ← Previous
-        </a>
-        <a
-          href="#"
-          class="mx-1 flex items-center rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105"
-        >
-          1
-        </a>
-        <a
-          href="#"
-          class="mx-1 flex items-center rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105"
-        >
-          2
-        </a>
-        <a
-          href="#"
-          class="mx-1 flex items-center rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105"
-        >
-          3
-        </a>
-        <a
-          href="#"
-          class="mx-1 flex items-center rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105"
-        >
-          4
-        </a>
-        <a href="#" class="mx-2 text-sm font-semibold text-gray-900">
-          Next →
-        </a>
-      </div>
+        <div class="flex items-center">
+          <a
+            href="#"
+            class="mx-1 cursor-not-allowed text-sm font-semibold text-gray-900"
+          >
+            ← Previous
+          </a>
+          <a
+            href="#"
+            class="mx-1 flex items-center rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105"
+          >
+            1
+          </a>
+          <a
+            href="#"
+            class="mx-1 flex items-center rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105"
+          >
+            2
+          </a>
+          <a
+            href="#"
+            class="mx-1 flex items-center rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105"
+          >
+            3
+          </a>
+          <a
+            href="#"
+            class="mx-1 flex items-center rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105"
+          >
+            4
+          </a>
+          <a href="#" class="mx-2 text-sm font-semibold text-gray-900">
+            Next →
+          </a>
+        </div>
       </div>
     </>
   );

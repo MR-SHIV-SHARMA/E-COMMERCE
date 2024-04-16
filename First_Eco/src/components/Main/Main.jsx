@@ -6,14 +6,17 @@ export default function Main() {
     <div className="relative overflow-hidden min-h-screen w-full">
       <div className="min-h-screen">
         <img
-          src="https://images.pexels.com/photos/307008/pexels-photo-307008.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          src="https://images.pexels.com/photos/3775379/pexels-photo-3775379.jpeg?auto=compress&cs=tinysrgb&w=400"
           alt=""
           className="absolute inset-0 -z-10 min-h-screen w-full"
         />
       </div>
       {/* Additional content at the bottom */}
       <div className="absolute bottom-10 left-0 w-full">
-        <div id="content" className="mx-auto lg:mx-16 max-w-7xl px-6 lg:px-8 relative">
+        <div
+          id="content"
+          className="mx-auto lg:mx-16 max-w-7xl px-6 lg:px-8 relative"
+        >
           {/* Add your additional content here */}
           <div className="mb-20 text-center lg:text-left">
             <h3 className="text-4xl lg:text-6xl font-bold text-white">

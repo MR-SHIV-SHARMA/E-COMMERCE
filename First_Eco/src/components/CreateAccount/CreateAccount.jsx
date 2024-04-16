@@ -12,7 +12,7 @@ function CreateAccount() {
                 Sign up
               </h2>
               <p className="mt-2 text-base text-gray-600">
-                Already have an account?{" "}
+                Already have an account?
                 <Link
                   to="#"
                   title=""
@@ -28,13 +28,14 @@ function CreateAccount() {
                       for="name"
                       className="text-base font-medium text-gray-900"
                     >
-                      {" "}
-                      Full Name{" "}
+                      Full Name
                     </label>
                     <div className="mt-2">
                       <input
                         className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                         type="text"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
                         placeholder="Full Name"
                         id="name"
                       />
@@ -45,13 +46,14 @@ function CreateAccount() {
                       for="email"
                       className="text-base font-medium text-gray-900"
                     >
-                      {" "}
-                      Email address{" "}
+                      Email address
                     </label>
                     <div className="mt-2">
                       <input
                         className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                         type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         placeholder="Email"
                         id="email"
                       />
@@ -63,14 +65,15 @@ function CreateAccount() {
                         for="password"
                         className="text-base font-medium text-gray-900"
                       >
-                        {" "}
-                        Password{" "}
+                        Password
                       </label>
                     </div>
                     <div className="mt-2">
                       <input
                         className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                         type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         placeholder="Password"
                         id="password"
                       />
@@ -78,10 +81,11 @@ function CreateAccount() {
                   </div>
                   <div>
                     <button
+                      onClick={handleSubmit}
                       type="button"
                       className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
                     >
-                      Create Account{" "}
+                      Create Account
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
