@@ -23,8 +23,13 @@ import KidsClothingCollection from "./components/KidsClothingCollection/KidsClot
 import ManClothingCollection from "./components/ManClothingCollection/ManClothingCollection.jsx";
 import ApplicationUISignIn from "./components/ApplicationUISignIn/ApplicationUISignIn.jsx";
 import App2 from "./App2.jsx";
+import App3 from "./App3.jsx";
 // import Item from "./componentscart/Item.jsx";
 // import CreateAccount from "./components/CreateAccount/CreateAccount.jsx";
+import WomanStoarNav from "./components/Header/WomanStoreNev/WomanStoreNav.jsx";
+import ManStoreNav from "./components/Header/ManStoreNav/ManStoreNav.jsx";
+import KidStoreNav from "./components/Header/KidStoreNav/KidStoreNav.jsx";
+
 
 const router = createBrowserRouter([
   {
@@ -85,6 +90,18 @@ const router = createBrowserRouter([
         path: "ApplicationUISignIn",
         element: <App />,
       },
+      {
+        path: "WomanStoarNav",
+        element: <WomanStoarNav />,
+      },
+      {
+        path: "ManStoreNav",
+        element: <ManStoreNav />,
+      },
+      {
+        path: "KidStoreNav",
+        element: <KidStoreNav />,
+      },
       // {
       //   path: "CreateAccount",
       //   element: <CreateAccount />,
@@ -112,5 +129,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    <App3 />
   </React.StrictMode>
 );

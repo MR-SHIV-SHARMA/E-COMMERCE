@@ -32,11 +32,11 @@ function Header() {
   };
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  
   const toggleMobileMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
+  
   const MobileMenu = () => {
     return (
       <div>
@@ -44,16 +44,32 @@ function Header() {
       </div>
     );
   };
-
+  
   const RenderMobileMenu = MobileMenu;
-
+  
   const handleClick = () => {
     toggleMobileMenu(); // Call toggleMobileMenu directly
   };
+  
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const Open = () => {
+    return (
+      <div>
+        <button onClick={toggleMenu}>Toggle Menu</button>
+      </div>
+    );
+  }
+
+
 
   return (
     <div className="bg-gray-700 text-white relative z-40 w-full">
-      <div className="relative z-40 lg:hidden" role="dialog" aria-modal="true">
+      <div className="relative z-40" role="dialog" aria-modal="true">
         <div
           className={`fixed inset-0 bg-black bg-opacity-25 ${
             isMenuOpen ? "opacity-100" : "opacity-0"
@@ -651,7 +667,7 @@ function Header() {
                       <div className="relative flex">
                         {/* <!-- Item active: "border-indigo-600 text-indigo-600", Item inactive: "border-transparent text-gray-700 hover:text-gray-800" --> */}
                         <NavLink
-                          to=""
+                          to="WomanStoarNav"
                           className={({ isActive }) => `block ${
                             isActive ? "text-amber-800" : "text-gray-700"
                           } 
@@ -667,271 +683,14 @@ function Header() {
                           className="absolute inset-0 top-1/2 bg-white shadow"
                           aria-hidden="true"
                         ></div>
-
-                        <div className="relative bg-white">
-                          <div className="mx-auto max-w-7xl px-8">
-                            <div className="grid grid-cols-2 gap-x-8 gap-y-10 py-16">
-                              <div className="col-start-2 grid grid-cols-2 gap-x-8">
-                                <div className="group relative text-base sm:text-sm">
-                                  <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
-                                    <img
-                                      src="https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg"
-                                      alt="Models sitting back to back, wearing Basic Tee in black and bone."
-                                      className="object-cover object-center"
-                                    />
-                                  </div>
-                                  <Link
-                                    to="#"
-                                    className="mt-6 block font-medium text-gray-900"
-                                  >
-                                    <span
-                                      className="absolute inset-0 z-10"
-                                      aria-hidden="true"
-                                    ></span>
-                                    New Arrivals
-                                  </Link>
-                                  <p aria-hidden="true" className="mt-1">
-                                    Shop now
-                                  </p>
-                                </div>
-                                <div className="group relative text-base sm:text-sm">
-                                  <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
-                                    <img
-                                      src="https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg"
-                                      alt="Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees."
-                                      className="object-cover object-center"
-                                    />
-                                  </div>
-                                  <Link
-                                    to="#"
-                                    className="mt-6 block font-medium text-gray-900"
-                                  >
-                                    <span
-                                      className="absolute inset-0 z-10"
-                                      aria-hidden="true"
-                                    ></span>
-                                    Basic Tees
-                                  </Link>
-                                  <p aria-hidden="true" className="mt-1">
-                                    Shop now
-                                  </p>
-                                </div>
-                              </div>
-                              <div className="row-start-1 grid grid-cols-3 gap-x-8 gap-y-10 text-sm">
-                                <div>
-                                  <p
-                                    id="Clothing-heading"
-                                    className="font-medium text-gray-900"
-                                  >
-                                    Clothing
-                                  </p>
-                                  <ul
-                                    role="list"
-                                    aria-labelledby="Clothing-heading"
-                                    className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
-                                  >
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Tops
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Dresses
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Pants
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Denim
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Sweaters
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        T-Shirts
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Jackets
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Activewear
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Browse All
-                                      </Link>
-                                    </li>
-                                  </ul>
-                                </div>
-                                <div>
-                                  <p
-                                    id="Accessories-heading"
-                                    className="font-medium text-gray-900"
-                                  >
-                                    Accessories
-                                  </p>
-                                  <ul
-                                    role="list"
-                                    aria-labelledby="Accessories-heading"
-                                    className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
-                                  >
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Watches
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Wallets
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Bags
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Sunglasses
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Hats
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Belts
-                                      </Link>
-                                    </li>
-                                  </ul>
-                                </div>
-                                <div>
-                                  <p
-                                    id="Brands-heading"
-                                    className="font-medium text-gray-900"
-                                  >
-                                    Brands
-                                  </p>
-                                  <ul
-                                    role="list"
-                                    aria-labelledby="Brands-heading"
-                                    className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
-                                  >
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Full Nelson
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        My Way
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Re-Arranged
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Counterfeit
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Significant Other
-                                      </Link>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
                       </div>
                     </div>
-                    {/* Man content */}
+                    {/* Kide content */}
                     <div className="flex">
                       <div className="relative flex">
                         {/* <!-- Item active: "border-indigo-600 text-indigo-600", Item inactive: "border-transparent text-gray-700 hover:text-gray-800" --> */}
                         <NavLink
-                          to=""
+                          to="KidStoreNav"
                           className={({ isActive }) => `block ${
                             isActive ? "text-amber-800" : "text-gray-700"
                           } 
@@ -948,245 +707,15 @@ function Header() {
                           aria-hidden="true"
                         ></div>
 
-                        <div className="relative bg-white">
-                          <div className="mx-auto max-w-7xl px-8">
-                            <div className="grid grid-cols-2 gap-x-8 gap-y-10 py-16">
-                              <div className="col-start-2 grid grid-cols-2 gap-x-8">
-                                <div className="group relative text-base sm:text-sm">
-                                  <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
-                                    <img
-                                      src="https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg"
-                                      alt="Drawstring top with elastic loop closure and textured interior padding."
-                                      className="object-cover object-center"
-                                    />
-                                  </div>
-                                  <Link
-                                    to="#"
-                                    className="mt-6 block font-medium text-gray-900"
-                                  >
-                                    <span
-                                      className="absolute inset-0 z-10"
-                                      aria-hidden="true"
-                                    ></span>
-                                    New Arrivals
-                                  </Link>
-                                  <p aria-hidden="true" className="mt-1">
-                                    Shop now
-                                  </p>
-                                </div>
-                                <div className="group relative text-base sm:text-sm">
-                                  <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
-                                    <img
-                                      src="https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg"
-                                      alt="Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt."
-                                      className="object-cover object-center"
-                                    />
-                                  </div>
-                                  <Link
-                                    to="#"
-                                    className="mt-6 block font-medium text-gray-900"
-                                  >
-                                    <span
-                                      className="absolute inset-0 z-10"
-                                      aria-hidden="true"
-                                    ></span>
-                                    Artwork Tees
-                                  </Link>
-                                  <p aria-hidden="true" className="mt-1">
-                                    Shop now
-                                  </p>
-                                </div>
-                              </div>
-                              <div className="row-start-1 grid grid-cols-3 gap-x-8 gap-y-10 text-sm">
-                                <div>
-                                  <p
-                                    id="Clothing-heading"
-                                    className="font-medium text-gray-900"
-                                  >
-                                    Clothing
-                                  </p>
-                                  <ul
-                                    role="list"
-                                    aria-labelledby="Clothing-heading"
-                                    className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
-                                  >
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Tops
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Pants
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Sweaters
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        T-Shirts
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Jackets
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Activewear
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Browse All
-                                      </Link>
-                                    </li>
-                                  </ul>
-                                </div>
-                                <div>
-                                  <p
-                                    id="Accessories-heading"
-                                    className="font-medium text-gray-900"
-                                  >
-                                    Accessories
-                                  </p>
-                                  <ul
-                                    role="list"
-                                    aria-labelledby="Accessories-heading"
-                                    className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
-                                  >
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Watches
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Wallets
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Bags
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Sunglasses
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Hats
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Belts
-                                      </Link>
-                                    </li>
-                                  </ul>
-                                </div>
-                                <div>
-                                  <p
-                                    id="Brands-heading"
-                                    className="font-medium text-gray-900"
-                                  >
-                                    Brands
-                                  </p>
-                                  <ul
-                                    role="list"
-                                    aria-labelledby="Brands-heading"
-                                    className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
-                                  >
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Re-Arranged
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Counterfeit
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Full Nelson
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        My Way
-                                      </Link>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                        
                       </div>
                     </div>
+                    {/* Man content */}
                     <div className="flex">
                       <div className="relative flex">
                         {/* <!-- Item active: "border-indigo-600 text-indigo-600", Item inactive: "border-transparent text-gray-700 hover:text-gray-800" --> */}
                         <NavLink
-                          to=""
+                          to="ManStoreNav"
                           className={({ isActive }) => `block ${
                             isActive ? "text-amber-800" : "text-gray-700"
                           } 
@@ -1203,239 +732,7 @@ function Header() {
                           aria-hidden="true"
                         ></div>
 
-                        <div className="relative bg-white">
-                          <div className="mx-auto max-w-7xl px-8">
-                            <div className="grid grid-cols-2 gap-x-8 gap-y-10 py-16">
-                              <div className="col-start-2 grid grid-cols-2 gap-x-8">
-                                <div className="group relative text-base sm:text-sm">
-                                  <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
-                                    <img
-                                      src="https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg"
-                                      alt="Drawstring top with elastic loop closure and textured interior padding."
-                                      className="object-cover object-center"
-                                    />
-                                  </div>
-                                  <Link
-                                    to="#"
-                                    className="mt-6 block font-medium text-gray-900"
-                                  >
-                                    <span
-                                      className="absolute inset-0 z-10"
-                                      aria-hidden="true"
-                                    ></span>
-                                    New Arrivals
-                                  </Link>
-                                  <p aria-hidden="true" className="mt-1">
-                                    Shop now
-                                  </p>
-                                </div>
-                                <div className="group relative text-base sm:text-sm">
-                                  <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
-                                    <img
-                                      src="https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg"
-                                      alt="Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt."
-                                      className="object-cover object-center"
-                                    />
-                                  </div>
-                                  <Link
-                                    to="#"
-                                    className="mt-6 block font-medium text-gray-900"
-                                  >
-                                    <span
-                                      className="absolute inset-0 z-10"
-                                      aria-hidden="true"
-                                    ></span>
-                                    Artwork Tees
-                                  </Link>
-                                  <p aria-hidden="true" className="mt-1">
-                                    Shop now
-                                  </p>
-                                </div>
-                              </div>
-                              <div className="row-start-1 grid grid-cols-3 gap-x-8 gap-y-10 text-sm">
-                                <div>
-                                  <p
-                                    id="Clothing-heading"
-                                    className="font-medium text-gray-900"
-                                  >
-                                    Clothing
-                                  </p>
-                                  <ul
-                                    role="list"
-                                    aria-labelledby="Clothing-heading"
-                                    className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
-                                  >
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Tops
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Pants
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Sweaters
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        T-Shirts
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Jackets
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Activewear
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Browse All
-                                      </Link>
-                                    </li>
-                                  </ul>
-                                </div>
-                                <div>
-                                  <p
-                                    id="Accessories-heading"
-                                    className="font-medium text-gray-900"
-                                  >
-                                    Accessories
-                                  </p>
-                                  <ul
-                                    role="list"
-                                    aria-labelledby="Accessories-heading"
-                                    className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
-                                  >
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Watches
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Wallets
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Bags
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Sunglasses
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Hats
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Belts
-                                      </Link>
-                                    </li>
-                                  </ul>
-                                </div>
-                                <div>
-                                  <p
-                                    id="Brands-heading"
-                                    className="font-medium text-gray-900"
-                                  >
-                                    Brands
-                                  </p>
-                                  <ul
-                                    role="list"
-                                    aria-labelledby="Brands-heading"
-                                    className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
-                                  >
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Re-Arranged
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Counterfeit
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        Full Nelson
-                                      </Link>
-                                    </li>
-                                    <li className="flex">
-                                      <Link
-                                        to="#"
-                                        className="hover:text-gray-800"
-                                      >
-                                        My Way
-                                      </Link>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                                              </div>
                     </div>
 
                     <Link
