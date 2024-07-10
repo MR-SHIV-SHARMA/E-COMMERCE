@@ -34,7 +34,7 @@ function CreateAccount() {
                       <input
                         className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                         type="text"
-                        value={username}
+                        // value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         placeholder="Full Name"
                         id="name"
@@ -52,7 +52,7 @@ function CreateAccount() {
                       <input
                         className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                         type="email"
-                        value={email}
+                        // value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="Email"
                         id="email"
@@ -72,7 +72,7 @@ function CreateAccount() {
                       <input
                         className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                         type="password"
-                        value={password}
+                        // value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder="Password"
                         id="password"
@@ -81,7 +81,7 @@ function CreateAccount() {
                   </div>
                   <div>
                     <button
-                      onClick={handleSubmit}
+                      // onClick={handleSubmit}
                       type="button"
                       className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
                     >

@@ -22,14 +22,12 @@ import WomanClothingCollection from "./components/WomanClothingCollection/WomanC
 import KidsClothingCollection from "./components/KidsClothingCollection/KidsClothingCollection.jsx";
 import ManClothingCollection from "./components/ManClothingCollection/ManClothingCollection.jsx";
 import ApplicationUISignIn from "./components/ApplicationUISignIn/ApplicationUISignIn.jsx";
-import App2 from "./App2.jsx";
 import App3 from "./App3.jsx";
-// import Item from "./componentscart/Item.jsx";
-// import CreateAccount from "./components/CreateAccount/CreateAccount.jsx";
+import Item from "./componentscart/Item.jsx";
+import CreateAccount from "./components/CreateAccount/CreateAccount.jsx";
 import WomanStoarNav from "./components/Header/WomanStoreNev/WomanStoreNav.jsx";
 import ManStoreNav from "./components/Header/ManStoreNav/ManStoreNav.jsx";
 import KidStoreNav from "./components/Header/KidStoreNav/KidStoreNav.jsx";
-
 
 const router = createBrowserRouter([
   {
@@ -102,14 +100,14 @@ const router = createBrowserRouter([
         path: "KidStoreNav",
         element: <KidStoreNav />,
       },
-      // {
-      //   path: "CreateAccount",
-      //   element: <CreateAccount />,
-      // },
-      // {
-      //   path: "ShoppingCart",
-      //   element: <Item />,
-      // },
+      {
+        path: "CreateAccount",
+        element: <CreateAccount />,
+      },
+      {
+        path: "ShoppingCart",
+        element: <Item />,
+      },
       {
         path: "AboutPages",
         element: <AboutPages />,

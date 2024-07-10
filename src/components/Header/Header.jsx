@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import CurrencyDropdown from "./CurrencyDropdown/CurrencyDropdown";
 
 function Header() {
   const [showInput, setShowInput] = useState(false);
@@ -796,6 +797,7 @@ function Header() {
                       <span className="sr-only">, change currency</span>
                     </Link>
                   </div>
+                  {/* <CurrencyDropdown /> */}
 
                   {/* <!-- Search --> */}
                   <div className="flex lg:ml-6" ref={inputRef}>
