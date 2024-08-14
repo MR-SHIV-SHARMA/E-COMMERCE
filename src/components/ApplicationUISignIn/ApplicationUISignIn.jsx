@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import UserContext from "../../context/UserContext";
 import { Profile } from "../../components/Profile/Profile"; // Import the Profile component
 import { Link } from "react-router-dom";
@@ -35,7 +35,7 @@ function ApplicationUISignIn() {
             <form action="#" method="POST" className="mt-8">
               <div className="space-y-5">
                 <div>
-                  <label for="" className="text-base font-medium text-gray-900">
+                  <label htmlFor="" className="text-base font-medium text-gray-900">
                     Email address
                   </label>
                   <div className="mt-2">
@@ -48,7 +48,7 @@ function ApplicationUISignIn() {
                   </div>
                 </div>
                 <div>
-                  <label for="" className="text-base font-medium text-gray-900">
+                  <label htmlFor="" className="text-base font-medium text-gray-900">
                     Username
                   </label>
                   <div className="mt-2">
@@ -72,7 +72,7 @@ function ApplicationUISignIn() {
                       Forgot password?
                     </Link>
                   </div>
-                  <label for="" className="text-base font-medium text-gray-900">
+                  <label htmlFor="" className="text-base font-medium text-gray-900">
                     Password
                   </label>
                   <div className="mt-2">
@@ -87,7 +87,7 @@ function ApplicationUISignIn() {
                   </div>
                 </div>
                 <div>
-                  <label for="" className="text-base font-medium text-gray-900">
+                  <label htmlFor="" className="text-base font-medium text-gray-900">
                     <Profile />
                   </label>
                 </div>
@@ -106,9 +106,9 @@ function ApplicationUISignIn() {
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       className="ml-2"
                     >
                       <line x1="5" y1="12" x2="19" y2="12"></line>

@@ -27,10 +27,10 @@ export default function Main() {
             </p>
           </div>
           {/* Start Tour button */}
-          <div className="lg:mt-12 lg:absolute lg:bottom-6 lg:right-0 w-full lg:w-auto">
+          <div className="lg:mt-12 lg:absolute lg:bottom-6 lg:right-0 w-full lg:w-auto flex items-end justify-end">
             <NavLink
               to="/Main"
-              className="text-lg lg:text-2xl font-bold leading-9 tracking-tight bg-white rounded-full text-black px-4 lg:px-6 py-2 lg:py-3 duration-200 inline-block"
+              className="text-lg lg:text-2xl font-bold leading-9 tracking-tight bg-white rounded-full text-black px-4 lg:px-6 py-0 lg:py-3 duration-200 inline-block"
             >
               Buy Now
             </NavLink>

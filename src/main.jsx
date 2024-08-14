@@ -23,6 +23,7 @@ import KidsClothingCollection from "./components/KidsClothingCollection/KidsClot
 import ManClothingCollection from "./components/ManClothingCollection/ManClothingCollection.jsx";
 import ApplicationUISignIn from "./components/ApplicationUISignIn/ApplicationUISignIn.jsx";
 import App3 from "./App3.jsx";
+// eslint-disable-next-line no-unused-vars
 import Item from "./componentscart/Item.jsx";
 import CreateAccount from "./components/CreateAccount/CreateAccount.jsx";
 import WomanStoarNav from "./components/Header/WomanStoreNev/WomanStoreNav.jsx";
@@ -106,7 +107,7 @@ const router = createBrowserRouter([
       },
       {
         path: "ShoppingCart",
-        element: <Item />,
+        element: <ShoppingCart />,
       },
       {
         path: "AboutPages",
@@ -119,6 +120,10 @@ const router = createBrowserRouter([
       {
         path: "MarketingFeatures",
         element: <MarketingFeatures />,
+      },
+      {
+        path: "ApplicationUISignIn",
+        element: <ApplicationUISignIn />,
       },
     ],
   },

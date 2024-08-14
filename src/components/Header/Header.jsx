@@ -69,7 +69,7 @@ function Header() {
 
 
   return (
-    <div className="bg-gray-700 text-white relative z-40 w-full">
+    <div className="bg-gray-700 text-white fixed z-40 w-full">
       <div className="relative z-40" role="dialog" aria-modal="true">
         <div
           className={`fixed inset-0 bg-black bg-opacity-25 ${
