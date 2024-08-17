@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
-
 import { RouterProvider, createBrowserRouter } from "react-router-dom"; // Import RouterProvider and createBrowserRouter
 import Layout from "./Layout.jsx";
 import Main from "./components/Main/Main";
@@ -22,8 +21,7 @@ import WomanClothingCollection from "./components/WomanClothingCollection/WomanC
 import KidsClothingCollection from "./components/KidsClothingCollection/KidsClothingCollection.jsx";
 import ManClothingCollection from "./components/ManClothingCollection/ManClothingCollection.jsx";
 import ApplicationUISignIn from "./components/ApplicationUISignIn/ApplicationUISignIn.jsx";
-import App3 from "./App3.jsx";
-// eslint-disable-next-line no-unused-vars
+import EmployeesUI from "./components/EmployeesUI/EmployeesUI.jsx";
 import Item from "./componentscart/Item.jsx";
 import CreateAccount from "./components/CreateAccount/CreateAccount.jsx";
 import WomanStoarNav from "./components/Header/WomanStoreNev/WomanStoreNav.jsx";
@@ -106,6 +104,10 @@ const router = createBrowserRouter([
         element: <CreateAccount />,
       },
       {
+        path: "EmployeesUI",
+        element: <EmployeesUI />,
+      },
+      {
         path: "ShoppingCart",
         element: <ShoppingCart />,
       },
@@ -132,6 +134,5 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
-    <App3 />
   </React.StrictMode>
 );

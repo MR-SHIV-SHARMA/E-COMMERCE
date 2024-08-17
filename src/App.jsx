@@ -1,13 +1,12 @@
 import { Profile } from "./components/Profile/Profile";
-import UserContextProvider from "./context/UserContextProvider";
-import ApplicationUISignIn from "./components/ApplicationUISignIn/ApplicationUISignIn";
 
 function App() {
   return (
-    <UserContextProvider>
-      <ApplicationUISignIn />
-      <Profile />
-    </UserContextProvider>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/contact" element={<Contact />} />
+    </Routes>
   );
 }
 

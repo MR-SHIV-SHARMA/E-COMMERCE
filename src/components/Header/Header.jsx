@@ -3,8 +3,6 @@ import { useState, useEffect, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import CurrencyDropdown from "./CurrencyDropdown/CurrencyDropdown";
-
 function Header() {
   const [showInput, setShowInput] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -33,11 +31,11 @@ function Header() {
   };
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
+
   const toggleMobileMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  
+
   const MobileMenu = () => {
     return (
       <div>
@@ -45,13 +43,13 @@ function Header() {
       </div>
     );
   };
-  
+
   const RenderMobileMenu = MobileMenu;
-  
+
   const handleClick = () => {
     toggleMobileMenu(); // Call toggleMobileMenu directly
   };
-  
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -64,9 +62,7 @@ function Header() {
         <button onClick={toggleMenu}>Toggle Menu</button>
       </div>
     );
-  }
-
-
+  };
 
   return (
     <div className="bg-gray-700 text-white fixed z-40 w-full">
@@ -707,8 +703,6 @@ function Header() {
                           className="absolute inset-0 top-1/2 bg-white shadow"
                           aria-hidden="true"
                         ></div>
-
-                        
                       </div>
                     </div>
                     {/* Man content */}
@@ -732,8 +726,7 @@ function Header() {
                           className="absolute inset-0 top-1/2 bg-white shadow"
                           aria-hidden="true"
                         ></div>
-
-                                              </div>
+                      </div>
                     </div>
 
                     <Link
