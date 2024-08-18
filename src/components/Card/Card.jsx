@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+
 
 function Card({ title, price, images }) {
   const [currentImage, setCurrentImage] = useState(0);
@@ -11,7 +13,7 @@ function Card({ title, price, images }) {
         <div
           style={{
             height: "400px",
-            width: "100%",
+            width: "100%", 
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -34,8 +36,8 @@ function Card({ title, price, images }) {
             <h1 className="text-sm font-semibold text-black">{title}</h1>
             <p className="mb- text-sm text-gray-600">${price}</p>
           </div>
-          <FontAwesomeIcon
-            icon={faShoppingCart}
+          <AiOutlineShoppingCart
+          
             className="text-2xl text-gray-700"
           />
         </div>
