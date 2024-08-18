@@ -1,12 +1,13 @@
-// import React from "react";
+import React from "react";
 
 function Wedding() {
   return (
     <>
       <div className="relative overflow-hidden min-h-96 w-full">
         <img
-          // src="https://images.pexels.com/photos/307008/pexels-photo-307008.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          src="https://images.pexels.com/photos/2060241/pexels-photo-2060241.jpeg?auto=compress&cs=tinysrgb&w=400"
+          // src="../../../images/pexels-tima-miroshnichenko-6170470.jpg"
+          src="../../../images/pexels-amine-photographe-291182746-27650381.jpg"
+          // src="https://images.pexels.com/photos/27650381/pexels-photo-27650381/free-photo-of-a-man-and-woman-are-holding-hands-and-wearing-wedding-rings.jpeg?auto=compress&cs=tinysrgb&w=600"
           alt=""
           className="absolute inset-0 -z-10 min-h-screen w-full"
         />

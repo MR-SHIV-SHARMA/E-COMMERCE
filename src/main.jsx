@@ -41,7 +41,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Card />,
       },
-      {
+      { 
         path: "/",
         element: <Wedding />,
       },
@@ -85,7 +85,7 @@ const router = createBrowserRouter([
       },
       {
         path: "ApplicationUISignIn",
-        element: <App />,
+        element: <ApplicationUISignIn />,
       },
       {
         path: "WomanStoarNav",
@@ -122,10 +122,6 @@ const router = createBrowserRouter([
       {
         path: "MarketingFeatures",
         element: <MarketingFeatures />,
-      },
-      {
-        path: "ApplicationUISignIn",
-        element: <ApplicationUISignIn />,
       },
     ],
   },

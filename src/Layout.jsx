@@ -1,11 +1,10 @@
-// import React from "react";
+import React from "react";
 import Header from "./components/Header/Header";
 import { Outlet } from "react-router-dom";
-// import Main from "./components/Main/Main";
 import Card from "./components/Card/Card";
 import Wedding from "./components/Wedding/Wedding";
 import GenderCard from "./components/GenderCard/GenderCard";
-import AboutPages from './components2/AboutPages/AboutPages'
+import AboutPages from "./components2/AboutPages/AboutPages";
 import Footer from "./components/Footer/Footer";
 // import ProductDetailPagePage from './components/ProductDetailPage/ProductDetailPage'
 // import OrderDetailsForm from './components2/OrderDetailsForm/OrderDetailsForm';
@@ -20,7 +19,6 @@ function Layout() {
     <>
       <Header />
       <Outlet />
-      {/* <Main /> */}
       <Card />
       <Wedding />
       <GenderCard />

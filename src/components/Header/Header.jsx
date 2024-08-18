@@ -65,17 +65,17 @@ function Header() {
   };
 
   return (
-    <div className="bg-gray-700 text-white fixed z-40 w-full">
+    <div className="bg-gray-700 text-white sticky z-50 top-0 w-full">
       <div className="relative z-40" role="dialog" aria-modal="true">
         <div
-          className={`fixed inset-0 bg-black bg-opacity-25 ${
+          className={`fixed  bg-black bg-opacity-25 ${
             isMenuOpen ? "opacity-100" : "opacity-0"
           }`}
         ></div>
         <div className=""></div>
         {/* <div className="fixed inset-0 z-40 flex"> */}
         <div
-          className={`fixed inset-0 z-40 flex ${
+          className={`fixed  z-40 flex ${
             isMenuOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
