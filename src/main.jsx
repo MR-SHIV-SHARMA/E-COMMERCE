@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom"; // Import RouterProvider and createBrowserRouter
 import Layout from "./Layout.jsx";
@@ -22,11 +21,11 @@ import KidsClothingCollection from "./components/KidsClothingCollection/KidsClot
 import ManClothingCollection from "./components/ManClothingCollection/ManClothingCollection.jsx";
 import ApplicationUISignIn from "./components/ApplicationUISignIn/ApplicationUISignIn.jsx";
 import EmployeesUI from "./components/EmployeesUI/EmployeesUI.jsx";
-import Item from "./componentscart/Item.jsx";
 import CreateAccount from "./components/CreateAccount/CreateAccount.jsx";
 import WomanStoarNav from "./components/Header/WomanStoreNev/WomanStoreNav.jsx";
 import ManStoreNav from "./components/Header/ManStoreNav/ManStoreNav.jsx";
 import KidStoreNav from "./components/Header/KidStoreNav/KidStoreNav.jsx";
+import CheckOutPage from "./components/CheckOutPage/CheckOutPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -41,7 +40,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Card />,
       },
-      { 
+      {
         path: "/",
         element: <Wedding />,
       },
@@ -49,10 +48,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <GenderCard />,
       },
-      {
-        path: "/",
-        element: <ProductDetailPagePage />,
-      },
+
       {
         path: "/",
         element: <OrderDetailsForm />,
@@ -60,10 +56,6 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <ProductOverviews />,
-      },
-      {
-        path: "/",
-        element: <ParentComponent />,
       },
     ],
   },
@@ -86,6 +78,26 @@ const router = createBrowserRouter([
       {
         path: "ApplicationUISignIn",
         element: <ApplicationUISignIn />,
+      },
+      {
+        path: "/ProductDetailPagePage",
+        element: <ProductDetailPagePage />,
+      },
+      {
+        path: "/OrderDetailsForm",
+        element: <OrderDetailsForm />,
+      },
+      {
+        path: "/ProductOverviews",
+        element: <ProductOverviews />,
+      },
+      {
+        path: "/CheckOutPage",
+        element: <CheckOutPage />,
+      },
+      {
+        path: "/ParentComponent",
+        element: <ParentComponent />,
       },
       {
         path: "WomanStoarNav",

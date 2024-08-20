@@ -5,8 +5,8 @@ function KidStoreNav() {
   return (
     <div className="relative bg-white">
       <div className="mx-auto max-w-7xl px-8">
-        <div className="grid grid-cols-2 gap-x-8 gap-y-10 py-16">
-          <div className="col-start-2 grid grid-cols-2 gap-x-8">
+        <div className="sm:grid grid-cols-2 gap-x-8 gap-y-10 py-8">
+          <div className="col-start-2 pb-2 grid grid-cols-2 gap-x-8">
             <div className="group relative text-base sm:text-sm">
               <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
                 <img
@@ -15,7 +15,10 @@ function KidStoreNav() {
                   className="object-cover object-center"
                 />
               </div>
-              <Link to="#" className="mt-6 block font-medium text-gray-900">
+              <Link
+                to="/KidsClothingCollection"
+                className="mt-6 block font-medium text-gray-900"
+              >
                 <span
                   className="absolute inset-0 z-10"
                   aria-hidden="true"
@@ -58,37 +61,37 @@ function KidStoreNav() {
               >
                 <li className="flex">
                   <Link to="#" className="hover:text-gray-800">
-                  T-shirts
+                    T-shirts
                   </Link>
                 </li>
                 <li className="flex">
                   <Link to="#" className="hover:text-gray-800">
-                  Jeans
+                    Jeans
                   </Link>
                 </li>
                 <li className="flex">
                   <Link to="#" className="hover:text-gray-800">
-                  Dresses
+                    Dresses
                   </Link>
                 </li>
                 <li className="flex">
                   <Link to="#" className="hover:text-gray-800">
-                  Hoodies
+                    Hoodies
                   </Link>
                 </li>
                 <li className="flex">
                   <Link to="#" className="hover:text-gray-800">
-                  Leggings
+                    Leggings
                   </Link>
                 </li>
                 <li className="flex">
                   <Link to="#" className="hover:text-gray-800">
-                  Jackets
+                    Jackets
                   </Link>
                 </li>
                 <li className="flex">
                   <Link to="#" className="hover:text-gray-800">
-                  Shorts
+                    Shorts
                   </Link>
                 </li>
               </ul>
@@ -145,27 +148,27 @@ function KidStoreNav() {
               >
                 <li className="flex">
                   <Link to="#" className="hover:text-gray-800">
-                  Nike Kids
+                    Nike Kids
                   </Link>
                 </li>
                 <li className="flex">
                   <Link to="#" className="hover:text-gray-800">
-                  Levi's Kids
+                    Levi's Kids
                   </Link>
                 </li>
                 <li className="flex">
                   <Link to="#" className="hover:text-gray-800">
-                  Gucci Kids
+                    Gucci Kids
                   </Link>
                 </li>
                 <li className="flex">
                   <Link to="#" className="hover:text-gray-800">
-                  Abercrombie Kids
+                    Abercrombie Kids
                   </Link>
                 </li>
                 <li className="flex">
                   <Link to="#" className="hover:text-gray-800">
-                  Mini Rodini
+                    Mini Rodini
                   </Link>
                 </li>
               </ul>

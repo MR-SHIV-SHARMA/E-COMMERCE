@@ -319,7 +319,7 @@ function ShoppingCart() {
               <div className="border-t border-gray-200 px-4 sm:px-6">
                 <div className="mt-6">
                   <a
-                    href="#"
+                    href="/CheckOutPage"
                     className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                   >
                     Checkout
@@ -332,7 +332,7 @@ function ShoppingCart() {
                       type="button"
                       className="font-medium pl-2 pb-4 text-indigo-600 hover:text-indigo-500"
                     >
-                      Continue Shopping
+                      <a href="/OrderDetailsForm">Continue Shopping</a>
                       <span aria-hidden="true"> &rarr;</span>
                     </button>
                   </p>

@@ -1,19 +1,4 @@
-import { useState, useContext } from "react";
-import UserContext from "../../context/UserContext";
-import { Profile } from "../../components/Profile/Profile"; // Import the Profile component
-import { Link } from "react-router-dom";
-
 function ApplicationUISignIn() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
-  // const { setUser } = useContext(UserContext);
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setUser({ username, password });
-  // };
-
   return (
     <section>
       <div class="grid grid-cols-1 lg:grid-cols-2">
@@ -25,7 +10,7 @@ function ApplicationUISignIn() {
             <p class="mt-2 text-sm text-gray-600">
               Don&#x27;t have an account?{" "}
               <a
-                href="#"
+                href="CreateAccount"
                 title=""
                 class="font-semibold text-black transition-all duration-200 hover:underline"
               >

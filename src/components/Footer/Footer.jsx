@@ -6,15 +6,19 @@ function Footer() {
     <footer className="bg-white dark:bg-gray-900">
       <div className="sm:flex">
         <div className="max-w-md mx-auto overflow-hidden">
-          <div className="px-6 py-8">
-            <h2 className="text-8xl font-extrabold text-center text-gray-300">
-              SHIV
+          <div className="px-6 py-3">
+            <h2 className="text-8xl font-extrabold flex justify-center items-center text-gray-300">
+              <img
+                src="./shivs-high-resolution-logo-black-removebg.png"
+                alt=""
+                className="h-24"
+              />
             </h2>
-            <p className="text-white text-xl">
+            <p className="text-black text-base">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
               iure harum quae omnis excepturi voluptatum?
             </p>
-            <form className="mt-8 space-y-6">
+            <form className="mt-3 space-y-6">
               <div className="flex f">
                 <input
                   type="email"
@@ -35,7 +39,7 @@ function Footer() {
           </div>
         </div>
         <div className="mx-auto w-full max-w-screen-xl">
-          <div className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
+          <div className="grid grid-cols-2 gap-8 px-4 py-3 md:grid-cols-4">
             <div>
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                 Company
@@ -147,8 +151,8 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="px-4 py-6 bg-gray-100 dark:bg-gray-700 md:flex md:items-center md:justify-between">
-        <span className="text-sm text-gray-500 dark:text-gray-300 sm:text-center">
+      <div className="px-4 py-4 bg-gray-200 dark:bg-gray-700 md:flex md:items-center md:justify-between">
+        <span className="text-sm text-gray-500 dark:text-gray-300 sm:text-center justify-center">
           © 2023 <Link to="https://flowbite.com/">Flowbite™</Link>. All Rights
           Reserved.
         </span>

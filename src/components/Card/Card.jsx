@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-
 
 function Card({ title, price, images }) {
   const [currentImage, setCurrentImage] = useState(0);
@@ -10,36 +7,35 @@ function Card({ title, price, images }) {
   return (
     <div className="container flex flex-col items-center">
       <div className="relative w-[300px] h-[450px] rounded-md mb-4 md:mb-8 overflow-hidden">
-        <div
-          style={{
-            height: "400px",
-            width: "100%", 
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            borderStartStartRadius: "0.5rem",
-            overflow: "hidden",
-          }}
-        >
-          <img
-            src={images[currentImage]}
-            alt={title}
+        <a href="/ProductOverviews">
+          <div
             style={{
-              height: "100%",
+              height: "400px",
               width: "100%",
-              objectFit: "cover",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              borderStartStartRadius: "0.5rem",
+              overflow: "hidden",
             }}
-          />
-        </div>
+          >
+            <img
+              src={images[currentImage]}
+              alt={title}
+              style={{
+                height: "100%",
+                width: "100%",
+                objectFit: "cover",
+              }}
+            />
+          </div>
+        </a>
         <div className="w-full h-[50px] bg-slate-200 flex justify-between p-2 rounded-b-md">
           <div className="flex flex-col justify-start">
             <h1 className="text-sm font-semibold text-black">{title}</h1>
             <p className="mb- text-sm text-gray-600">${price}</p>
           </div>
-          <AiOutlineShoppingCart
-          
-            className="text-2xl text-gray-700"
-          />
+          <AiOutlineShoppingCart className="text-2xl text-gray-700" />
         </div>
       </div>
     </div>

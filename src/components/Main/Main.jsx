@@ -15,48 +15,51 @@ export default function Main() {
           showThumbs={false}
           className="absolute inset-0 -z-10 min-h-screen w-full"
         >
-          <div>
+          {/* Image for small devices */}
+          <div className="relative h-[554px] sm:h-auto">
             <img
               srcSet="
                 ../../../images/pexels-kampus-7857557.jpg 800w,
-                ../../../images/pexels-kampus-7857557-large.jpg 1200w
+                ../../../images/pexels-kampus-7857557.jpg 1200w
               "
               sizes="(max-width: 768px) 100vw, 50vw"
               src="../../../images/pexels-kampus-7857557.jpg"
-              alt="Fashionable clothing display"
-              className="object-cover w-full h-full"
+              alt="Handsome man in black shirt with wristwatch"
+              className="object-cover w-full h-full sm:h-auto"
             />
           </div>
-          <div>
+          {/* Image for medium to large devices */}
+          <div className="relative h-[554px] sm:h-auto">
             <img
               srcSet="
                 ../../../images/pexels-tima-miroshnichenko-6169673.jpg 800w,
-                ../../../images/pexels-tima-miroshnichenko-6169673-large.jpg 1200w
+                ../../../images/pexels-tima-miroshnichenko-6169673.jpg 1200w
               "
               sizes="(max-width: 768px) 100vw, 50vw"
               src="../../../images/pexels-tima-miroshnichenko-6169673.jpg"
-              alt="Trendy outfits"
-              className="object-cover w-full h-full"
+              alt="Fashionable clothing display"
+              className="object-cover w-full h-full sm:h-auto"
             />
           </div>
-          <div>
+          {/* Image for medium to large devices */}
+          <div className="relative h-[554px] sm:h-auto">
             <img
               srcSet="
-                ../../../images/pexels-tima-miroshnichenko-6169033.jpg 800w,
-                ../../../images/pexels-tima-miroshnichenko-6169033-large.jpg 1200w
+                ../../../images/pexels-thirdman-8485721.jpg 800w,
+                ../../../images/pexels-thirdman-8485721.jpg 1200w
               "
               sizes="(max-width: 768px) 100vw, 50vw"
-              src="../../../images/pexels-tima-miroshnichenko-6169033.jpg"
-              alt="Elegant fashion"
-              className="object-cover w-full h-full"
+              src="../../../images/pexels-thirdman-8485721.jpg"
+              alt="Trendy outfits"
+              className="object-cover w-full h-full sm:h-auto"
             />
           </div>
         </Carousel>
 
         {/* Overlay Content */}
-        <div className="absolute inset-0 flex flex-col justify-center items-center text-center lg:text-left lg:items-start lg:justify-end px-4 sm:px-6 md:px-8 lg:px-16 bg-gradient-to-t from-black via-transparent to-black">
-          <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start lg:mb-0 gap-4 sm:gap-6 md:gap-8 lg:gap-72">
-            <div className="mb-24">
+        <div className="absolute inset-0 flex flex-col justify-end text-center lg:text-left lg:items-start px-4 sm:px-6 md:px-8 lg:px-16 bg-gradient-to-t from-black via-transparent to-black">
+          <div className="flex flex-col mb-20 sm:flex-row justify-between w-full lg:items-start ">
+            <div className="">
               <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-lg">
                 Discover Your Style
               </h3>
@@ -66,8 +69,8 @@ export default function Main() {
               </p>
             </div>
             <NavLink
-              to="/Main"
-              className="my-4 text-sm sm:text-base md:text-lg lg:text-xl font-bold leading-6 sm:leading-7 md:leading-8 lg:leading-9 tracking-tight bg-white rounded-full text-black px-4 sm:px-5 md:px-6 lg:px-8 py-1 duration-200 inline-block shadow-lg hover:bg-gray-200"
+              to="/ProductDetailPagePage"
+              className="my-4 text-sm sm:text-base lg:text- font-bold leading-6 sm:leading-9 md:leading-9 lg:leading-9 tracking-tight bg-white rounded-full text-black px-4 sm:px-5 md:px-6 lg:px-8 py-1 duration-200 inline-block shadow-lg hover:bg-gray-200"
             >
               Buy Now
             </NavLink>
@@ -75,19 +78,28 @@ export default function Main() {
         </div>
       </div>
 
+      <div className="h-20 w-full bg-white flex items-center justify-center">
+        <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-black drop-shadow-lg text-center">
+          Unleash Your Style with Our Exclusive Collection
+        </h1>
+      </div>
+
       {/* New Section */}
-      <div className="relative bg-white text-black py-10 sm:py-12 md:py-16 lg:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 lg:px-8 text-center lg:text-left">
-          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black">
+      <div className="relative bg-white text-black py-10 sm:py-12 md:py-16 lg:py-20 bg-cover bg-center bg-[url('/images/pexels-shvetsa-6593778.jpg')]">
+        {/* Optional: Dark overlay for better text contrast */}
+        <div className="absolute inset-0 bg-black opacity-25"></div>
+
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8 lg:px-8 text-center lg:text-left">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white">
             Explore Our Collections
           </h3>
-          <p className="mt-2 text-sm sm:text-base md:text-lg lg:text-xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 text-black">
+          <p className="mt-2 text-sm sm:text-base md:text-lg lg:text-xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 text-white">
             Find the perfect outfit for any occasion with our diverse range of
             styles.
           </p>
           <div className="mt-6 flex justify-center lg:justify-start">
             <NavLink
-              to="/collections"
+              to="/ProductDetailPagePage"
               className="text-sm sm:text-base md:text-lg lg:text-xl font-bold leading-6 sm:leading-7 md:leading-8 lg:leading-9 tracking-tight bg-white rounded-full text-black px-4 sm:px-5 md:px-6 lg:px-8 py-2 duration-200 inline-block shadow-lg hover:bg-gray-200"
             >
               View Collections
@@ -95,7 +107,8 @@ export default function Main() {
           </div>
         </div>
       </div>
-        <hr className="text-orange-500 font-bold text-3xl border-2" />
+
+      <hr className="text-orange-500 font-bold text-3xl border-2" />
     </div>
   );
 }

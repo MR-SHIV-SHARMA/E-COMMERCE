@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import user from "../ProductsApiData/ProductsApiData";
 
 function ProductDetailPage({
-  thumbnail,
+  images,
   title,
   price,
   description,
@@ -26,7 +26,7 @@ function ProductDetailPage({
         <div className="w-full lg:w-1/2 lg:pr-8">
           {/* Product Image */}
           <img
-            src={thumbnail}
+            src={images}
             alt={title}
             className="w-full rounded-lg shadow-lg"
           />
@@ -111,11 +111,11 @@ function ProductDetailPage({
   );
 }
 
-function RecommendedProduct({ title, thumbnail, price }) {
+function RecommendedProduct({ title, images, price }) {
   return (
     <div className="flex flex-col items-center mb-6 lg:mb-0 lg:w-1/4 px-2">
       <img
-        src={thumbnail}
+        src={images}
         alt={title}
         className="w-full h-48 rounded-lg shadow-lg mb-4"
       />
@@ -126,60 +126,95 @@ function RecommendedProduct({ title, thumbnail, price }) {
 }
 
 function ProductDetailPagePage() {
+  const [activeButton, setActiveButton] = useState(null);
+  const handleClick = (category) => {
+    setActiveButton(category); // Update active button state
+  };
+
   const users = user;
 
   return (
     <div>
-      {/* <div className="flex mt-5 flex-col items-center">
-        <h1 className="text-5xl font-extrabold text-center">
-           CLOTHING COLLECTION
+      <div className="flex mt-2 sm:mt-4 flex-col items-center">
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-center">
+          CLOTHING COLLECTION
         </h1>
-        <p className="text-xl p-4 font-medium text-center">
+        <p className="text-base pt-1 font-medium text-center">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
           nostrum. Quidem veritatis debitis maxime
         </p>
-        <div className="text-center pt-4">
-          <button className="px-6 py-2 border border-gray-900 rounded-full text-black mx-2 active:bg-black active:text-white">
-            shirt
+        <div className="text-center pt-2">
+          <button
+            className={`px-3 py-1 border border-gray-900 rounded-full text-black mx-1 mb-2 ${
+              activeButton === "shirt" ? "bg-black text-white" : ""
+            }`}
+            onClick={() => handleClick("shirt")}
+          >
+            Shirts
           </button>
-          <button className="px-6 py-2 border border-gray-900 rounded-full text-black mx-2 active:bg-black active:text-white">
-            tshart
+          <button
+            className={`px-3 py-1 border border-gray-900 rounded-full text-black mx-1 mb-2 ${
+              activeButton === "tshart" ? "bg-black text-white" : ""
+            }`}
+            onClick={() => handleClick("tshart")}
+          >
+            T-shirts
           </button>
-          <button className="px-6 py-2 border border-gray-900 rounded-full text-black mx-2 active:bg-black active:text-white">
-            jecet
+          <button
+            className={`px-3 py-1 border border-gray-900 rounded-full text-black mx-1 mb-2 ${
+              activeButton === "jecet" ? "bg-black text-white" : ""
+            }`}
+            onClick={() => handleClick("jecet")}
+          >
+            Jeans
           </button>
-          <button className="px-6 py-2 border border-gray-900 rounded-full text-black mx-2 active:bg-black active:text-white">
-            paints
+          <button
+            className={`px-3 py-1 border border-gray-900 rounded-full text-black mx-1 mb-2 ${
+              activeButton === "paints" ? "bg-black text-white" : ""
+            }`}
+            onClick={() => handleClick("paints")}
+          >
+            Pants
           </button>
-          <button className="px-6 py-2 border border-gray-900 rounded-full text-black mx-2 active:bg-black active:text-white">
-            jinse
+          <button
+            className={`px-3 py-1 border border-gray-900 rounded-full text-black mx-1 mb-2 ${
+              activeButton === "jinse" ? "bg-black text-white" : ""
+            }`}
+            onClick={() => handleClick("jinse")}
+          >
+            Jackets
           </button>
-          <button className="px-6 py-2 border border-gray-900 rounded-full text-black mx-2 active:bg-black active:text-white">
-            hoodie
+          <button
+            className={`px-3 py-1 border border-gray-900 rounded-full text-black mx-1 mb-2 ${
+              activeButton === "hoodie" ? "bg-black text-white" : ""
+            }`}
+            onClick={() => handleClick("hoodie")}
+          >
+            Hoodies
           </button>
         </div>
-      </div> */}
+      </div>
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-wrap justify-around">
-          {users.map((top) => {
-            if (top.category === "tops") {
+          {users.map((hoodie) => {
+            if (hoodie.category === "hoodie") {
               return (
                 <ProductDetailPage
-                  key={top.id}
-                  title={top.title}
-                  brand={top.brand}
-                  category={top.category}
-                  images={top.images}
-                  stock={top.stock}
-                  thumbnail={top.thumbnail}
-                  discountPercentage={top.discountPercentage}
-                  rating={top.rating}
-                  description={top.description}
-                  price={top.price}
+                  key={hoodie.id}
+                  title={hoodie.title}
+                  brand={hoodie.brand}
+                  category={hoodie.category}
+                  images={hoodie.images}
+                  stock={hoodie.stock}
+                  // images={hoodie.images}
+                  discountPercentage={hoodie.discountPercentage}
+                  rating={hoodie.rating}
+                  description={hoodie.description}
+                  price={hoodie.price}
                 />
               );
             }
-            return null; // Skip rendering if not a tops category
+            return null; // Skip rendering if not a hoodies category
           })}
         </div>
       </div>
@@ -190,16 +225,16 @@ function ProductDetailPagePage() {
         <div className="flex flex-wrap justify-around">
           {/* Render recommended products here */}
           {users
-            .filter((top) => top.category === "tops") // Filter tops category
+            .filter((hoodie) => hoodie.category === "hoodie") // Filter hoodies category
             .slice(0, 3) // Limit to three elements
-            .map((top) => (
+            .map((hoodie) => (
               <RecommendedProduct
-                key={top.id}
-                title={top.title}
-                images={top.images}
-                stock={top.stock}
-                thumbnail={top.thumbnail}
-                price={top.price}
+                key={hoodie.id}
+                title={hoodie.title}
+                images={hoodie.images}
+                stock={hoodie.stock}
+                // images={hoodie.images}
+                price={hoodie.price}
               />
             ))}
         </div>

@@ -5,14 +5,9 @@ import Card from "./components/Card/Card";
 import Wedding from "./components/Wedding/Wedding";
 import GenderCard from "./components/GenderCard/GenderCard";
 import AboutPages from "./components2/AboutPages/AboutPages";
+import MarketingFeatures from "./components2/MarketingFeatures/MarketingFeatures";
 import Footer from "./components/Footer/Footer";
-// import ProductDetailPagePage from './components/ProductDetailPage/ProductDetailPage'
-// import OrderDetailsForm from './components2/OrderDetailsForm/OrderDetailsForm';
-// import ShoppingCart from './components2/ShoppingCart/ShoppingCart'
-// import ContactPages from './components2/ContactPages/ContactPages'
-// import MarketingFeatures from './components2/MarketingFeatures/MarketingFeatures'
-// import ProductOverviews from "./components2/ProductOverviews/ProductOverviews";
-// import ParentComponent from './components2/ParentComponent/ParentComponent'
+import ParentComponent from "./components2/ParentComponent/ParentComponent";
 
 function Layout() {
   return (
@@ -23,14 +18,9 @@ function Layout() {
       <Wedding />
       <GenderCard />
       <AboutPages />
+      <MarketingFeatures />
       <Footer />
-      {/* <ProductDetailPagePage />
-      <OrderDetailsForm />
-      <ShoppingCart />
-      <ProductOverviews />
       <ParentComponent />
-      <ContactPages />
-      <MarketingFeatures /> */}
     </>
   );
 }

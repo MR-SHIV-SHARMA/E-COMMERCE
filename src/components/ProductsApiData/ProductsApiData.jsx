@@ -25,7 +25,7 @@ const user = [
     rating: 4.69,
     stock: 94,
     brand: "Apple",
-    category: "smartphones",
+    category: "hoodie",
     thumbnail:
       "https://images.pexels.com/photos/27663337/pexels-photo-27663337/free-photo-of-a-woman-in-a-pink-dress-walking-on-the-beach.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
     images: [
@@ -46,7 +46,7 @@ const user = [
     rating: 4.44,
     stock: 34,
     brand: "Apple",
-    category: "smartphones",
+    category: "hoodie",
     thumbnail: "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
     images: [
       "https://images.pexels.com/photos/3679044/pexels-photo-3679044.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -65,7 +65,7 @@ const user = [
     rating: 4.09,
     stock: 36,
     brand: "Samsung",
-    category: "smartphones",
+    category: "hoodie",
     thumbnail: "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
     images: [
       "https://images.pexels.com/photos/1485031/pexels-photo-1485031.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -80,7 +80,7 @@ const user = [
     rating: 4.3,
     stock: 123,
     brand: "OPPO",
-    category: "smartphones",
+    category: "hoodie",
     thumbnail: "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg",
     images: [
       "https://images.pexels.com/photos/2816480/pexels-photo-2816480.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
@@ -100,7 +100,7 @@ const user = [
     rating: 4.09,
     stock: 32,
     brand: "Huawei",
-    category: "smartphones",
+    category: "hoodie",
     thumbnail: "https://cdn.dummyjson.com/product-images/5/thumbnail.jpg",
     images: [
       "https://images.pexels.com/photos/2916814/pexels-photo-2916814.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -118,7 +118,7 @@ const user = [
     rating: 4.57,
     stock: 83,
     brand: "Apple",
-    category: "laptops",
+    category: "hoodie",
     thumbnail: "https://cdn.dummyjson.com/product-images/6/thumbnail.png",
     images: [
       "https://images.pexels.com/photos/1187954/pexels-photo-1187954.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -137,7 +137,7 @@ const user = [
     rating: 4.25,
     stock: 50,
     brand: "Samsung",
-    category: "laptops",
+    category: "hoodie",
     thumbnail: "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg",
     images: [
       "https://images.pexels.com/photos/2778144/pexels-photo-2778144.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -156,7 +156,7 @@ const user = [
     rating: 4.43,
     stock: 68,
     brand: "Microsoft Surface",
-    category: "laptops",
+    category: "hoodie",
     thumbnail: "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg",
     images: [
       "https://images.pexels.com/photos/2777930/pexels-photo-2777930.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",

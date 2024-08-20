@@ -1,5 +1,3 @@
-import { Profile } from "./components/Profile/Profile";
-
 function App() {
   return (
     <Routes>
@@ -7,5 +5,5 @@ function App() {
     </Routes>
   );
 }
-  
+
 export default App;
