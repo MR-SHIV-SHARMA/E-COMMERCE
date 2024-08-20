@@ -108,8 +108,6 @@ export default function Main() {
           </div>
         </div>
       </div>
-
-      <hr className="text-orange-500 font-bold text-3xl border-2" />
     </>
   );
 }
