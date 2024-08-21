@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function ShoppingCart() {
   return (
@@ -318,12 +319,12 @@ function ShoppingCart() {
               </div>
               <div className="border-t border-gray-200 px-4 sm:px-6">
                 <div className="mt-6">
-                  <a
-                    href="CheckOutPage"
+                  <Link
+                    to="CheckOutPage"
                     className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                   >
                     Checkout
-                  </a>
+                  </Link>
                 </div>
                 <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                   <p>
@@ -332,7 +333,7 @@ function ShoppingCart() {
                       type="button"
                       className="font-medium pl-2 pb-4 text-indigo-600 hover:text-indigo-500"
                     >
-                      <a href="OrderDetailsForm">Continue Shopping</a>
+                      <Link to="OrderDetailsForm">Continue Shopping</Link>
                       <span aria-hidden="true"> &rarr;</span>
                     </button>
                   </p>

@@ -84,7 +84,7 @@ const router = createBrowserRouter([
         element: <ProductDetailPagePage />,
       },
       {
-        path: "/OrderDetailsForm",
+        path: "/ShoppingCart/OrderDetailsForm",
         element: <OrderDetailsForm />,
       },
       {
@@ -92,7 +92,7 @@ const router = createBrowserRouter([
         element: <ProductOverviews />,
       },
       {
-        path: "/CheckOutPage",
+        path: "/ShoppingCart/CheckOutPage",
         element: <CheckOutPage />,
       },
       {
