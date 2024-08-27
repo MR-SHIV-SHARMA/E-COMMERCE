@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import user from "../ProductsApiData/ProductsApiData";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 function ManClothingCollection({ images, title, price }) {
   return (
     <div className="container flex flex-col items-center">
       <div className="w-[300px] sm:w-[230px] sm:h-[350px] rounded-t-md overflow-hidden image-container">
-        <a href="/ProductOverviews">
+        <Link to="/ProductOverviews">
           <div className="flex items-center justify-center h-[350px] w-full rounded-t-md overflow-hidden">
             <img
               src={images}
@@ -14,7 +15,7 @@ function ManClothingCollection({ images, title, price }) {
               className="w-full h-full object-cover zoom-image"
             />
           </div>
-        </a>
+        </Link>
       </div>
       <div className="w-[300px] sm:w-[230px] h-[60px] bg-white flex justify-between p-2 rounded-b-md mb-4">
         <h1 className="text-sm font-semibold text-black">{title}</h1>

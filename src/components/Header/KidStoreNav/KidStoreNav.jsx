@@ -52,7 +52,7 @@ function KidStoreNav() {
           <div className="row-start-1 grid grid-cols-3 gap-x-8 gap-y-10 text-sm">
             <div>
               <p id="Clothing-heading" className="font-medium text-gray-900">
-                Clothing
+                <Link to="/KidsClothingCollection">Clothing</Link>
               </p>
               <ul
                 role="list"
