@@ -1,3 +1,28 @@
+/* src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.image-container {
+  position: relative; /* Ensures that the pseudo-element positioning works */
+  overflow: hidden; /* Prevents overflow of the scaled image */
+}
+
+.image-container .zoom-image {
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.image-container:hover .zoom-image {
+  transform: scale(1.1);
+  filter: brightness(1.1); /* Slightly brighten the image on hover */
+}
+
+.image-container:active .zoom-image {
+  transform: scale(1.15);
+  filter: brightness(1.2); /* Increase brightness further when clicked */
+}
+
+/* Optional: Adding a subtle shadow effect */
+.image-container:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

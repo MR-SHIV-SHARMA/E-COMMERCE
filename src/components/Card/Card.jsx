@@ -6,11 +6,11 @@ function Card({ title, price, images }) {
 
   return (
     <div className="container flex flex-col items-center">
-      <div className="relative w-[300px] h-[450px] rounded-md mb-4 md:mb-8 overflow-hidden">
+      <div className="relative w-[200px] h-[350px] rounded-md mb-4 md:mb-8 overflow-hidden image-container">
         <a href="/ProductOverviews">
           <div
             style={{
-              height: "400px",
+              height: "300px",
               width: "100%",
               display: "flex",
               alignItems: "center",
@@ -27,15 +27,16 @@ function Card({ title, price, images }) {
                 width: "100%",
                 objectFit: "cover",
               }}
+              className="zoom-image"
             />
           </div>
         </a>
-        <div className="w-full h-[50px] bg-slate-200 flex justify-between p-2 rounded-b-md">
+        <div className="w-full h-[70px] bg-slate-200 flex justify-between p-2 rounded-b-md">
+          <h1 className="text-sm font-semibold text-black">{title}</h1>
           <div className="flex flex-col justify-start">
-            <h1 className="text-sm font-semibold text-black">{title}</h1>
-            <p className="mb- text-sm text-gray-600">${price}</p>
+            <AiOutlineShoppingCart className="text-2xl text-gray-700" />
+            <p className="mb- text-sm text-gray-600 pb-4">${price}</p>
           </div>
-          <AiOutlineShoppingCart className="text-2xl text-gray-700" />
         </div>
       </div>
     </div>
@@ -56,10 +57,10 @@ function NewCollection() {
         </p>
       </div>
       <div className="flex flex-wrap justify-around my-6">
-        {users.slice(0, 8).map((user) => (
+        {users.slice(0, 18).map((user) => (
           <div
             key={user.id}
-            className="sm:w-11/12 md:w-1/2 lg:w-1/3 xl:w-1/4 2xl:w-1/5"
+            className="sm:w-11/12 md:w-1/3 lg:w-1/4 xl:w-1/6 2xl:w-1/8"
           >
             <Card
               id={user.id}

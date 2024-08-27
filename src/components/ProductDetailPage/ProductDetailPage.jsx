@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import user from "../ProductsApiData/ProductsApiData";
 
+// Component for displaying detailed information of a single product
 function ProductDetailPage({
   images,
   title,
@@ -12,71 +13,69 @@ function ProductDetailPage({
   discountPercentage,
   rating,
 }) {
+  // Placeholder function for adding the product to cart
   const handleAddToCart = () => {
-    // Add to cart logic
+    // Add to cart logic here
   };
 
+  // Placeholder function for buying the product now
   const handleBuyNow = () => {
-    // Buy now logic
+    // Buy now logic here
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="flex flex-col lg:flex-row">
-        <div className="w-full lg:w-1/2 lg:pr-8">
-          {/* Product Image */}
+    <div className="container mx-auto px-4">
+      <div className="flex flex-col lg:flex-row lg:gap-8">
+        <div className="w-full lg:w-1/3  image-container">
           <img
             src={images}
             alt={title}
-            className="w-full rounded-lg shadow-lg"
+            className="w-full h-[550px] object-cover rounded-lg shadow-lg zoom-image"
           />
         </div>
-        <div className="w-full lg:w-1/2 lg:pl-8 pt-6 lg:pt-0">
-          {/* Product Title */}
-          <div className="flex gap-3 text-xl font-semibold items-center">
-            <p>Category: </p>
-            <p
-              className="border border-black border-l px-5 py-1 text-center rounded-full text-black font-medium"
+        <div className="w-full lg:w-1/2 flex flex-col">
+          <div className="flex items-center py-2">
+            <span className="text-gray-600 text-lg font-medium pr-2">
+              Category:
+            </span>
+            <span
+              className="border border-gray-300 px-4 py-1 text-center rounded-full text-gray-800 font-semibold"
               style={{ width: "fit-content" }}
             >
               {category}
-            </p>
+            </span>
           </div>
-          <h2 className="text-3xl font-semibold mb-4">{title}</h2>
-          {/* Product Rating */}
-          <div className="text-black font-semibold text-2xl mb-1">
-            Brand {brand}
+          <h2 className="text-3xl font-bold text-gray-900 mb-4 sm:mb-2">
+            {title}
+          </h2>
+          <div className="text-gray-800 font-semibold text-lg mb-2">
+            Brand: {brand}
           </div>
-          <div className="text-black font-semibold text-2xl mb-1">
-            {rating} Reviews
+          <div className="text-gray-800 font-semibold text-lg mb-4 sm:mb-2">
+            Rating: {rating} Reviews
           </div>
-          {/* Product Description */}
-          <p className="text-2xl font-medium">Description</p>
-          <p className="text-lg text-gray-600 font-semibold mb-4">
-            {description}
+          <div className="text-gray-800 font-semibold text-lg mb-4 sm:mb-2">
+            Description: {description}
+          </div>
+          <p className="text-2xl font-bold text-gray-900 mb-4 sm:mb-0">
+            ${price}
           </p>
-          {/* Product Price */}
-          <p className="text-xl font-semibold mb-4">${price}</p>
-          {/* Options */}
-          <div className="flex flex-col lg:flex-row lg:items-center mb-4">
-            <label htmlFor="color" className="font-semibold lg:w-1/3 lg:mr-4">
+          <div className="flex flex-col lg:flex-row lg:items-center gap-4 mb-6 sm:mb-0">
+            <label htmlFor="color" className="text-lg font-medium lg:w-1/3">
               Color:
             </label>
             <select
               id="color"
-              className="border rounded-lg px-3 py-2 focus:outline-none"
+              className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none"
             >
               <option value="gray">Gray</option>
               <option value="brown">Brown</option>
               <option value="black">Black</option>
             </select>
           </div>
-          <p className="text-2xl font-medium">stock: {stock}%</p>
-          <div className="flex flex-col lg:flex-row lg:items-center mb-4">
-            <label
-              htmlFor="quantity"
-              className="font-semibold lg:w-1/3 lg:mr-4"
-            >
+          <p className="text-lg font-medium mb-4 sm:mb-0">Stock: {stock}%</p>
+          <div className="flex flex-col lg:flex-row lg:items-center gap-4 mb-6 sm:mb-0">
+            <label htmlFor="quantity" className="text-lg font-medium lg:w-1/3">
               Quantity:
             </label>
             <input
@@ -84,23 +83,22 @@ function ProductDetailPage({
               id="quantity"
               min="1"
               defaultValue="1"
-              className="border rounded-lg px-3 py-2 lg:w-1/4 focus:outline-none"
+              className="border border-gray-300 rounded-lg px-4 py-2 lg:w-1/4 focus:outline-none"
             />
           </div>
-          <p className="text-2xl font-medium">
-            discount: {discountPercentage}%
+          <p className="text-lg font-medium mb-4">
+            Discount: {discountPercentage}%
           </p>
-          {/* Add to Cart and Buy Now buttons */}
-          <div className="flex justify-center">
+          <div className="flex flex-col lg:flex-row gap-4">
             <button
               onClick={handleAddToCart}
-              className="bg-blue-500 text-white px-3 py-2 rounded-lg mr-3 mt-2 hover:bg-blue-600 focus:outline-none"
+              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition"
             >
               Add to Cart
             </button>
             <button
               onClick={handleBuyNow}
-              className="bg-green-500 text-white px-3 py-3 rounded-lg mt-2 hover:bg-green-600 focus:outline-none"
+              className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition"
             >
               Buy Now
             </button>
@@ -111,132 +109,287 @@ function ProductDetailPage({
   );
 }
 
+// Component for displaying a recommended product
 function RecommendedProduct({ title, images, price }) {
   return (
-    <div className="flex flex-col items-center mb-6 lg:mb-0 lg:w-1/4 px-2">
+    <div className="flex flex-col items-center mb-8 lg:mb-0 lg:w-1/4 px-2">
       <img
         src={images}
         alt={title}
-        className="w-full h-48 rounded-lg shadow-lg mb-4"
+        className="w-full h-48 object-cover rounded-lg shadow-lg mb-4"
       />
-      <h3 className="text-lg font-semibold mb-2">{title}</h3>
-      <p className="text-gray-600 p-4">Price: ${price}</p>
+      <h3 className="text-xl font-semibold mb-2">{title}</h3>
+      <p className="text-gray-600 font-medium">Price: ${price}</p>
     </div>
   );
 }
 
 function ProductDetailPagePage() {
-  const [activeButton, setActiveButton] = useState(null);
-  const handleClick = (category) => {
-    setActiveButton(category); // Update active button state
+  // State for selected filters
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedBrand, setSelectedBrand] = useState("all");
+  const [selectedRange, setSelectedRange] = useState("all"); // Price range filter
+  const [selectedDiscount, setSelectedDiscount] = useState("all"); // Discount range filter
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  // State for filtered products
+  const [filteredProducts, setFilteredProducts] = useState(user);
+
+  // State for recommended products
+  const [recommendedProducts, setRecommendedProducts] = useState([]);
+
+  // Effect hook for updating filtered and recommended products when filters change
+  useEffect(() => {
+    let filtered = user;
+
+    // Filter by category
+    if (selectedCategory !== "all") {
+      filtered = filtered.filter((item) => item.category === selectedCategory);
+    }
+
+    // Filter by brand
+    if (selectedBrand !== "all") {
+      filtered = filtered.filter((item) => item.brand === selectedBrand);
+    }
+
+    // Filter by price range
+    if (selectedRange !== "all") {
+      filtered = filtered.filter((item) => {
+        const price = item.price;
+        let minPrice = 0;
+        let maxPrice = Infinity;
+
+        switch (selectedRange) {
+          case "0":
+            minPrice = 0;
+            maxPrice = 500;
+            break;
+          case "500":
+            minPrice = 500;
+            maxPrice = 1000;
+            break;
+          case "1000":
+            minPrice = 1000;
+            maxPrice = 1500;
+            break;
+          case "1500":
+            minPrice = 1500;
+            maxPrice = 2000;
+            break;
+          case "2000":
+            minPrice = 2000;
+            maxPrice = 2500;
+            break;
+          case "2500":
+            minPrice = 2500;
+            maxPrice = 3000;
+            break;
+          case "3000":
+            minPrice = 3000;
+            maxPrice = Infinity;
+            break;
+          default:
+            return true;
+        }
+
+        return price >= minPrice && price < maxPrice;
+      });
+    }
+
+    // Filter by discount range
+    if (selectedDiscount !== "all") {
+      filtered = filtered.filter((item) => {
+        const discount = item.discountPercentage || 0;
+        switch (selectedDiscount) {
+          case "10":
+            return discount >= 10;
+          case "25":
+            return discount >= 25;
+          case "35":
+            return discount >= 35;
+          case "50":
+            return discount >= 50;
+          case "60":
+            return discount >= 60;
+          case "70":
+            return discount >= 70;
+          default:
+            return true;
+        }
+      });
+    }
+
+    const shuffledFiltered = shuffleArray(filtered);
+    setFilteredProducts(shuffledFiltered);
+    setRecommendedProducts(shuffledFiltered.slice(0, 3));
+  }, [selectedCategory, selectedBrand, selectedRange, selectedDiscount]);
+
+  // Helper function to shuffle an array
+  const shuffleArray = (array) => {
+    return array
+      .map((item) => ({ item, sort: Math.random() }))
+      .sort((a, b) => a.sort - b.sort)
+      .map(({ item }) => item);
   };
 
-  const users = user;
+  // Handle dropdown changes
+  const handleCategoryChange = (event) => {
+    setSelectedCategory(event.target.value);
+  };
+
+  const handleBrandChange = (event) => {
+    setSelectedBrand(event.target.value);
+  };
+
+  const handleRangeChange = (event) => {
+    setSelectedRange(event.target.value);
+  };
+
+  const handleDiscountChange = (event) => {
+    setSelectedDiscount(event.target.value);
+  };
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen((prev) => !prev);
+  };
 
   return (
     <div>
-      <div className="flex mt-2 sm:mt-4 flex-col items-center">
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-center">
-          CLOTHING COLLECTION
+      <div className="flex flex-col items-center pb-4">
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-center pt-2 sm:mt-4">
+          Clothing Collection
         </h1>
-        <p className="text-base pt-1 font-medium text-center">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-          nostrum. Quidem veritatis debitis maxime
+        <p className="text-base pt-1 font-medium text-center px-4 sm:px-8">
+          Explore our curated collection of clothing. Discover the latest trends
+          and styles.
         </p>
-        <div className="text-center pt-2">
-          <button
-            className={`px-3 py-1 border border-gray-900 rounded-full text-black mx-1 mb-2 ${
-              activeButton === "shirt" ? "bg-black text-white" : ""
-            }`}
-            onClick={() => handleClick("shirt")}
-          >
-            Shirts
-          </button>
-          <button
-            className={`px-3 py-1 border border-gray-900 rounded-full text-black mx-1 mb-2 ${
-              activeButton === "tshart" ? "bg-black text-white" : ""
-            }`}
-            onClick={() => handleClick("tshart")}
-          >
-            T-shirts
-          </button>
-          <button
-            className={`px-3 py-1 border border-gray-900 rounded-full text-black mx-1 mb-2 ${
-              activeButton === "jecet" ? "bg-black text-white" : ""
-            }`}
-            onClick={() => handleClick("jecet")}
-          >
-            Jeans
-          </button>
-          <button
-            className={`px-3 py-1 border border-gray-900 rounded-full text-black mx-1 mb-2 ${
-              activeButton === "paints" ? "bg-black text-white" : ""
-            }`}
-            onClick={() => handleClick("paints")}
-          >
-            Pants
-          </button>
-          <button
-            className={`px-3 py-1 border border-gray-900 rounded-full text-black mx-1 mb-2 ${
-              activeButton === "jinse" ? "bg-black text-white" : ""
-            }`}
-            onClick={() => handleClick("jinse")}
-          >
-            Jackets
-          </button>
-          <button
-            className={`px-3 py-1 border border-gray-900 rounded-full text-black mx-1 mb-2 ${
-              activeButton === "hoodie" ? "bg-black text-white" : ""
-            }`}
-            onClick={() => handleClick("hoodie")}
-          >
-            Hoodies
-          </button>
+
+        <div className="flex flex-row justify-between items-center w-full px-4 sm:px-8 mt-4">
+          <div className="text-left flex-grow mb-4 sm:mb-0">
+            <h1 className="text-xl">New Stock Collection</h1>
+          </div>
+          <div className="text-right">
+            <button
+              className="text-black border border-black px-4 py-2 rounded"
+              onClick={toggleDropdown}
+            >
+              Add Filters
+            </button>
+          </div>
+        </div>
+
+        {isDropdownOpen && (
+          <div className="w-full px-4 sm:px-8 mt-2 mb-8">
+            <div className="py-2 border bg-white rounded">
+              <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
+                <div className="flex flex-col w-full sm:w-auto">
+                  <select
+                    id="category"
+                    value={selectedCategory}
+                    onChange={handleCategoryChange}
+                    className="px-3 py-2 bg-white text-black"
+                  >
+                    <option value="all">All Category</option>
+                    <option value="shirt">Shirts</option>
+                    <option value="tshirt">T-shirts</option>
+                    <option value="jeans">Jeans</option>
+                    <option value="pants">Pants</option>
+                    <option value="jackets">Jackets</option>
+                    <option value="hoodie">Hoodies</option>
+                  </select>
+                </div>
+
+                <div className="flex flex-col w-full sm:w-auto">
+                  <select
+                    id="brand"
+                    value={selectedBrand}
+                    onChange={handleBrandChange}
+                    className="px-3 py-2 bg-white text-black"
+                  >
+                    <option value="all">All Brand</option>
+                    <option value="puma">Puma</option>
+                    <option value="Adidas">Adidas</option>
+                    <option value="Louis Vuitton">Louis Vuitton</option>
+                    <option value="Burberry">Burberry</option>
+                    <option value="Nike">Nike</option>
+                    <option value="Zara">Zara</option>
+                  </select>
+                </div>
+
+                <div className="flex flex-col w-full sm:w-auto">
+                  <select
+                    id="range"
+                    value={selectedRange}
+                    onChange={handleRangeChange}
+                    className="px-3 py-2 bg-white text-black"
+                  >
+                    <option value="all">All Range</option>
+                    <option value="0">$0 to $500</option>
+                    <option value="500">$500 to $1000</option>
+                    <option value="1000">$1000 to $1500</option>
+                    <option value="1500">$1500 to $2000</option>
+                    <option value="2000">$2000 to $2500</option>
+                    <option value="2500">$2500 to $3000</option>
+                    <option value="3000">$3000 to $Infinity</option>
+                  </select>
+                </div>
+
+                <div className="flex flex-col w-full sm:w-auto">
+                  <select
+                    id="discount"
+                    value={selectedDiscount}
+                    onChange={handleDiscountChange}
+                    className="px-3 py-2 bg-white text-black"
+                  >
+                    <option value="all">All Discount</option>
+                    <option value="10">10% Off or More</option>
+                    <option value="25">25% Off or More</option>
+                    <option value="35">35% Off or More</option>
+                    <option value="50">50% Off or More</option>
+                    <option value="60">60% Off or More</option>
+                    <option value="70">70% Off or More</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+
+      <div className="container mx-auto px-4">
+        <div className="flex flex-wrap justify-center gap-6">
+          {/* Display filtered products */}
+          {filteredProducts.map((item) => (
+            <ProductDetailPage
+              key={item.id}
+              title={item.title}
+              brand={item.brand}
+              category={item.category}
+              images={item.images}
+              stock={item.stock}
+              discountPercentage={item.discountPercentage}
+              rating={item.rating}
+              description={item.description}
+              price={item.price} // Ensure that `price` is in the correct currency
+            />
+          ))}
         </div>
       </div>
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex flex-wrap justify-around">
-          {users.map((hoodie) => {
-            if (hoodie.category === "hoodie") {
-              return (
-                <ProductDetailPage
-                  key={hoodie.id}
-                  title={hoodie.title}
-                  brand={hoodie.brand}
-                  category={hoodie.category}
-                  images={hoodie.images}
-                  stock={hoodie.stock}
-                  // images={hoodie.images}
-                  discountPercentage={hoodie.discountPercentage}
-                  rating={hoodie.rating}
-                  description={hoodie.description}
-                  price={hoodie.price}
-                />
-              );
-            }
-            return null; // Skip rendering if not a hoodies category
-          })}
-        </div>
-      </div>
-      <div className="mt-12">
-        <h2 className="text-2xl ml-14 font-semibold mb-4">
+
+      <div className="mt-4">
+        <h2 className="text-3xl font-semibold text-gray-900 mb-6 ml-4">
           Recommended Products
         </h2>
-        <div className="flex flex-wrap justify-around">
-          {/* Render recommended products here */}
-          {users
-            .filter((hoodie) => hoodie.category === "hoodie") // Filter hoodies category
-            .slice(0, 3) // Limit to three elements
-            .map((hoodie) => (
-              <RecommendedProduct
-                key={hoodie.id}
-                title={hoodie.title}
-                images={hoodie.images}
-                stock={hoodie.stock}
-                // images={hoodie.images}
-                price={hoodie.price}
-              />
-            ))}
+        <div className="flex flex-wrap justify-center gap-6">
+          {/* Display recommended products */}
+          {recommendedProducts.map((item) => (
+            <RecommendedProduct
+              key={item.id}
+              title={item.title}
+              images={item.images}
+              price={item.price} // Ensure that `price` is in the correct currency
+            />
+          ))}
         </div>
       </div>
     </div>
