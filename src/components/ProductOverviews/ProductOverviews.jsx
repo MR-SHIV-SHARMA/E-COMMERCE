@@ -1,6 +1,16 @@
 import React from "react";
+import { useParams } from "react-router-dom";
+import user from "../ProductsApiData/ProductsApiData";
 
 function ProductOverviews() {
+  const { id } = useParams();
+
+  const product = user.find((item) => item.id === parseInt(id, 10));
+
+  if (!product) {
+    return <h1>Product not found</h1>;
+  }
+
   return (
     <>
       <div className="bg-white">
@@ -57,7 +67,7 @@ function ProductOverviews() {
                   aria-current="page"
                   className="font-medium text-gray-500 hover:text-gray-600"
                 >
-                  Basic Tee 6-Pack
+                  {product.title}
                 </a>
               </li>
             </ol>
@@ -67,7 +77,7 @@ function ProductOverviews() {
           <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
             <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
               <img
-                src="https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg"
+                src={product.images}
                 alt="Two each of gray, white, and black shirts laying flat."
                 className="h-full w-full object-cover object-center"
               />
@@ -75,14 +85,14 @@ function ProductOverviews() {
             <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
               <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
                 <img
-                  src="https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg"
+                  src={product.images}
                   alt="Model wearing plain black basic tee."
                   className="h-full w-full object-cover object-center"
                 />
               </div>
               <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
                 <img
-                  src="https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg"
+                  src={product.images}
                   alt="Model wearing plain gray basic tee."
                   className="h-full w-full object-cover object-center"
                 />
@@ -90,7 +100,7 @@ function ProductOverviews() {
             </div>
             <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
               <img
-                src="https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg"
+                src={product.images}
                 alt="Model wearing plain white basic tee."
                 className="h-full w-full object-cover object-center"
               />
@@ -101,14 +111,16 @@ function ProductOverviews() {
           <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
             <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
               <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
-                Basic Tee 6-Pack
+                {product.title}
               </h1>
             </div>
 
             {/* <!-- Options --> */}
             <div className="mt-4 lg:row-span-3 lg:mt-0">
               <h2 className="sr-only">Product information</h2>
-              <p className="text-3xl tracking-tight text-gray-900">$192</p>
+              <p className="text-3xl tracking-tight text-gray-900">
+                ${product.price}
+              </p>
 
               {/* <!-- Reviews --> */}
               <div className="mt-6">
@@ -453,12 +465,7 @@ function ProductOverviews() {
                 <h3 className="sr-only">Description</h3>
                 <div className="space-y-6">
                   <p className="text-base text-gray-900">
-                    The Basic Tee 6-Pack allows you to fully express your
-                    vibrant personality with three grayscale options. Feeling
-                    adventurous? Put on a heather gray tee. Want to be a
-                    trendsetter? Try our exclusive colorway: &quot;Black&quot;.
-                    Need to add an extra pop of color to your outfit? Our white
-                    tee has you covered.
+                    {product.description}
                   </p>
                 </div>
               </div>

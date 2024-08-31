@@ -7,7 +7,6 @@ import Main from "./components/Main/Main";
 import Card from "./components/Card/Card";
 import Wedding from "./components/Wedding/Wedding";
 import GenderCard from "./components/GenderCard/GenderCard";
-import Layout2 from "./Layout2.jsx";
 import ProductDetailPagePage from "./components/ProductDetailPage/ProductDetailPage.jsx";
 import ProductOverviews from "./components/ProductOverviews/ProductOverviews.jsx";
 import ParentComponent from "./components/ParentComponent/ParentComponent.jsx";
@@ -54,15 +53,9 @@ const router = createBrowserRouter([
         element: <OrderDetailsForm />,
       },
       {
-        path: "/",
+        path: "/ProductOverviews/:id",
         element: <ProductOverviews />,
       },
-    ],
-  },
-  {
-    path: "/",
-    element: <Layout2 />,
-    children: [
       {
         path: "ManClothingCollection",
         element: <ManClothingCollection />,
