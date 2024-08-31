@@ -8,6 +8,7 @@ const user = [
     rating: 4.69,
     stock: 94,
     brand: "puma",
+    sub_category: "Man",
     category: "shirt",
     thumbnail:
       "https://images.pexels.com/photos/27663337/pexels-photo-27663337/free-photo-of-a-woman-in-a-pink-dress-walking-on-the-beach.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
@@ -29,6 +30,7 @@ const user = [
     rating: 4.44,
     stock: 34,
     brand: "Adidas",
+    sub_category: "Woman",
     category: "tshirt",
     thumbnail: "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
     images: [
@@ -48,6 +50,7 @@ const user = [
     rating: 4.09,
     stock: 36,
     brand: "Adidas",
+    sub_category: "Kids",
     category: "jeans",
     thumbnail: "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
     images: [
@@ -63,6 +66,7 @@ const user = [
     rating: 4.3,
     stock: 123,
     brand: "Louis Vuitton",
+    sub_category: "Man",
     category: "pants",
     thumbnail: "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg",
     images: [
@@ -83,6 +87,7 @@ const user = [
     rating: 4.09,
     stock: 32,
     brand: "Louis Vuitton",
+    sub_category: "Woman",
     category: "jackets",
     thumbnail: "https://cdn.dummyjson.com/product-images/5/thumbnail.jpg",
     images: [
@@ -101,6 +106,7 @@ const user = [
     rating: 4.57,
     stock: 83,
     brand: "Burberry",
+    sub_category: "Kids",
     category: "hoodie",
     thumbnail: "https://cdn.dummyjson.com/product-images/6/thumbnail.png",
     images: [
@@ -120,6 +126,7 @@ const user = [
     rating: 4.25,
     stock: 50,
     brand: "Burberry",
+    sub_category: "Man",
     category: "jackets",
     thumbnail: "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg",
     images: [
@@ -139,6 +146,7 @@ const user = [
     rating: 4.43,
     stock: 68,
     brand: "Nike",
+    sub_category: "Woman",
     category: "hoodie",
     thumbnail: "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg",
     images: [
@@ -159,6 +167,7 @@ const user = [
     rating: 4.54,
     stock: 96,
     brand: "Nike",
+    sub_category: "Kids",
     category: "jackets",
     thumbnail: "https://cdn.dummyjson.com/product-images/9/thumbnail.jpg",
     images: [
@@ -179,6 +188,7 @@ const user = [
     rating: 4.43,
     stock: 89,
     brand: "puma",
+    sub_category: "Man",
     category: "tshirt",
     thumbnail: "https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg",
     images: [
@@ -198,6 +208,7 @@ const user = [
     rating: 4.26,
     stock: 65,
     brand: "puma",
+    sub_category: "Woman",
     category: "tshirt",
     thumbnail: "https://cdn.dummyjson.com/product-images/11/thumbnail.jpg",
     images: [
@@ -216,6 +227,7 @@ const user = [
     rating: 4,
     stock: 52,
     brand: "Zara",
+    sub_category: "Kids",
     category: "shirt",
     thumbnail: "https://cdn.dummyjson.com/product-images/12/thumbnail.jpg",
     images: [
@@ -235,6 +247,7 @@ const user = [
     rating: 4,
     stock: 52,
     brand: "puma",
+    sub_category: "Man",
     category: "shirt",
     thumbnail: "https://cdn.dummyjson.com/product-images/12/thumbnail.jpg",
     images: [
@@ -254,6 +267,7 @@ const user = [
     rating: 4,
     stock: 52,
     brand: "Zara",
+    sub_category: "Woman",
     category: "jeans",
     thumbnail: "https://cdn.dummyjson.com/product-images/12/thumbnail.jpg",
     images: [
@@ -273,6 +287,7 @@ const user = [
     rating: 4,
     stock: 52,
     brand: "puma",
+    sub_category: "Kids",
     category: "pants",
     thumbnail: "https://cdn.dummyjson.com/product-images/12/thumbnail.jpg",
     images: [
@@ -292,6 +307,7 @@ const user = [
     rating: 4,
     stock: 52,
     brand: "Nike",
+    sub_category: "Man",
     category: "jackets",
     thumbnail: "https://cdn.dummyjson.com/product-images/12/thumbnail.jpg",
     images: [
@@ -311,6 +327,7 @@ const user = [
     rating: 4,
     stock: 52,
     brand: "Zara",
+    sub_category: "Woman",
     category: "jeans",
     thumbnail: "https://cdn.dummyjson.com/product-images/12/thumbnail.jpg",
     images: [
@@ -330,6 +347,7 @@ const user = [
     rating: 4,
     stock: 52,
     brand: "Nike",
+    sub_category: "Kids",
     category: "jackets",
     thumbnail: "https://cdn.dummyjson.com/product-images/12/thumbnail.jpg",
     images: [
@@ -349,6 +367,7 @@ const user = [
     rating: 4,
     stock: 52,
     brand: "Nike",
+    sub_category: "Man",
     category: "jackets",
     thumbnail: "https://cdn.dummyjson.com/product-images/12/thumbnail.jpg",
     images: [
@@ -368,6 +387,7 @@ const user = [
     rating: 4,
     stock: 52,
     brand: "Nike",
+    sub_category: "Woman",
     category: "jackets",
     thumbnail: "https://cdn.dummyjson.com/product-images/12/thumbnail.jpg",
     images: [

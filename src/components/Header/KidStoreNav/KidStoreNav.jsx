@@ -16,7 +16,7 @@ function KidStoreNav() {
                 />
               </div>
               <Link
-                to="/KidsClothingCollection"
+                to="/Kids"
                 className="mt-6 block font-medium text-gray-900"
               >
                 <span
@@ -52,7 +52,7 @@ function KidStoreNav() {
           <div className="row-start-1 grid grid-cols-3 gap-x-8 gap-y-10 text-sm">
             <div>
               <p id="Clothing-heading" className="font-medium text-gray-900">
-                <Link to="/KidsClothingCollection">Clothing</Link>
+                <Link to="/Kids">Clothing</Link>
               </p>
               <ul
                 role="list"

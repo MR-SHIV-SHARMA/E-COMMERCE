@@ -14,10 +14,7 @@ function ManStoreNav() {
                   className="object-cover object-center"
                 />
               </div>
-              <Link
-                to="/ManClothingCollection"
-                className="mt-6 block font-medium text-gray-900"
-              >
+              <Link to="/Man" className="mt-6 block font-medium text-gray-900">
                 <span
                   className="absolute inset-0 z-10"
                   aria-hidden="true"
@@ -51,7 +48,7 @@ function ManStoreNav() {
           <div className="row-start-1 grid grid-cols-3 gap-x-8 gap-y-10 text-sm">
             <div>
               <p id="Clothing-heading" className="font-medium text-gray-900">
-                <Link to="/ManClothingCollection">Clothing</Link>
+                <Link to="/Man">Clothing</Link>
               </p>
               <ul
                 role="list"

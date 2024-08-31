@@ -24,10 +24,10 @@ function ProductOverviews() {
               <li>
                 <div className="flex items-center">
                   <Link
-                    to="/ManClothingCollection"
+                    to={`/${product.sub_category}`}
                     className="mr-2 text-sm font-medium text-gray-900"
                   >
-                    Men
+                    {product.sub_category}
                   </Link>
                   <svg
                     width="16"

@@ -15,9 +15,9 @@ import ContactPages from "./components/ContactPages/ContactPages.jsx";
 import MarketingFeatures from "./components/MarketingFeatures/MarketingFeatures.jsx";
 import ShoppingCart from "./components/ShoppingCart/ShoppingCart.jsx";
 import OrderDetailsForm from "./components/OrderDetailsForm/OrderDetailsForm.jsx";
-import WomanClothingCollection from "./components/WomanClothingCollection/WomanClothingCollection.jsx";
-import KidsClothingCollection from "./components/KidsClothingCollection/KidsClothingCollection.jsx";
-import ManClothingCollection from "./components/ManClothingCollection/ManClothingCollection.jsx";
+import Woman from "./components/Woman/WomanClothingCollection.jsx";
+import Kids from "./components/Kids/KidsClothingCollection.jsx";
+import Man from "./components/Man/ManClothingCollection.jsx";
 import ApplicationUISignIn from "./components/ApplicationUISignIn/ApplicationUISignIn.jsx";
 import EmployeesUI from "./components/EmployeesUI/EmployeesUI.jsx";
 import CreateAccount from "./components/CreateAccount/CreateAccount.jsx";
@@ -47,7 +47,6 @@ const router = createBrowserRouter([
         path: "/",
         element: <GenderCard />,
       },
-
       {
         path: "/",
         element: <OrderDetailsForm />,
@@ -57,16 +56,16 @@ const router = createBrowserRouter([
         element: <ProductOverviews />,
       },
       {
-        path: "ManClothingCollection",
-        element: <ManClothingCollection />,
+        path: "Man",
+        element: <Man />,
       },
       {
-        path: "WomanClothingCollection",
-        element: <WomanClothingCollection />,
+        path: "Woman",
+        element: <Woman />,
       },
       {
-        path: "KidsClothingCollection",
-        element: <KidsClothingCollection />,
+        path: "Kids",
+        element: <Kids />,
       },
       {
         path: "ApplicationUISignIn",
