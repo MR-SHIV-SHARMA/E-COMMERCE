@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ProductOverviews from "../ProductOverviews/ProductOverviews"; // Import your ProductOverviews component here
-import user from "../../components/ProductsApiData/ProductsApiData";
+import user from "../ProductsApiData/ProductsApiData";
 
 function ParentComponent() {
   const users = user;
