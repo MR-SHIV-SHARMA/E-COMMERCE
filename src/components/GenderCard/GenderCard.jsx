@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 function GenderCard({ username, thumbnail, btntext }) {
   return (
     <div className="flex flex-col md:flex-row items-start">
-      <div className="relative h-[400px] md:w-[400px] rounded-md mb-4 md:mb-0">
+      <div className="relative h-[400px] md:w-[400px] rounded-md mb-4 md:mb-0 image-container">
         <img
           src={thumbnail}
           alt="AirMax Pro"
-          className="z-0 h-full w-full rounded-md object-cover"
+          className="z-0 h-full w-full rounded-md object-cover zoom-image"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
         <div className="absolute bottom-4 left-4 text-left">

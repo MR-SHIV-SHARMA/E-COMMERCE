@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
-function Card({ title, price, images }) {
+function Card({ id, title, price, images }) {
   const [currentImage, setCurrentImage] = useState(0);
 
   return (
     <div className="container flex flex-col items-center">
       <div className="relative w-[200px] h-[350px] rounded-md mb-4 md:mb-8 overflow-hidden image-container">
-        <a href="/ProductOverviews">
+        <Link to={`/ProductOverviews/${id}`}>
           <div
             style={{
               height: "300px",
@@ -30,7 +31,7 @@ function Card({ title, price, images }) {
               className="zoom-image"
             />
           </div>
-        </a>
+        </Link>
         <div className="w-full h-[70px] bg-slate-200 flex justify-between p-2 rounded-b-md">
           <h1 className="text-sm font-semibold text-black">{title}</h1>
           <div className="flex flex-col justify-start">

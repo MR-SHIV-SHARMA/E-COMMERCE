@@ -3,11 +3,11 @@ import user from "../ProductsApiData/ProductsApiData";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
-function KidsClothingCollection({ images, title, price }) {
+function KidsClothingCollection({ id, images, title, price }) {
   return (
-    <div className="container flex flex-col items-center"> 
+    <div className="container flex flex-col items-center">
       <div className="w-[300px] sm:w-[230px] sm:h-[350px] rounded-t-md overflow-hidden image-container">
-        <Link to="/ProductOverviews">
+        <Link to={`/ProductOverviews/${id}`}>
           <div className="flex items-center justify-center h-[350px] w-full rounded-t-md overflow-hidden">
             <img
               src={images}
@@ -275,6 +275,7 @@ function getProducts() {
           >
             <KidsClothingCollection
               key={item.id}
+              id={item.id}
               title={item.title}
               images={item.images}
               description={item.description}

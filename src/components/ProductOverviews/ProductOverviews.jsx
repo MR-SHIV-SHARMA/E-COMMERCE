@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import user from "../ProductsApiData/ProductsApiData";
+import { Link } from "react-router-dom";
 
 function ProductOverviews() {
   const { id } = useParams();
@@ -22,12 +23,12 @@ function ProductOverviews() {
             >
               <li>
                 <div className="flex items-center">
-                  <a
-                    href="#"
+                  <Link
+                    to="/ManClothingCollection"
                     className="mr-2 text-sm font-medium text-gray-900"
                   >
                     Men
-                  </a>
+                  </Link>
                   <svg
                     width="16"
                     height="20"
@@ -42,12 +43,12 @@ function ProductOverviews() {
               </li>
               <li>
                 <div className="flex items-center">
-                  <a
-                    href="#"
+                  <Link
+                    href="/Clothing"
                     className="mr-2 text-sm font-medium text-gray-900"
                   >
-                    Clothing
-                  </a>
+                    {product.category}
+                  </Link>
                   <svg
                     width="16"
                     height="20"
@@ -121,8 +122,7 @@ function ProductOverviews() {
               <p className="text-3xl tracking-tight text-gray-900">
                 ${product.price}
               </p>
-
-              {/* <!-- Reviews --> */}
+              Discount: {product.discountPercentage}%{/* <!-- Reviews --> */}
               <div className="mt-6">
                 <h3 className="sr-only">Reviews</h3>
                 <div className="flex items-center">
@@ -197,8 +197,8 @@ function ProductOverviews() {
                     117 reviews
                   </a>
                 </div>
+                <p className="py-2"> Brand: {product.brand}</p>
               </div>
-
               <form className="mt-10">
                 {/* <!-- Colors --> */}
                 <div>

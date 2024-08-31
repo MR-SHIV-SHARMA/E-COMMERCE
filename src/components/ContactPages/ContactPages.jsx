@@ -112,11 +112,13 @@ function ContactPages() {
                   </form>
                 </div>
               </div>
-              <img
-                alt="Contact us"
-                class="hidden max-h-full w-full rounded-lg object-cover lg:block"
-                src="https://images.unsplash.com/photo-1615840287214-7ff58936c4cf?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=687&amp;h=800&amp;q=80"
-              />
+              <div class="h-full w-full image-container">
+                <img
+                  alt="Contact us"
+                  class="mx-auto h-full w-full rounded-md object-cover zoom-image"
+                  src="https://images.unsplash.com/photo-1615840287214-7ff58936c4cf?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=687&amp;h=800&amp;q=80"
+                />
+              </div>
             </div>
           </div>
         </div>

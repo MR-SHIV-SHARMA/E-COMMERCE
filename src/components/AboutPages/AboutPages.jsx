@@ -245,11 +245,11 @@ function AboutPages() {
                 Join Now
               </button>
             </div>
-            <div class="md:mt-o mt-10 w-full">
+            <div class="md:mt-o mt-10 w-full image-container">
               <img
                 src="https://images.unsplash.com/photo-1605165566807-508fb529cf3e?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2340&amp;q=80"
                 alt="Getting Started"
-                class="rounded-lg"
+                class="rounded-lg zoom-image"
               />
             </div>
           </div>
