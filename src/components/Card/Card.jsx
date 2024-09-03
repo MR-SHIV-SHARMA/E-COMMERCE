@@ -7,7 +7,7 @@ function Card({ id, title, price, images }) {
 
   return (
     <div className="container flex flex-col items-center">
-      <div className="relative w-[200px] h-[350px] rounded-md mb-4 md:mb-8 overflow-hidden image-container">
+      <div className="relative w-[185px] sm:w-[200px] h-[350px] rounded-md mb-4 md:mb-8 overflow-hidden image-container">
         <Link to={`/ProductOverviews/${id}`}>
           <div
             style={{
