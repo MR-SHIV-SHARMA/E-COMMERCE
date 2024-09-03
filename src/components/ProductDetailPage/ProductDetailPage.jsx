@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import user from "../ProductsApiData/ProductsApiData";
+import Home from "../Home_Products_Api_Data/Home_Products_Api_Data";
 
 // Component for displaying detailed information of a single product
 function ProductDetailPage({
@@ -10,6 +10,7 @@ function ProductDetailPage({
   stock,
   brand,
   category,
+  sub_category,
   discountPercentage,
   rating,
 }) {
@@ -34,6 +35,11 @@ function ProductDetailPage({
           />
         </div>
         <div className="w-full lg:w-1/2 flex flex-col">
+          <div className="flex items-center">
+            <span className="text-gray-600 text-lg font-medium pr-2">
+              {sub_category}
+            </span>
+          </div>
           <div className="flex items-center py-2">
             <span className="text-gray-600 text-lg font-medium pr-2">
               Category:
@@ -127,24 +133,32 @@ function RecommendedProduct({ title, images, price }) {
 function ProductDetailPagePage() {
   // State for selected filters
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedsub_category, setSelectedsub_category] = useState("all");
   const [selectedBrand, setSelectedBrand] = useState("all");
   const [selectedRange, setSelectedRange] = useState("all"); // Price range filter
   const [selectedDiscount, setSelectedDiscount] = useState("all"); // Discount range filter
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   // State for filtered products
-  const [filteredProducts, setFilteredProducts] = useState(user);
+  const [filteredProducts, setFilteredProducts] = useState(Home);
 
   // State for recommended products
   const [recommendedProducts, setRecommendedProducts] = useState([]);
 
   // Effect hook for updating filtered and recommended products when filters change
   useEffect(() => {
-    let filtered = user;
+    let filtered = Home;
 
     // Filter by category
     if (selectedCategory !== "all") {
       filtered = filtered.filter((item) => item.category === selectedCategory);
+    }
+
+    // Filter by sub_category
+    if (selectedsub_category !== "all") {
+      filtered = filtered.filter(
+        (item) => item.sub_category === selectedsub_category
+      );
     }
 
     // Filter by brand
@@ -222,7 +236,13 @@ function ProductDetailPagePage() {
     const shuffledFiltered = shuffleArray(filtered);
     setFilteredProducts(shuffledFiltered);
     setRecommendedProducts(shuffledFiltered.slice(0, 3));
-  }, [selectedCategory, selectedBrand, selectedRange, selectedDiscount]);
+  }, [
+    selectedCategory,
+    selectedBrand,
+    selectedRange,
+    selectedDiscount,
+    selectedsub_category,
+  ]);
 
   // Helper function to shuffle an array
   const shuffleArray = (array) => {
@@ -235,6 +255,10 @@ function ProductDetailPagePage() {
   // Handle dropdown changes
   const handleCategoryChange = (event) => {
     setSelectedCategory(event.target.value);
+  };
+
+  const handleSubCategoryChange = (event) => {
+    setSelectedsub_category(event.target.value);
   };
 
   const handleBrandChange = (event) => {
@@ -350,6 +374,20 @@ function ProductDetailPagePage() {
                     <option value="70">70% Off or More</option>
                   </select>
                 </div>
+
+                <div className="flex flex-col w-full sm:w-auto">
+                  <select
+                    id="sub_category"
+                    value={selectedsub_category}
+                    onChange={handleSubCategoryChange}
+                    className="px-3 py-2 bg-white text-black"
+                  >
+                    <option value="all">All Sub Category</option>
+                    <option value="Man">Man</option>
+                    <option value="Woman">Woman</option>
+                    <option value="Kids">Kids</option>
+                  </select>
+                </div>
               </div>
             </div>
           </div>
@@ -360,10 +398,15 @@ function ProductDetailPagePage() {
         <div className="flex flex-wrap justify-center gap-6">
           {/* Display filtered products */}
           {filteredProducts.map((item) => (
+            // <div
+            //   key={item.id}
+            //   className="sm:w-11/12 md:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/6"
+            // >
             <ProductDetailPage
               key={item.id}
               title={item.title}
               brand={item.brand}
+              sub_category={item.sub_category}
               category={item.category}
               images={item.images}
               stock={item.stock}
@@ -372,6 +415,7 @@ function ProductDetailPagePage() {
               description={item.description}
               price={item.price} // Ensure that `price` is in the correct currency
             />
+            // </div>
           ))}
         </div>
       </div>

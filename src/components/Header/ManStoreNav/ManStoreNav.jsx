@@ -56,37 +56,55 @@ function ManStoreNav() {
                 className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
               >
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Man?category=shirt"
+                    className="hover:text-gray-800"
+                  >
                     Shirt
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Man?category=pants"
+                    className="hover:text-gray-800"
+                  >
                     Pants
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Man?category=sweaters"
+                    className="hover:text-gray-800"
+                  >
                     Sweaters
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Man?category=tshirt"
+                    className="hover:text-gray-800"
+                  >
                     T-Shirts
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Man?category=jackets"
+                    className="hover:text-gray-800"
+                  >
                     Jackets
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Man?category=activewear"
+                    className="hover:text-gray-800"
+                  >
                     Activewear
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link to="/Man?category=all" className="hover:text-gray-800">
                     Browse All
                   </Link>
                 </li>
@@ -102,32 +120,50 @@ function ManStoreNav() {
                 className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
               >
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Man?Accessories=Watches"
+                    className="hover:text-gray-800"
+                  >
                     Watches
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Man?Accessories=Wallets"
+                    className="hover:text-gray-800"
+                  >
                     Wallets
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Man?Accessories=Bags"
+                    className="hover:text-gray-800"
+                  >
                     Bags
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Man?Accessories=Sunglasses"
+                    className="hover:text-gray-800"
+                  >
                     Sunglasses
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Man?Accessories=Hats"
+                    className="hover:text-gray-800"
+                  >
                     Hats
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Man?Accessories=Belts"
+                    className="hover:text-gray-800"
+                  >
                     Belts
                   </Link>
                 </li>
@@ -143,23 +179,68 @@ function ManStoreNav() {
                 className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
               >
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Man?Brand=Re-Arranged"
+                    className="hover:text-gray-800"
+                  >
                     Re-Arranged
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Man?Brand=Counterfeit"
+                    className="hover:text-gray-800"
+                  >
                     Counterfeit
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Man?Brand=Full-Nelson"
+                    className="hover:text-gray-800"
+                  >
                     Full Nelson
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link to="/Man?Brand=My-Way" className="hover:text-gray-800">
                     My Way
+                  </Link>
+                </li>
+                <li className="flex">
+                  <Link to="/Man?Brand=puma" className="hover:text-gray-800">
+                    puma
+                  </Link>
+                </li>
+                <li className="flex">
+                  <Link to="/Man?Brand=Adidas" className="hover:text-gray-800">
+                    Adidas
+                  </Link>
+                </li>
+                <li className="flex">
+                  <Link
+                    to="/Man?Brand=Burberry"
+                    className="hover:text-gray-800"
+                  >
+                    Burberry
+                  </Link>
+                </li>
+                <li className="flex">
+                  <Link to="/Man?Brand=Nike" className="hover:text-gray-800">
+                    Nike
+                  </Link>
+                </li>
+                <li className="flex">
+                  <Link to="/Man?Brand=Zara" className="hover:text-gray-800">
+                    Zara
+                  </Link>
+                </li>
+                <li className="flex">
+                  <Link
+                    to="/Man?Brand=Louis Vuitton"
+                    className="hover:text-gray-800"
+                  >
+                    Louis Vuitton
                   </Link>
                 </li>
               </ul>
@@ -167,6 +248,7 @@ function ManStoreNav() {
           </div>
         </div>
       </div>
+      <hr class="border-0 h-px bg-black" />
     </div>
   );
 }

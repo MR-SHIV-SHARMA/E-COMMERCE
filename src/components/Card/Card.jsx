@@ -44,10 +44,10 @@ function Card({ id, title, price, images }) {
   );
 }
 
-import user from "../ProductsApiData/ProductsApiData";
+import Home from "../Home_Products_Api_Data/Home_Products_Api_Data";
 
 function NewCollection() {
-  const users = user;
+  const users = Home;
   return (
     <div>
       <div className="text-center mt-10 mb-5">

@@ -15,10 +15,7 @@ function KidStoreNav() {
                   className="object-cover object-center"
                 />
               </div>
-              <Link
-                to="/Kids"
-                className="mt-6 block font-medium text-gray-900"
-              >
+              <Link to="/Kids" className="mt-6 block font-medium text-gray-900">
                 <span
                   className="absolute inset-0 z-10"
                   aria-hidden="true"
@@ -60,37 +57,58 @@ function KidStoreNav() {
                 className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
               >
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Kids?category=tshirt"
+                    className="hover:text-gray-800"
+                  >
                     T-shirts
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Kids?category=shirt"
+                    className="hover:text-gray-800"
+                  >
                     Jeans
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Kids?category=shirt"
+                    className="hover:text-gray-800"
+                  >
                     Dresses
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Kids?category=hoodie"
+                    className="hover:text-gray-800"
+                  >
                     Hoodies
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Kids?category=shirt"
+                    className="hover:text-gray-800"
+                  >
                     Leggings
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Kids?category=jackets"
+                    className="hover:text-gray-800"
+                  >
                     Jackets
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Kids?category=shirt"
+                    className="hover:text-gray-800"
+                  >
                     Shorts
                   </Link>
                 </li>
@@ -106,32 +124,50 @@ function KidStoreNav() {
                 className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
               >
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Kids?Accessories=Watches"
+                    className="hover:text-gray-800"
+                  >
                     Watches
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Kids?Accessories=Wallets"
+                    className="hover:text-gray-800"
+                  >
                     Wallets
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Kids?Accessories=Bags"
+                    className="hover:text-gray-800"
+                  >
                     Bags
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Kids?Accessories=Sunglasses"
+                    className="hover:text-gray-800"
+                  >
                     Sunglasses
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Kids?Accessories=Hats"
+                    className="hover:text-gray-800"
+                  >
                     Hats
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Kids?Accessories=Belts"
+                    className="hover:text-gray-800"
+                  >
                     Belts
                   </Link>
                 </li>
@@ -147,27 +183,39 @@ function KidStoreNav() {
                 className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
               >
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link to="/Kids?Brand=Nike" className="hover:text-gray-800">
                     Nike Kids
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Kids?category=shirt"
+                    className="hover:text-gray-800"
+                  >
                     Levi's Kids
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Kids?category=shirt"
+                    className="hover:text-gray-800"
+                  >
                     Gucci Kids
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Kids?category=shirt"
+                    className="hover:text-gray-800"
+                  >
                     Abercrombie Kids
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Kids?category=shirt"
+                    className="hover:text-gray-800"
+                  >
                     Mini Rodini
                   </Link>
                 </li>
@@ -176,6 +224,7 @@ function KidStoreNav() {
           </div>
         </div>
       </div>
+      <hr class="border-0 h-px bg-black" />
     </div>
   );
 }

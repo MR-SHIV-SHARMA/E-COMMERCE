@@ -1,12 +1,19 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import user from "../ProductsApiData/ProductsApiData";
+import Home from "../Home_Products_Api_Data/Home_Products_Api_Data";
+import Man from "../Man_Products_Api_Data/Man_Products_Api_Data";
+import Woman from "../Woman_Products_Api_Data/Woman_Products_Api_Data";
+import Kids from "../Kids_Products_Api_Data/Kids_Products_Api_Data";
 import { Link } from "react-router-dom";
 
 function ProductOverviews() {
   const { id } = useParams();
 
-  const product = user.find((item) => item.id === parseInt(id, 10));
+  // Combine all products into a single array
+  const allProducts = [...Home, ...Man, ...Woman, ...Kids];
+
+  // Find the product by id in the combined array
+  const product = allProducts.find((item) => item.id === parseInt(id, 10));
 
   if (!product) {
     return <h1>Product not found</h1>;
@@ -44,10 +51,20 @@ function ProductOverviews() {
               <li>
                 <div className="flex items-center">
                   <Link
-                    href="/Clothing"
+                    href={
+                      product.category
+                        ? `/Clothing`
+                        : product.accessories
+                        ? `/Accessories`
+                        : `/Brands`
+                    }
                     className="mr-2 text-sm font-medium text-gray-900"
                   >
-                    {product.category}
+                    {product.category
+                      ? product.category
+                      : product.accessories
+                      ? product.accessories
+                      : product.brand}
                   </Link>
                   <svg
                     width="16"
@@ -512,6 +529,7 @@ function ProductOverviews() {
             </div>
           </div>
         </div>
+        <hr class="border-0 h-px bg-black" />
       </div>
     </>
   );

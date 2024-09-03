@@ -1,7 +1,35 @@
+import React, { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+import axios from "axios";
+
 function ApplicationUISignIn() {
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+
+  const onSignin = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.post(
+        "https://shiv-vibes.vercel.app/api/users/login",
+        user
+      );
+      console.log("login successful", response.data);
+      // toast.success("Please check your email", {duration: 3000});
+      toast.success("login in successful", { duration: 3000 });
+    } catch (error) {
+      console.log(
+        "login failed",
+        error.response?.data?.error || "An error occurred"
+      );
+      toast.error(error.response?.data?.error || "An error occurred");
+    }
+  };
   return (
     <section>
       <div class="grid grid-cols-1 lg:grid-cols-2">
+        <Toaster position="top-right" reverseOrder={false} />
         <div class="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
           <div class="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md">
             <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl">
@@ -17,7 +45,7 @@ function ApplicationUISignIn() {
                 Create a free account
               </a>
             </p>
-            <form action="#" method="POST" class="mt-8">
+            <form onSubmit={onSignin} method="POST" class="mt-8">
               <div class="space-y-5">
                 <div>
                   <label for="" class="text-base font-medium text-gray-900">
@@ -28,6 +56,10 @@ function ApplicationUISignIn() {
                     <input
                       class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       type="email"
+                      value={user.email}
+                      onChange={(e) =>
+                        setUser({ ...user, email: e.target.value })
+                      }
                       placeholder="Email"
                     />
                   </div>
@@ -51,13 +83,17 @@ function ApplicationUISignIn() {
                     <input
                       class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       type="password"
+                      value={user.password}
+                      onChange={(e) =>
+                        setUser({ ...user, password: e.target.value })
+                      }
                       placeholder="Password"
                     />
                   </div>
                 </div>
                 <div>
                   <button
-                    type="button"
+                    type="submit"
                     class="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
                   >
                     Get started{" "}

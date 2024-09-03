@@ -4,17 +4,17 @@ const kids = [
     title: "Kids Striped T-Shirt",
     brand: "XYZ Kids",
     category: "tops",
-    images: [
-      "https://images.pexels.com/photos/2231267/pexels-photo-2231267.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      "https://images.pexels.com/photos/2231267/pexels-photo-2231267.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    ],
     stock: 100,
-    thumbnail:
-      "https://images.pexels.com/photos/1231215/pexels-photo-1231215.jpeg?auto=compress&cs=tinysrgb&w=600",
     discountPercentage: 10,
     rating: 4.5,
     description: "Comfortable and stylish striped t-shirt for kids.",
     price: 19.99,
+    thumbnail:
+      "https://images.pexels.com/photos/1231215/pexels-photo-1231215.jpeg?auto=compress&cs=tinysrgb&w=600",
+    images: [
+      "https://images.pexels.com/photos/2231267/pexels-photo-2231267.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "https://images.pexels.com/photos/2231267/pexels-photo-2231267.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    ],
   },
   {
     id: 2,

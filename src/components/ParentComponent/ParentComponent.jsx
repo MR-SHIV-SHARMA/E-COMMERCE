@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import ProductOverviews from "../ProductOverviews/ProductOverviews"; // Import your ProductOverviews component here
-import user from "../ProductsApiData/ProductsApiData";
+import Home from "../Home_Products_Api_Data/Home_Products_Api_Data";
 
 function ParentComponent() {
-  const users = user;
+  const users = Home;
   // State to hold the selected item's details
   const [selectedItem, setSelectedItem] = useState(null);
 

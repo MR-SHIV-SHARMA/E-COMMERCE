@@ -60,47 +60,74 @@ function WomanStoarNav() {
                 className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
               >
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Woman?category=shirt"
+                    className="hover:text-gray-800"
+                  >
                     Tops
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Woman?category=shirt"
+                    className="hover:text-gray-800"
+                  >
                     Dresses
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Woman?category=pants"
+                    className="hover:text-gray-800"
+                  >
                     Pants
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Woman?category=shirt"
+                    className="hover:text-gray-800"
+                  >
                     Denim
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Woman?category=sweaters"
+                    className="hover:text-gray-800"
+                  >
                     Sweaters
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Woman?category=tshirt"
+                    className="hover:text-gray-800"
+                  >
                     T-Shirts
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Woman?category=jackets"
+                    className="hover:text-gray-800"
+                  >
                     Jackets
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Woman?category=activewear"
+                    className="hover:text-gray-800"
+                  >
                     Activewear
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Woman?category=all"
+                    className="hover:text-gray-800"
+                  >
                     Browse All
                   </Link>
                 </li>
@@ -116,32 +143,50 @@ function WomanStoarNav() {
                 className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
               >
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Woman?Accessories=Watches"
+                    className="hover:text-gray-800"
+                  >
                     Watches
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Woman?Accessories=Wallets"
+                    className="hover:text-gray-800"
+                  >
                     Wallets
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Woman?Accessories=Bags"
+                    className="hover:text-gray-800"
+                  >
                     Bags
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Woman?Accessories=Sunglasses"
+                    className="hover:text-gray-800"
+                  >
                     Sunglasses
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Woman?Accessories=Hats"
+                    className="hover:text-gray-800"
+                  >
                     Hats
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Woman?Accessories=Belts"
+                    className="hover:text-gray-800"
+                  >
                     Belts
                   </Link>
                 </li>
@@ -157,27 +202,42 @@ function WomanStoarNav() {
                 className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
               >
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Woman?Brand=Full-Nelson"
+                    className="hover:text-gray-800"
+                  >
                     Full Nelson
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Woman?Brand=My-Way"
+                    className="hover:text-gray-800"
+                  >
                     My Way
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Woman?Brand=Re-Arranged"
+                    className="hover:text-gray-800"
+                  >
                     Re-Arranged
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Woman?Brand=Counterfeit"
+                    className="hover:text-gray-800"
+                  >
                     Counterfeit
                   </Link>
                 </li>
                 <li className="flex">
-                  <Link to="#" className="hover:text-gray-800">
+                  <Link
+                    to="/Woman?Brand=Significant"
+                    className="hover:text-gray-800"
+                  >
                     Significant Other
                   </Link>
                 </li>
@@ -186,6 +246,7 @@ function WomanStoarNav() {
           </div>
         </div>
       </div>
+      <hr class="border-0 h-px bg-black" />
     </div>
   );
 }

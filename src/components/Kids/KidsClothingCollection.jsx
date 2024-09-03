@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import user from "../ProductsApiData/ProductsApiData";
+import Kids from "../Kids_Products_Api_Data/Kids_Products_Api_Data";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function KidsClothingCollection({ id, images, title, price }) {
   return (
@@ -29,22 +29,38 @@ function KidsClothingCollection({ id, images, title, price }) {
 }
 
 function getProducts() {
-  const [selectedCategory, setSelectedCategory] = useState("all");
-  const [selectedBrand, setSelectedBrand] = useState("all");
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+
+  // Extracting parameters for category, accessories, and brand
+  const initialCategory = queryParams.get("category") || "all";
+  const initialAccessory = queryParams.get("Accessories") || "all";
+  const initialBrand = queryParams.get("Brand") || "all";
+
+  const [selectedCategory, setSelectedCategory] = useState(initialCategory);
+  const [selectedAccessory, setSelectedAccessory] = useState(initialAccessory);
+  const [selectedBrand, setSelectedBrand] = useState(initialBrand);
+
   const [selectedRange, setSelectedRange] = useState("all");
   const [selectedDiscount, setSelectedDiscount] = useState("all");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const [filteredProducts, setFilteredProducts] = useState(user);
+  const [filteredProducts, setFilteredProducts] = useState(Kids);
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
   useEffect(() => {
-    let filtered = user;
+    let filtered = Kids;
 
     if (selectedCategory !== "all") {
       filtered = filtered.filter((item) => item.category === selectedCategory);
+    }
+
+    if (selectedAccessory !== "all") {
+      filtered = filtered.filter(
+        (item) => item.Accessories === selectedAccessory
+      );
     }
 
     if (selectedBrand !== "all") {
@@ -119,7 +135,13 @@ function getProducts() {
     const shuffledFiltered = shuffleArray(filtered);
     setFilteredProducts(shuffledFiltered);
     setCurrentPage(1); // Reset to first page whenever filters change
-  }, [selectedCategory, selectedBrand, selectedRange, selectedDiscount]);
+  }, [
+    selectedCategory,
+    selectedAccessory,
+    selectedBrand,
+    selectedRange,
+    selectedDiscount,
+  ]);
 
   const shuffleArray = (array) => {
     return array
@@ -130,6 +152,10 @@ function getProducts() {
 
   const handleCategoryChange = (event) => {
     setSelectedCategory(event.target.value);
+  };
+
+  const handleAccessoryChange = (event) => {
+    setSelectedAccessory(event.target.value);
   };
 
   const handleBrandChange = (event) => {
@@ -168,7 +194,7 @@ function getProducts() {
     <div>
       <div className="flex flex-col items-center bg-zinc-300">
         <h1 className="text-2xl sm:text-3xl font-extrabold text-center pt-2 sm:mt-4">
-          MAN CLOTHING COLLECTION
+          KIDS CLOTHING COLLECTION
         </h1>
         <p className="text-base pt-1 font-medium text-center px-4 sm:px-8">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
@@ -207,6 +233,23 @@ function getProducts() {
                     <option value="pants">Pants</option>
                     <option value="jackets">Jackets</option>
                     <option value="hoodie">Hoodies</option>
+                  </select>
+                </div>
+
+                <div className="flex flex-col w-full sm:w-auto">
+                  <select
+                    id="Accessories"
+                    value={selectedAccessory}
+                    onChange={handleAccessoryChange}
+                    className="px-3 py-2 bg-white text-black"
+                  >
+                    <option value="all">All Accessories</option>
+                    <option value="Watches">Watches</option>
+                    <option value="Wallets">Wallets</option>
+                    <option value="Bags">Bags</option>
+                    <option value="Sunglasses">Sunglasses</option>
+                    <option value="Hats">Hats</option>
+                    <option value="Belts">Belts</option>
                   </select>
                 </div>
 
