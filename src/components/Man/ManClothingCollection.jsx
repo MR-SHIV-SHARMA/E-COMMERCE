@@ -4,7 +4,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link, useLocation } from "react-router-dom";
 
 function ManClothingCollection({ id, images, title, price }) {
-  return (
+  return ( 
     <div className="container flex flex-col items-center">
       <div className="w-[300px] sm:w-[230px] sm:h-[350px] rounded-t-md overflow-hidden image-container">
         <Link to={`/ProductOverviews/${id}`}>
