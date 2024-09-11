@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 function Header() {
   const [showInput, setShowInput] = useState(false);
@@ -77,8 +78,8 @@ function Header() {
             isMenuOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
-          <div className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
-            <div className="flex px-4 pb-2 pt-5">
+          <div className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-1 shadow-xl">
+            <div className="flex px-4 pb-2 pt-4 ml-2">
               <button
                 type="button"
                 className="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
@@ -115,87 +116,133 @@ function Header() {
             </div>
 
             {/* <!-- Links --> */}
-            <div className="mt-2">
+            <div className="">
               <div className="border-b border-gray-200">
                 <div
-                  className="-mb-px flex space-x-8 px-4"
+                  className="flex space-x-8 px-4"
                   aria-orientation="horizontal"
                   role="tablist"
                 >
                   <button
                     onClick={toggleMobileMenu}
                     id="tabs-1-tab-1"
-                    className="border-transparent text-gray-900 flex-1 whitespace-nowrap border-b-2 px-1 py-4 text-base font-medium"
+                    className="border-transparent text-gray-900 flex-1 whitespace-nowrap border-b-2 px-1 text-base font-medium"
                     aria-controls="tabs-1-panel-1"
                     role="tab"
                     type="button"
                   >
-                    <Link to="/WomanStoarNav">Women</Link>
+                    <NavLink
+                      to="/WomanStoarNav"
+                      className={({ isActive }) => `block ${
+                        isActive ? "text-amber-800" : "text-gray-900"
+                      } 
+                      border-transparent hover:text-gray-800 text-amber-800 relative flex items-center font-medium transition-colors duration-200 ease-out
+                      `}
+                    >
+                      Women
+                    </NavLink>
                   </button>
                   <button
                     onClick={toggleMobileMenu}
                     id="tabs-1-tab-2"
-                    className="border-transparent text-gray-900 flex-1 whitespace-nowrap border-b-2 px-1 py-4 text-base font-medium"
+                    className="border-transparent text-gray-900 flex-1 whitespace-nowrap border-b-2 px-1 text-base font-medium"
                     aria-controls="tabs-1-panel-2"
                     role="tab"
                     type="button"
                   >
-                    <Link to="/ManStoreNav">Men</Link>
+                    <NavLink
+                      to="/ManStoreNav"
+                      className={({ isActive }) => `block ${
+                        isActive ? "text-amber-800" : "text-gray-900"
+                      } 
+                      border-transparent hover:text-gray-800 text-amber-800 relative flex items-center font-medium transition-colors duration-200 ease-out
+                      `}
+                    >
+                      Men
+                    </NavLink>
                   </button>
                   <button
                     onClick={toggleMobileMenu}
                     id="tabs-1-tab-3" // Unique ID for this button
-                    className="border-transparent text-gray-900 flex-1 whitespace-nowrap border-b-2 px-1 py-4 text-base font-medium"
+                    className="border-transparent text-gray-900 flex-1 whitespace-nowrap border-b-2 px-1 text-base font-medium"
                     aria-controls="tabs-1-panel-3" // Make sure this matches the corresponding panel
                     role="tab"
                     type="button"
                   >
-                    <Link to="/KidStoreNav">Kids</Link>
+                    <NavLink
+                      to="/KidStoreNav"
+                      className={({ isActive }) => `block ${
+                        isActive ? "text-amber-800" : "text-gray-900"
+                      } 
+                      border-transparent hover:text-gray-800 text-amber-800 relative flex items-center font-medium transition-colors duration-200 ease-out
+                      `}
+                    >
+                      Kids
+                    </NavLink>
                   </button>
                 </div>
               </div>
             </div>
 
-            <div className="space-y-6 border-t border-gray-200 px-4 py-6">
+            <div className="space-y-2 border-t border-gray-200 px-4 py-2">
               <div className="flow-root">
-                <Link
+                <NavLink
+                  onClick={toggleMobileMenu}
                   to="/ContactPages"
-                  className="-m-2 block p-2 font-medium text-gray-900"
+                  className={({ isActive }) => `block ${
+                    isActive ? "text-amber-800" : "text-gray-900"
+                  } 
+                      border-transparent hover:text-gray-800 text-amber-800 relative flex items-center font-medium transition-colors duration-200 ease-out
+                      `}
                 >
                   Contact Us
-                </Link>
+                </NavLink>
               </div>
               <div className="flow-root">
-                <Link
+                <NavLink
+                  onClick={toggleMobileMenu}
                   to="/ProductDetailPagePage"
-                  className="-m-2 block p-2 font-medium text-gray-900"
+                  className={({ isActive }) => `block ${
+                    isActive ? "text-amber-800" : "text-gray-900"
+                  } 
+                      border-transparent hover:text-gray-800 text-amber-800 relative flex items-center font-medium transition-colors duration-200 ease-out
+                      `}
                 >
                   Collections
-                </Link>
+                </NavLink>
               </div>
             </div>
 
-            <div className="space-y-6 border-t border-gray-200 px-4 py-6">
+            <div className="space-y-2 border-t border-gray-200 px-4 py-2">
               <div className="flow-root">
-                <Link
+                <NavLink
+                  onClick={toggleMobileMenu}
                   to="ApplicationUISignIn"
-                  className="-m-2 block p-2 font-medium text-gray-900"
+                  className={({ isActive }) => `block ${
+                    isActive ? "text-amber-800" : "text-gray-900"
+                  } 
+                      border-transparent hover:text-gray-800 text-amber-800 relative flex items-center font-medium transition-colors duration-200 ease-out
+                      `}
                 >
                   Sign in
-                </Link>
+                </NavLink>
               </div>
               <div className="flow-root">
-                <Link
+                <NavLink
+                  onClick={toggleMobileMenu}
                   to="CreateAccount"
-                  className="-m-2 block p-2 font-medium text-gray-900"
+                  className={({ isActive }) => `block ${
+                    isActive ? "text-amber-800" : "text-gray-900"
+                  } 
+                      border-transparent hover:text-gray-800 text-amber-800 relative flex items-center font-medium transition-colors duration-200 ease-out
+                      `}
                 >
                   Create account
-                </Link>
+                </NavLink>
               </div>
             </div>
           </div>
         </div>
-        {/* </div> */}
         <header className="relative text-white bg-gray-300">
           <nav
             aria-label="Top"
@@ -249,16 +296,15 @@ function Header() {
                   <div className="flex h-full space-x-8">
                     <div className="flex">
                       <div className="relative flex">
-                        {/* Item active: "border-indigo-600 text-indigo-600", Item inactive: "border-transparent text-gray-700 hover:text-gray-800" */}
                         <NavLink
                           to=""
                           className={({ isActive }) => `block ${
                             isActive ? "text-amber-800" : "text-gray-700"
                           } 
-                      border-transparent hover:text-gray-800 text-amber-800 relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out
+                      border-transparent hover:text-gray-800 text-amber-800 relative z-10 -mb-px flex items-center border-b-2 pt-px text-2xl font-medium transition-colors duration-200 ease-out
                       `}
                         >
-                          Home
+                          <FaHome />
                         </NavLink>
                       </div>
                     </div>
@@ -293,9 +339,6 @@ function Header() {
                     {/* Kide content */}
                     <div className="flex">
                       <div className="relative flex">
-                        {/* Item active: "border-indigo-600 text-indigo-600", Item
-                        inactive: "border-transparent text-gray-700
-                        hover:text-gray-800" */}
                         <NavLink
                           to="KidStoreNav"
                           className={({ isActive }) => `block ${
@@ -320,7 +363,7 @@ function Header() {
                       <div className="relative flex">
                         {/* <!-- Item active: "border-indigo-600 text-indigo-600", Item inactive: "border-transparent text-gray-700 hover:text-gray-800" --> */}
                         <NavLink
-                          to="ManStoreNav"
+                          to="/ManStoreNav"
                           className={({ isActive }) => `block ${
                             isActive ? "text-amber-800" : "text-gray-700"
                           } 
@@ -339,19 +382,41 @@ function Header() {
                       </div>
                     </div>
 
-                    <Link
+                    <NavLink
                       to="/ContactPages"
-                      className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
+                      className={({ isActive }) => `block ${
+                        isActive ? "text-amber-800" : "text-gray-700"
+                      } 
+                      border-transparent hover:text-gray-800 text-amber-800 relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out
+                      `}
                     >
                       Contact Us
-                    </Link>
-                    <Link
+                    </NavLink>
+
+                    <NavLink
                       to="/ProductDetailPagePage"
-                      className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
+                      className={({ isActive }) => `block ${
+                        isActive ? "text-amber-800" : "text-gray-700"
+                      } 
+                      border-transparent hover:text-gray-800 text-amber-800 relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out
+                      `}
                     >
                       Collections
-                    </Link>
+                    </NavLink>
                   </div>
+                </div>
+
+                <div className="lg:hidden">
+                  <NavLink
+                    to=""
+                    className={({ isActive }) => `block ${
+                      isActive ? "text-amber-800" : "text-gray-700"
+                    } 
+                      border-transparent hover:text-gray-800 text-amber-800 relative flex items-center p-2 bg-white rounded-full ml-2
+                      `}
+                  >
+                    <FaHome />
+                  </NavLink>
                 </div>
 
                 {/* Sign in */}
@@ -391,15 +456,14 @@ function Header() {
                         placeholder="Search items"
                         value={searchQuery}
                         onChange={handleInputChange}
-                        className="px-2 py-1 border text-black font-semibold border-gray-300 rounded-md focus:outline-none"
+                        className="px-2 py-1 border text-black font-semibold border-gray-300 focus:outline-none rounded-full"
                       />
                     )}
                     <Link
-                      to="#"
-                      className="p-2 text-gray-400 hover:text-gray-500"
+                      className="p-2 text-gray-400 hover:text-gray-500 bg-white rounded-full ml-2"
                       onClick={handleSearchClick}
                     >
-                      <span className="sr-only">Search</span>
+                      {/* <span className="sr-only">Search</span> */}
                       <FaSearch />
                     </Link>
                   </div>
@@ -407,12 +471,12 @@ function Header() {
                   {/* <!-- Cart --> */}
                   <div className="ml-4 flow-root lg:ml-6">
                     <NavLink
-                      to="ShoppingCart"
-                      className="group -m-2 flex items-center p-2 text-gray-600 hover:text-gray-500"
+                      to="/ShoppingCart"
+                      className="flex p-2 text-gray-600 hover:text-gray-500"
                     >
-                      <AiOutlineShoppingCart className="text-xl font-extrabold" />
-                      <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-                        0
+                      <AiOutlineShoppingCart className="text-3xl mt-2 font-extrabold relative" />
+                      <span className="absolute mb-8 ml-2 text-sm font-medium text-red-700 bg-white rounded-full px-[4px] group-hover:text-red-800">
+                        12
                       </span>
                       <span className="sr-only">items in cart, view bag</span>
                     </NavLink>

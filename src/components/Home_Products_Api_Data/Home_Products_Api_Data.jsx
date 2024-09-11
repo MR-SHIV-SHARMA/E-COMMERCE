@@ -1,3 +1,27 @@
+export const Gender = [
+  {
+    id: 1,
+    username: "MAN",
+    btntext: "ManClothingCollection",
+    thumbnail:
+      "https://images.pexels.com/photos/6050430/pexels-photo-6050430.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+  },
+  {
+    id: 2,
+    username: "WOMAN",
+    btntext: "WomanClothingCollection",
+    thumbnail:
+      "https://images.pexels.com/photos/5418889/pexels-photo-5418889.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+  },
+  {
+    id: 3,
+    username: "KIDS",
+    btntext: "KidsClothingCollection",
+    thumbnail:
+      "https://images.pexels.com/photos/1619815/pexels-photo-1619815.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+];
+
 const Home = [
   {
     id: 1,
