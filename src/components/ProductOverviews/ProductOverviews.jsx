@@ -1,23 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Home from "../Home_Products_Api_Data/Home_Products_Api_Data";
-import Man from "../Man_Products_Api_Data/Man_Products_Api_Data";
-import Woman from "../Woman_Products_Api_Data/Woman_Products_Api_Data";
-import Kids from "../Kids_Products_Api_Data/Kids_Products_Api_Data";
+// import Home from "../Home_Products_Api_Data/Home_Products_Api_Data";
+import { Man } from "../Man_Products_Api_Data/Man_Products_Api_Data";
+// import Woman from "../Woman_Products_Api_Data/Woman_Products_Api_Data";
+// import Kids from "../Kids_Products_Api_Data/Kids_Products_Api_Data";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../stores/cart";
 
 function ProductOverviews() {
   const { id } = useParams();
-
-  // Combine all products into a single array
-  const allProducts = [...Home, ...Man, ...Woman, ...Kids];
-
-  // Find the product by id in the combined array
-  const product = allProducts.find((item) => item.id === parseInt(id, 10));
-
-  if (!product) {
-    return <h1>Product not found</h1>;
-  }
+  const [product, setProduct] = useState([]);
+  const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const findDetail = Man.filter((product) => product.id === parseInt(id));
+    if (findDetail.length > 0) {
+      setProduct(findDetail[0]);
+    } else {
+      window.location.href = "/";
+    }
+  }, [id]);
+  const handleMinusQuantity = () => {
+    setQuantity(quantity - 1 < 1 ? 1 : quantity - 1);
+  };
+  const handlePlusQuantity = () => {
+    setQuantity(quantity + 1);
+  };
+  const handleAddToCart = () => {
+    dispatch(
+      addToCart({
+        productId: product.id,
+        quantity: quantity,
+      })
+    );
+  };
 
   return (
     <>
@@ -95,7 +112,7 @@ function ProductOverviews() {
           <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
             <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
               <img
-                src={product.images}
+                src={product.images && product.images[0]}
                 alt="Two each of gray, white, and black shirts laying flat."
                 className="h-full w-full object-cover object-center"
               />
@@ -103,14 +120,14 @@ function ProductOverviews() {
             <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
               <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
                 <img
-                  src={product.images}
+                  src={product.images && product.images[1]}
                   alt="Model wearing plain black basic tee."
                   className="h-full w-full object-cover object-center"
                 />
               </div>
               <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
                 <img
-                  src={product.images}
+                  src={product.images && product.images[2]}
                   alt="Model wearing plain gray basic tee."
                   className="h-full w-full object-cover object-center"
                 />
@@ -118,7 +135,7 @@ function ProductOverviews() {
             </div>
             <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
               <img
-                src={product.images}
+                src={product.images && product.images[3]}
                 alt="Model wearing plain white basic tee."
                 className="h-full w-full object-cover object-center"
               />
@@ -152,9 +169,9 @@ function ProductOverviews() {
                       aria-hidden="true"
                     >
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                        clip-rule="evenodd"
+                        clipRule="evenodd"
                       />
                     </svg>
                     <svg
@@ -164,9 +181,9 @@ function ProductOverviews() {
                       aria-hidden="true"
                     >
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                        clip-rule="evenodd"
+                        clipRule="evenodd"
                       />
                     </svg>
                     <svg
@@ -176,9 +193,9 @@ function ProductOverviews() {
                       aria-hidden="true"
                     >
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                        clip-rule="evenodd"
+                        clipRule="evenodd"
                       />
                     </svg>
                     <svg
@@ -188,9 +205,9 @@ function ProductOverviews() {
                       aria-hidden="true"
                     >
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                        clip-rule="evenodd"
+                        clipRule="evenodd"
                       />
                     </svg>
                     <svg
@@ -200,9 +217,9 @@ function ProductOverviews() {
                       aria-hidden="true"
                     >
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                        clip-rule="evenodd"
+                        clipRule="evenodd"
                       />
                     </svg>
                   </div>
@@ -327,7 +344,7 @@ function ProductOverviews() {
                               y1="100"
                               x2="100"
                               y2="0"
-                              vector-effect="non-scaling-stroke"
+                              vectorEffect="non-scaling-stroke"
                             />
                           </svg>
                         </span>
@@ -468,12 +485,32 @@ function ProductOverviews() {
                     </div>
                   </fieldset>
                 </div>
-                <button
-                  type="submit"
-                  className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                >
-                  Add to bag
-                </button>
+                <div className="flex gap-5">
+                  <div className="flex gap-2 justify-center items-center">
+                    <button
+                      className="mt-10 flex items-center justify-center rounded-md border border-gray-300 bg-white px-3 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      onClick={handleMinusQuantity}
+                    >
+                      -
+                    </button>
+                    <span className="mt-10 flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-700">
+                      {quantity}
+                    </span>
+                    <button
+                      className="mt-10 flex items-center justify-center rounded-md border border-gray-300 bg-white px-3 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      onClick={handlePlusQuantity}
+                    >
+                      +
+                    </button>
+                  </div>
+
+                  <button
+                    onClick={handleAddToCart}
+                    className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  >
+                    Add to bag
+                  </button>
+                </div>
               </form>
             </div>
             <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
@@ -529,7 +566,7 @@ function ProductOverviews() {
             </div>
           </div>
         </div>
-        <hr class="border-0 h-px bg-black" />
+        <hr className="border-0 h-px bg-black" />
       </div>
     </>
   );

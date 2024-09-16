@@ -4,7 +4,23 @@ import { Link, NavLink } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-function Header() {
+import iconCart from '../../assets/images/iconCart.png' 
+import { useSelector, useDispatch } from 'react-redux' 
+import { toggleStatusTab } from '../../stores/cart'
+
+const Header = () => {
+  const [totalQuantity, setTotalQuantity] = useState(0);
+    const carts = useSelector(store => store.cart.items);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        let total = 0;
+        carts.forEach(item => total += item.quantity);
+        setTotalQuantity(total);
+    }, [carts])
+    const handleOpenTabCart = () => {
+        dispatch(toggleStatusTab());
+    }
+
   const [showInput, setShowInput] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const inputRef = useRef(null);
@@ -470,16 +486,12 @@ function Header() {
 
                   {/* <!-- Cart --> */}
                   <div className="ml-4 flow-root lg:ml-6">
-                    <NavLink
-                      to="/ShoppingCart"
-                      className="flex p-2 text-gray-600 hover:text-gray-500"
-                    >
-                      <AiOutlineShoppingCart className="text-3xl mt-2 font-extrabold relative" />
-                      <span className="absolute mb-8 ml-2 text-sm font-medium text-red-700 bg-white rounded-full px-[4px] group-hover:text-red-800">
-                        12
-                      </span>
-                      <span className="sr-only">items in cart, view bag</span>
-                    </NavLink>
+                  <div className='w-10 h-10 bg-gray-100 rounded-full
+        flex justify-center items-center relative' onClick={handleOpenTabCart}>
+            <img src={iconCart} alt="" className='w-6'/>
+            <span className='absolute top-2/3 right-1/2 bg-red-500 text-white text-sm
+            w-5 h-5 rounded-full flex justify-center items-center'>{totalQuantity}</span>
+        </div>
                   </div>
                 </div>
               </div>

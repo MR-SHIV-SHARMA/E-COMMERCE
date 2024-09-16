@@ -1,8 +1,9 @@
 import React from "react";
-// import App from "./App.jsx";
 import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { store } from "./stores";
 import "./index.css";
-import { RouterProvider, createBrowserRouter } from "react-router-dom"; // Import RouterProvider and createBrowserRouter
 import Layout from "./Layout.jsx";
 import Main from "./components/Main/Main";
 import Card from "./components/Card/Card";
@@ -134,6 +135,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );

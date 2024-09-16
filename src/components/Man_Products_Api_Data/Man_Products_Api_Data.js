@@ -1,4 +1,4 @@
-const Man = [
+export const Man = [
   {
     id: 1,
     title: "Women’s Sheepskin Coats Archives",
@@ -772,4 +772,3 @@ const Man = [
     ],
   },
 ];
-export default Man;
