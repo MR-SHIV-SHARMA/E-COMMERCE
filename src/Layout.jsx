@@ -23,7 +23,6 @@ function Layout() {
       <CartTab />
       {isHomePage && (
         <>
-          <Home />
           <HomeProduct />
           <Wedding />
           <GenderCard />
