@@ -2,19 +2,22 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 // import Home from "../Home_Products_Api_Data/Home_Products_Api_Data";
 import { Man } from "../Man_Products_Api_Data/Man_Products_Api_Data";
-// import Woman from "../Woman_Products_Api_Data/Woman_Products_Api_Data";
-// import Kids from "../Kids_Products_Api_Data/Kids_Products_Api_Data";
+import { Woman } from "../Woman_Products_Api_Data/Woman_Products_Api_Data";
+import { Kids } from "../Kids_Products_Api_Data/Kids_Products_Api_Data";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../stores/cart";
 
 function ProductOverviews() {
+
+  const products = [...Man, ...Kids, ...Woman];
+
   const { id } = useParams();
   const [product, setProduct] = useState([]);
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
   useEffect(() => {
-    const findDetail = Man.filter((product) => product.id === parseInt(id));
+    const findDetail = products.filter((product) => product.id === parseInt(id));
     if (findDetail.length > 0) {
       setProduct(findDetail[0]);
     } else {

@@ -1,27 +1,32 @@
 import React, { useState, useEffect } from "react";
-import Home from "../Home_Products_Api_Data/Home_Products_Api_Data";
+import { Home } from "../Home_Products_Api_Data/Home_Products_Api_Data";
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart } from "../../stores/cart";
 
-// Component for displaying detailed information of a single product
-function ProductDetailPage({
-  images,
-  title,
-  price,
-  description,
-  stock,
-  brand,
-  category,
-  sub_category,
-  discountPercentage,
-  rating,
-}) {
-  // Placeholder function for adding the product to cart
+function ProductDetailPage(props) {
+  const carts = useSelector((store) => store.cart.items);
+  const {
+    id,
+    title,
+    price,
+    images,
+    slug,
+    sub_category,
+    category,
+    brand,
+    rating,
+    description,
+    stock,
+    discountPercentage,
+  } = props.data;
+  const dispatch = useDispatch();
   const handleAddToCart = () => {
-    // Add to cart logic here
-  };
-
-  // Placeholder function for buying the product now
-  const handleBuyNow = () => {
-    // Buy now logic here
+    dispatch(
+      addToCart({
+        productId: id,
+        quantity: 1,
+      })
+    );
   };
 
   return (
@@ -79,7 +84,10 @@ function ProductDetailPage({
               <option value="black">Black</option>
             </select>
           </div>
-          <p className="text-lg font-medium mb-4 sm:mb-0">Stock: {stock}%</p>
+          <p className="text-lg font-medium mb-4 sm:mb-0">
+            Stock:
+            {stock}%
+          </p>
           <div className="flex flex-col lg:flex-row lg:items-center gap-4 mb-6 sm:mb-0">
             <label htmlFor="quantity" className="text-lg font-medium lg:w-1/3">
               Quantity:
@@ -103,7 +111,7 @@ function ProductDetailPage({
               Add to Cart
             </button>
             <button
-              onClick={handleBuyNow}
+              // onClick={handleBuyNow}
               className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition"
             >
               Buy Now
@@ -111,21 +119,6 @@ function ProductDetailPage({
           </div>
         </div>
       </div>
-    </div>
-  );
-}
-
-// Component for displaying a recommended product
-function RecommendedProduct({ title, images, price }) {
-  return (
-    <div className="flex flex-col items-center mb-8 lg:mb-0 lg:w-1/4 px-2">
-      <img
-        src={images}
-        alt={title}
-        className="w-full h-48 object-cover rounded-lg shadow-lg mb-4"
-      />
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <p className="text-gray-600 font-medium">Price: ${price}</p>
     </div>
   );
 }
@@ -141,9 +134,6 @@ function ProductDetailPagePage() {
 
   // State for filtered products
   const [filteredProducts, setFilteredProducts] = useState(Home);
-
-  // State for recommended products
-  const [recommendedProducts, setRecommendedProducts] = useState([]);
 
   // Effect hook for updating filtered and recommended products when filters change
   useEffect(() => {
@@ -235,7 +225,6 @@ function ProductDetailPagePage() {
 
     const shuffledFiltered = shuffleArray(filtered);
     setFilteredProducts(shuffledFiltered);
-    setRecommendedProducts(shuffledFiltered.slice(0, 3));
   }, [
     selectedCategory,
     selectedBrand,
@@ -396,43 +385,13 @@ function ProductDetailPagePage() {
 
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap justify-center gap-6">
-          {/* Display filtered products */}
-          {filteredProducts.map((item) => (
-            // <div
-            //   key={item.id}
-            //   className="sm:w-11/12 md:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/6"
-            // >
-            <ProductDetailPage
-              key={item.id}
-              title={item.title}
-              brand={item.brand}
-              sub_category={item.sub_category}
-              category={item.category}
-              images={item.images}
-              stock={item.stock}
-              discountPercentage={item.discountPercentage}
-              rating={item.rating}
-              description={item.description}
-              price={item.price} // Ensure that `price` is in the correct currency
-            />
-            // </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="mt-4">
-        <h2 className="text-3xl font-semibold text-gray-900 mb-6 ml-4">
-          Recommended Products
-        </h2>
-        <div className="flex flex-wrap justify-center gap-6">
-          {/* Display recommended products */}
-          {recommendedProducts.map((item) => (
-            <RecommendedProduct
-              key={item.id}
-              title={item.title}
-              images={item.images}
-              price={item.price} // Ensure that `price` is in the correct currency
-            />
+          {filteredProducts.map((product, Key) => (
+            <div
+              key={product.id}
+              //   className="sm:w-11/12 md:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/6"
+            >
+              <ProductDetailPage key={Key} data={product} />
+            </div>
           ))}
         </div>
       </div>

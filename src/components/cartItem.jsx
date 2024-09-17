@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Man } from "../components/Man_Products_Api_Data/Man_Products_Api_Data";
+import { Woman } from "../components/Woman_Products_Api_Data/Woman_Products_Api_Data";
+import { Kids } from "../components/Kids_Products_Api_Data/Kids_Products_Api_Data";
 import { useDispatch } from "react-redux";
 import { changeQuantity } from "../stores/cart";
 
 const CartItem = (props) => {
+  const apiData = [...Man, ...Woman, ...Kids];
   const { productId, quantity } = props.data;
   const [detail, setDetail] = useState(null);
   const dispatch = useDispatch();
   useEffect(() => {
-    const findDetail = Man.find((product) => product.id === productId);
+    const findDetail = apiData.find((product) => product.id === productId);
     setDetail(findDetail || {});
   }, [productId]);
   const handleMinusQuantity = () => {

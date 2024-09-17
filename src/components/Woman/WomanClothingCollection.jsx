@@ -1,9 +1,22 @@
 import React, { useState, useEffect } from "react";
-import Woman from "../Woman_Products_Api_Data/Woman_Products_Api_Data";
+import { Woman } from "../Woman_Products_Api_Data/Woman_Products_Api_Data";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link, useLocation } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart } from "../../stores/cart";
 
-function WomanClothingCollection({ id, images, title, price }) {
+function WomanClothingCollection(props) {
+  const carts = useSelector((store) => store.cart.items);
+  const { id, title, price, images, slug } = props.data;
+  const dispatch = useDispatch();
+  const handleAddToCart = () => {
+    dispatch(
+      addToCart({
+        productId: id,
+        quantity: 1,
+      })
+    );
+  };
   return (
     <div className="container flex flex-col items-center">
       <div className="w-[300px] sm:w-[230px] sm:h-[350px] rounded-t-md overflow-hidden image-container">
@@ -20,7 +33,10 @@ function WomanClothingCollection({ id, images, title, price }) {
       <div className="w-[300px] sm:w-[230px] h-[60px] bg-white flex justify-between p-2 rounded-b-md mb-4">
         <h1 className="text-sm font-semibold text-black">{title}</h1>
         <div className="flex flex-col justify-start">
-          <AiOutlineShoppingCart className="text-2xl text-black" />
+          <AiOutlineShoppingCart
+            className="text-2xl text-black cursor-pointer"
+            onClick={handleAddToCart}
+          />
           <p className="text-base font-semibold text-black">${price}</p>
         </div>
       </div>
@@ -38,7 +54,7 @@ function WomanClothingCollectionPage() {
   const initialBrand = queryParams.get("Brand") || "all";
 
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
-  const [selectedAccessory, setSelectedAccessory] = useState(initialAccessory); 
+  const [selectedAccessory, setSelectedAccessory] = useState(initialAccessory);
   const [selectedBrand, setSelectedBrand] = useState(initialBrand);
 
   const [selectedRange, setSelectedRange] = useState("all");
@@ -311,19 +327,12 @@ function WomanClothingCollectionPage() {
       </div>
 
       <div className="flex flex-wrap justify-around pt-8 pb-4 bg-zinc-300">
-        {currentItems.map((item) => (
+        {currentItems.map((product, Key) => (
           <div
-            key={item.id}
+            key={product.id}
             className="sm:w-11/12 md:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/6"
           >
-            <WomanClothingCollection
-              key={item.id}
-              id={item.id}
-              title={item.title}
-              images={item.images}
-              description={item.description}
-              price={item.price}
-            />
+            <WomanClothingCollection key={Key} data={product} />
           </div>
         ))}
       </div>

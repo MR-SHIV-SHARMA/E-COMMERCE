@@ -1,7 +1,7 @@
-const Woman = [
+export const Woman = [
   {
-    id: 1,
-    title: "Women’s Sheepskin Coats Archives",
+    id: 38,
+    title: "Women's Sheepskin Coats Archives",
     description: "An apple mobile which is nothing like apple",
     price: 549,
     discountPercentage: 12.96,
@@ -21,7 +21,7 @@ const Woman = [
     ],
   },
   {
-    id: 2,
+    id: 39,
     title: "Rayane Ketlyn Stylish Fashion Outfits",
     description:
       "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
@@ -41,7 +41,7 @@ const Woman = [
     ],
   },
   {
-    id: 3,
+    id: 40,
     title: "Tokyo Talkies",
     description:
       "Samsung's new variant which goes beyond Galaxy to the Universe",
@@ -58,7 +58,7 @@ const Woman = [
     ],
   },
   {
-    id: 4,
+    id: 41,
     title: "DressBerry",
     description: "OPPO F19 is officially announced on April 2021.",
     price: 280,
@@ -78,10 +78,10 @@ const Woman = [
     ],
   },
   {
-    id: 5,
+    id: 42,
     title: "Zara leather jacket",
     description:
-      "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
+      "Huawei's re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
     price: 499,
     discountPercentage: 45.58,
     rating: 4.09,
@@ -97,7 +97,7 @@ const Woman = [
     ],
   },
   {
-    id: 6,
+    id: 43,
     title: "Faux Fur",
     description:
       "MacBook Pro 2021 with mini-LED display may launch between September, November",
@@ -117,7 +117,7 @@ const Woman = [
     ],
   },
   {
-    id: 7,
+    id: 44,
     title: "Ripped Jeans",
     description:
       "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
@@ -137,7 +137,7 @@ const Woman = [
     ],
   },
   {
-    id: 8,
+    id: 45,
     title: "Jewel Strappy Bralette Top",
     description:
       "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
@@ -158,7 +158,7 @@ const Woman = [
     ],
   },
   {
-    id: 9,
+    id: 46,
     title: "Infinix INBOOK",
     description:
       "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
@@ -179,7 +179,7 @@ const Woman = [
     ],
   },
   {
-    id: 10,
+    id: 47,
     title: "HP Pavilion 15-DK1056WM",
     description:
       "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
@@ -199,7 +199,7 @@ const Woman = [
     ],
   },
   {
-    id: 11,
+    id: 48,
     title: "perfume Oil",
     description:
       "Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil",
@@ -219,7 +219,7 @@ const Woman = [
     ],
   },
   {
-    id: 12,
+    id: 49,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -239,7 +239,7 @@ const Woman = [
     ],
   },
   {
-    id: 13,
+    id: 50,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -259,7 +259,7 @@ const Woman = [
     ],
   },
   {
-    id: 14,
+    id: 51,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -279,7 +279,7 @@ const Woman = [
     ],
   },
   {
-    id: 15,
+    id: 52,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -299,7 +299,7 @@ const Woman = [
     ],
   },
   {
-    id: 16,
+    id: 53,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -319,7 +319,7 @@ const Woman = [
     ],
   },
   {
-    id: 17,
+    id: 54,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -339,7 +339,7 @@ const Woman = [
     ],
   },
   {
-    id: 18,
+    id: 55,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -359,7 +359,7 @@ const Woman = [
     ],
   },
   {
-    id: 19,
+    id: 56,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -379,7 +379,7 @@ const Woman = [
     ],
   },
   {
-    id: 20,
+    id: 57,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -399,7 +399,7 @@ const Woman = [
     ],
   },
   {
-    id: 21,
+    id: 58,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -419,7 +419,7 @@ const Woman = [
     ],
   },
   {
-    id: 22,
+    id: 59,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -439,7 +439,7 @@ const Woman = [
     ],
   },
   {
-    id: 23,
+    id: 60,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -459,7 +459,7 @@ const Woman = [
     ],
   },
   {
-    id: 24,
+    id: 61,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -479,7 +479,7 @@ const Woman = [
     ],
   },
   {
-    id: 25,
+    id: 62,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -499,7 +499,7 @@ const Woman = [
     ],
   },
   {
-    id: 26,
+    id: 63,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -519,7 +519,7 @@ const Woman = [
     ],
   },
   {
-    id: 27,
+    id: 64,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -539,7 +539,7 @@ const Woman = [
     ],
   },
   {
-    id: 28,
+    id: 65,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -559,7 +559,7 @@ const Woman = [
     ],
   },
   {
-    id: 29,
+    id: 66,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -579,7 +579,7 @@ const Woman = [
     ],
   },
   {
-    id: 30,
+    id: 67,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -599,7 +599,7 @@ const Woman = [
     ],
   },
   {
-    id: 31,
+    id: 68,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -619,7 +619,7 @@ const Woman = [
     ],
   },
   {
-    id: 32,
+    id: 69,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -639,7 +639,7 @@ const Woman = [
     ],
   },
   {
-    id: 33,
+    id: 70,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -658,7 +658,7 @@ const Woman = [
     ],
   },
   {
-    id: 34,
+    id: 71,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -677,7 +677,7 @@ const Woman = [
     ],
   },
   {
-    id: 35,
+    id: 72,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -696,7 +696,7 @@ const Woman = [
     ],
   },
   {
-    id: 36,
+    id: 73,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -715,7 +715,7 @@ const Woman = [
     ],
   },
   {
-    id: 36,
+    id: 74,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -735,7 +735,7 @@ const Woman = [
     ],
   },
   {
-    id: 37,
+    id: 75,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -755,4 +755,3 @@ const Woman = [
     ],
   },
 ];
-export default Woman;
