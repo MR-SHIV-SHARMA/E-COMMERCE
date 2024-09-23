@@ -3,23 +3,23 @@ import { useState, useEffect, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import iconCart from '../../assets/images/iconCart.png' 
-import { useSelector, useDispatch } from 'react-redux' 
-import { toggleStatusTab } from '../../stores/cart'
+// import { AiOutlineShoppingCart } from "react-icons/ai";
+import iconCart from "../../assets/images/iconCart.png";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleStatusTab } from "../../stores/cart";
 
 const Header = () => {
   const [totalQuantity, setTotalQuantity] = useState(0);
-    const carts = useSelector(store => store.cart.items);
-    const dispatch = useDispatch();
-    useEffect(() => {
-        let total = 0;
-        carts.forEach(item => total += item.quantity);
-        setTotalQuantity(total);
-    }, [carts])
-    const handleOpenTabCart = () => {
-        dispatch(toggleStatusTab());
-    }
+  const carts = useSelector((store) => store.cart.items);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    let total = 0;
+    carts.forEach((item) => (total += item.quantity));
+    setTotalQuantity(total);
+  }, [carts]);
+  const handleOpenTabCart = () => {
+    dispatch(toggleStatusTab());
+  };
 
   const [showInput, setShowInput] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -465,33 +465,35 @@ const Header = () => {
                   </div>
 
                   {/* <!-- Search --> */}
-                  <div className="flex lg:ml-6" ref={inputRef}>
+                  <div className="flex lg:ml-6 relative" ref={inputRef}>
                     {showInput && (
                       <input
                         type="text"
                         placeholder="Search items"
                         value={searchQuery}
                         onChange={handleInputChange}
-                        className="px-2 py-1 border text-black font-semibold border-gray-300 focus:outline-none rounded-full"
+                        className="px-2 py-1 border text-black font-semibold border-gray-300 focus:outline-none rounded-full absolute right-8 top-0 z-40"
                       />
                     )}
                     <Link
-                      className="p-2 text-gray-400 hover:text-gray-500 bg-white rounded-full ml-2"
+                      className="p-2 text-gray-400 hover:text-gray-500 bg-white rounded-full z-50"
                       onClick={handleSearchClick}
                     >
-                      {/* <span className="sr-only">Search</span> */}
                       <FaSearch />
                     </Link>
                   </div>
 
                   {/* <!-- Cart --> */}
                   <div className="ml-4 flow-root lg:ml-6">
-                  <div className='w-10 h-10 bg-gray-100 rounded-full
-        flex justify-center items-center relative' onClick={handleOpenTabCart}>
-            <img src={iconCart} alt="" className='w-6'/>
-            <span className='absolute top-2/3 right-1/2 bg-red-500 text-white text-sm
-            w-5 h-5 rounded-full flex justify-center items-center'>{totalQuantity}</span>
-        </div>
+                    <div
+                      className="w-10 h-10 bg-gray-100 rounded-full flex justify-center items-center relative"
+                      onClick={handleOpenTabCart}
+                    >
+                      <img src={iconCart} alt="" className="w-6" />
+                      <span className="absolute top-2/3 right-1/2 bg-red-500 text-white text-sm w-5 h-5 rounded-full flex justify-center items-center">
+                        {totalQuantity}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -501,5 +503,5 @@ const Header = () => {
       </div>
     </div>
   );
-}
+};
 export default Header;
