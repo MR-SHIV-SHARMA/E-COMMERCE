@@ -2,18 +2,33 @@ import React, { useState, useEffect } from "react";
 import { Man } from "../components/Man_Products_Api_Data/Man_Products_Api_Data";
 import { Woman } from "../components/Woman_Products_Api_Data/Woman_Products_Api_Data";
 import { Kids } from "../components/Kids_Products_Api_Data/Kids_Products_Api_Data";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { changeQuantity } from "../stores/cart";
+
+export const calculateTotalAmount = (carts, apiData) => {
+  return carts.reduce((sum, item) => {
+    const itemDetail = apiData.find((product) => product.id === item.productId);
+    return sum + (itemDetail ? itemDetail.price * item.quantity : 0);
+  }, 0);
+};
 
 const CartItem = (props) => {
   const apiData = [...Man, ...Woman, ...Kids];
   const { productId, quantity } = props.data;
   const [detail, setDetail] = useState(null);
   const dispatch = useDispatch();
+  const carts = useSelector((store) => store.cart.items);
+
   useEffect(() => {
     const findDetail = apiData.find((product) => product.id === productId);
     setDetail(findDetail || {});
   }, [productId]);
+
+  useEffect(() => {
+    const total = calculateTotalAmount(carts, apiData);
+    props.setTotalAmount(total);
+  }, [carts, apiData]);
+
   const handleMinusQuantity = () => {
     dispatch(
       changeQuantity({
@@ -22,6 +37,7 @@ const CartItem = (props) => {
       })
     );
   };
+
   const handlePlusQuantity = () => {
     dispatch(
       changeQuantity({
@@ -30,8 +46,9 @@ const CartItem = (props) => {
       })
     );
   };
+
   return (
-    <div className="flex justify-between items-center bg-slate-600 text-white p-2 border-b-2 border-slate-700 gap-5 rounded-md">
+    <div className="flex justify-between items-center bg-slate-600 text-white p-2 border-b-2 border-slate-700 gap-2 sm:gap-5 rounded-md">
       {detail && (
         <>
           <img src={detail.images} alt="" className="w-12" />
