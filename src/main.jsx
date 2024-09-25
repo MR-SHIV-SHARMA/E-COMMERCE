@@ -27,6 +27,7 @@ import WomanStoarNav from "./components/Header/WomanStoreNev/WomanStoreNav.jsx";
 import ManStoreNav from "./components/Header/ManStoreNav/ManStoreNav.jsx";
 import KidStoreNav from "./components/Header/KidStoreNav/KidStoreNav.jsx";
 import CheckOutPage from "./components/CheckOutPage/CheckOutPage.jsx";
+import Search from "./components/Search/Search.jsx"
 
 const router = createBrowserRouter([
   {
@@ -84,6 +85,10 @@ const router = createBrowserRouter([
       {
         path: "/ProductOverviews",
         element: <ProductOverviews />,
+      },
+      {
+        path: "/search",
+        element: <Search />,
       },
       {
         path: "/ShoppingCart/CheckOutPage",
