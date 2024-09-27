@@ -1,42 +1,52 @@
-import React, { useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
-import axios from "axios";
+import React, { useState } from "react"; // Imported React and useState library
+import toast, { Toaster } from "react-hot-toast"; // Imported toast and its toaster
+import axios from "axios"; // Imported axios
 
 function ApplicationUISignIn() {
+  // Created ApplicationUISignIn function
   const [user, setUser] = useState({
-    email: "",
-    password: "",
+    // Created user state
+    email: "", // Set initial value of email to empty string
+    password: "", // Set initial value of password to empty string
   });
 
   const onSignin = async (event) => {
-    event.preventDefault();
+    // Created onSignin function
+    event.preventDefault(); // Prevented default event
     try {
+      // Tried
       const response = await axios.post(
-        "https://shiv-vibes.vercel.app/api/users/login",
-        user
+        // Created axios post request
+        "https://shiv-vibes.vercel.app/api/users/login", // Set URL
+        user, // Sent user data
+        {
+          headers: {
+            "Content-Type": "application/json", // Set header
+          },
+        }
       );
-      console.log("login successful", response.data);
-      // toast.success("Please check your email", {duration: 3000});
-      toast.success("login in successful", { duration: 3000 });
+      console.log("login successful", response.data); // Logged in successfully
+      toast.success("login in successful", { duration: 3000 }); // Toasted successfully logged in
     } catch (error) {
-      console.log(
-        "login failed",
-        error.response?.data?.error || "An error occurred"
-      );
-      toast.error(error.response?.data?.error || "An error occurred");
+      // Handled error
+      console.error("Login failed", error); // Logged error to console
     }
   };
   return (
     <section>
+      // Created section
       <div class="grid grid-cols-1 lg:grid-cols-2">
-        <Toaster position="top-right" reverseOrder={false} />
+        // Created grid
+        <Toaster position="top-right" reverseOrder={false} /> // Created toaster
         <div class="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
+          // Created flex
           <div class="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md">
+            // Created div
             <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl">
-              Sign in
+              // Created heading Sign in // Signed in
             </h2>
             <p class="mt-2 text-sm text-gray-600">
-              Don&#x27;t have an account?{" "}
+              // Created paragraph Don&#x27;t have an account? // Created text
               <a
                 href="CreateAccount"
                 title=""
@@ -46,13 +56,16 @@ function ApplicationUISignIn() {
               </a>
             </p>
             <form onSubmit={onSignin} method="POST" class="mt-8">
+              // Created form
               <div class="space-y-5">
+                // Created div
                 <div>
+                  // Created div
                   <label for="" class="text-base font-medium text-gray-900">
-                    {" "}
-                    Email address{" "}
+                    // Created label Email address // Created email address
                   </label>
                   <div class="mt-2">
+                    // Created div
                     <input
                       class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       type="email"
@@ -65,21 +78,22 @@ function ApplicationUISignIn() {
                   </div>
                 </div>
                 <div>
+                  // Created div
                   <div class="flex items-center justify-between">
+                    // Created div
                     <label for="" class="text-base font-medium text-gray-900">
-                      {" "}
-                      Password{" "}
+                      // Created label Password // Created password
                     </label>
                     <a
                       href="#"
                       title=""
                       class="text-sm font-semibold text-black hover:underline"
                     >
-                      {" "}
-                      Forgot password?{" "}
+                      Forgot password? // Forgot password?
                     </a>
                   </div>
                   <div class="mt-2">
+                    // Created div
                     <input
                       class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       type="password"
@@ -92,11 +106,12 @@ function ApplicationUISignIn() {
                   </div>
                 </div>
                 <div>
+                  // Created div
                   <button
                     type="submit"
                     class="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
                   >
-                    Get started{" "}
+                    Get started
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -117,6 +132,7 @@ function ApplicationUISignIn() {
               </div>
             </form>
             <div class="mt-3 space-y-3">
+              // Created div
               <button
                 type="button"
                 class="relative inline-flex w-full items-center justify-center rounded-md border border-gray-400 bg-white px-3.5 py-2.5 font-semibold text-gray-700 transition-all duration-200 hover:bg-gray-100 hover:text-black focus:bg-gray-100 focus:text-black focus:outline-none"
@@ -153,6 +169,7 @@ function ApplicationUISignIn() {
           </div>
         </div>
         <div class="h-full w-full image-container">
+          // Created div
           <img
             class="mx-auto h-full w-full rounded-md object-cover zoom-image"
             src="https://images.unsplash.com/photo-1630673245362-f69d2b93880e?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1740&amp;q=80"
@@ -164,4 +181,4 @@ function ApplicationUISignIn() {
   );
 }
 
-export default ApplicationUISignIn;
+export default ApplicationUISignIn; // Exported ApplicationUISignIn function

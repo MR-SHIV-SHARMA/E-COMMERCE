@@ -27,7 +27,7 @@ import WomanStoarNav from "./components/Header/WomanStoreNev/WomanStoreNav.jsx";
 import ManStoreNav from "./components/Header/ManStoreNav/ManStoreNav.jsx";
 import KidStoreNav from "./components/Header/KidStoreNav/KidStoreNav.jsx";
 import CheckOutPage from "./components/CheckOutPage/CheckOutPage.jsx";
-import Search from "./components/Search/Search.jsx"
+import Search from "./components/Search/Search.jsx";
 
 const router = createBrowserRouter([
   {
@@ -59,19 +59,19 @@ const router = createBrowserRouter([
         element: <ProductOverviews />,
       },
       {
-        path: "Man",
+        path: "/Man",
         element: <Man />,
       },
       {
-        path: "Woman",
+        path: "/Woman",
         element: <Woman />,
       },
       {
-        path: "Kids",
+        path: "/Kids",
         element: <Kids />,
       },
       {
-        path: "ApplicationUISignIn",
+        path: "/ApplicationUISignIn",
         element: <ApplicationUISignIn />,
       },
       {
@@ -99,39 +99,39 @@ const router = createBrowserRouter([
         element: <ParentComponent />,
       },
       {
-        path: "WomanStoarNav",
+        path: "/WomanStoarNav",
         element: <WomanStoarNav />,
       },
       {
-        path: "ManStoreNav",
+        path: "/ManStoreNav",
         element: <ManStoreNav />,
       },
       {
-        path: "KidStoreNav",
+        path: "/KidStoreNav",
         element: <KidStoreNav />,
       },
       {
-        path: "CreateAccount",
+        path: "/CreateAccount",
         element: <CreateAccount />,
       },
       {
-        path: "EmployeesUI",
+        path: "/EmployeesUI",
         element: <EmployeesUI />,
       },
       {
-        path: "ShoppingCart",
+        path: "/ShoppingCart",
         element: <ShoppingCart />,
       },
       {
-        path: "AboutPages",
+        path: "/AboutPages",
         element: <AboutPages />,
       },
       {
-        path: "ContactPages",
+        path: "/ContactPages",
         element: <ContactPages />,
       },
       {
-        path: "MarketingFeatures",
+        path: "/MarketingFeatures",
         element: <MarketingFeatures />,
       },
     ],
