@@ -115,12 +115,14 @@ const Header = () => {
     <div className="bg-gray-700 text-white sticky z-50 top-0 w-full">
       <div className="relative z-40" role="dialog" aria-modal="true">
         <div
-          className={`fixed  bg-black bg-opacity-25 ${isMenuOpen ? "opacity-100" : "opacity-0"
-            }`}
+          className={`fixed  bg-black bg-opacity-25 ${
+            isMenuOpen ? "opacity-100" : "opacity-0"
+          }`}
         ></div>
         <div
-          className={`fixed  z-40 flex ${isMenuOpen ? "translate-x-0" : "-translate-x-full"
-            }`}
+          className={`fixed  z-40 flex ${
+            isMenuOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
         >
           <div className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-1 shadow-xl">
             <div className="flex px-4 pb-2 pt-4 ml-2">
@@ -177,8 +179,9 @@ const Header = () => {
                   >
                     <NavLink
                       to="/WomanStoarNav"
-                      className={({ isActive }) => `block ${isActive ? "text-amber-800" : "text-gray-900"
-                        } 
+                      className={({ isActive }) => `block ${
+                        isActive ? "text-amber-800" : "text-gray-900"
+                      } 
                       border-transparent hover:text-gray-800 text-amber-800 relative flex items-center font-medium transition-colors duration-200 ease-out
                       `}
                     >
@@ -195,8 +198,9 @@ const Header = () => {
                   >
                     <NavLink
                       to="/ManStoreNav"
-                      className={({ isActive }) => `block ${isActive ? "text-amber-800" : "text-gray-900"
-                        } 
+                      className={({ isActive }) => `block ${
+                        isActive ? "text-amber-800" : "text-gray-900"
+                      } 
                       border-transparent hover:text-gray-800 text-amber-800 relative flex items-center font-medium transition-colors duration-200 ease-out
                       `}
                     >
@@ -213,8 +217,9 @@ const Header = () => {
                   >
                     <NavLink
                       to="/KidStoreNav"
-                      className={({ isActive }) => `block ${isActive ? "text-amber-800" : "text-gray-900"
-                        } 
+                      className={({ isActive }) => `block ${
+                        isActive ? "text-amber-800" : "text-gray-900"
+                      } 
                       border-transparent hover:text-gray-800 text-amber-800 relative flex items-center font-medium transition-colors duration-200 ease-out
                       `}
                     >
@@ -230,8 +235,9 @@ const Header = () => {
                 <NavLink
                   onClick={toggleMobileMenu}
                   to="/ContactPages"
-                  className={({ isActive }) => `block ${isActive ? "text-amber-800" : "text-gray-900"
-                    } 
+                  className={({ isActive }) => `block ${
+                    isActive ? "text-amber-800" : "text-gray-900"
+                  } 
                       border-transparent hover:text-gray-800 text-amber-800 relative flex items-center font-medium transition-colors duration-200 ease-out
                       `}
                 >
@@ -242,8 +248,9 @@ const Header = () => {
                 <NavLink
                   onClick={toggleMobileMenu}
                   to="/ProductDetailPagePage"
-                  className={({ isActive }) => `block ${isActive ? "text-amber-800" : "text-gray-900"
-                    } 
+                  className={({ isActive }) => `block ${
+                    isActive ? "text-amber-800" : "text-gray-900"
+                  } 
                       border-transparent hover:text-gray-800 text-amber-800 relative flex items-center font-medium transition-colors duration-200 ease-out
                       `}
                 >
@@ -257,8 +264,9 @@ const Header = () => {
                 <NavLink
                   onClick={toggleMobileMenu}
                   to="ApplicationUISignIn"
-                  className={({ isActive }) => `block ${isActive ? "text-amber-800" : "text-gray-900"
-                    } 
+                  className={({ isActive }) => `block ${
+                    isActive ? "text-amber-800" : "text-gray-900"
+                  } 
                       border-transparent hover:text-gray-800 text-amber-800 relative flex items-center font-medium transition-colors duration-200 ease-out
                       `}
                 >
@@ -269,8 +277,9 @@ const Header = () => {
                 <NavLink
                   onClick={toggleMobileMenu}
                   to="CreateAccount"
-                  className={({ isActive }) => `block ${isActive ? "text-amber-800" : "text-gray-900"
-                    } 
+                  className={({ isActive }) => `block ${
+                    isActive ? "text-amber-800" : "text-gray-900"
+                  } 
                       border-transparent hover:text-gray-800 text-amber-800 relative flex items-center font-medium transition-colors duration-200 ease-out
                       `}
                 >
@@ -335,8 +344,9 @@ const Header = () => {
                       <div className="relative flex">
                         <NavLink
                           to=""
-                          className={({ isActive }) => `block ${isActive ? "text-amber-800" : "text-gray-700"
-                            } 
+                          className={({ isActive }) => `block ${
+                            isActive ? "text-amber-800" : "text-gray-700"
+                          } 
                       border-transparent hover:text-gray-800 text-amber-800 relative z-10 -mb-px flex items-center border-b-2 pt-px text-2xl font-medium transition-colors duration-200 ease-out
                       `}
                         >
@@ -355,8 +365,9 @@ const Header = () => {
                         {/* <!-- Item active: "border-indigo-600 text-indigo-600", Item inactive: "border-transparent text-gray-700 hover:text-gray-800" --> */}
                         <NavLink
                           to="WomanStoarNav"
-                          className={({ isActive }) => `block ${isActive ? "text-amber-800" : "text-gray-700"
-                            } 
+                          className={({ isActive }) => `block ${
+                            isActive ? "text-amber-800" : "text-gray-700"
+                          } 
                       border-transparent hover:text-gray-800 text-amber-800 relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out
                       `}
                         >
@@ -376,8 +387,9 @@ const Header = () => {
                       <div className="relative flex">
                         <NavLink
                           to="KidStoreNav"
-                          className={({ isActive }) => `block ${isActive ? "text-amber-800" : "text-gray-700"
-                            } 
+                          className={({ isActive }) => `block ${
+                            isActive ? "text-amber-800" : "text-gray-700"
+                          } 
                       border-transparent hover:text-gray-800 text-amber-800 relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out
                       `}
                         >
@@ -398,8 +410,9 @@ const Header = () => {
                         {/* <!-- Item active: "border-indigo-600 text-indigo-600", Item inactive: "border-transparent text-gray-700 hover:text-gray-800" --> */}
                         <NavLink
                           to="/ManStoreNav"
-                          className={({ isActive }) => `block ${isActive ? "text-amber-800" : "text-gray-700"
-                            } 
+                          className={({ isActive }) => `block ${
+                            isActive ? "text-amber-800" : "text-gray-700"
+                          } 
                       border-transparent hover:text-gray-800 text-amber-800 relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out
                       `}
                         >
@@ -417,8 +430,9 @@ const Header = () => {
 
                     <NavLink
                       to="/ContactPages"
-                      className={({ isActive }) => `block ${isActive ? "text-amber-800" : "text-gray-700"
-                        } 
+                      className={({ isActive }) => `block ${
+                        isActive ? "text-amber-800" : "text-gray-700"
+                      } 
                       border-transparent hover:text-gray-800 text-amber-800 relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out
                       `}
                     >
@@ -427,8 +441,9 @@ const Header = () => {
 
                     <NavLink
                       to="/ProductDetailPagePage"
-                      className={({ isActive }) => `block ${isActive ? "text-amber-800" : "text-gray-700"
-                        } 
+                      className={({ isActive }) => `block ${
+                        isActive ? "text-amber-800" : "text-gray-700"
+                      } 
                       border-transparent hover:text-gray-800 text-amber-800 relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out
                       `}
                     >
@@ -440,8 +455,9 @@ const Header = () => {
                 <div className="lg:hidden">
                   <NavLink
                     to=""
-                    className={({ isActive }) => `block ${isActive ? "text-amber-800" : "text-gray-700"
-                      } 
+                    className={({ isActive }) => `block ${
+                      isActive ? "text-amber-800" : "text-gray-700"
+                    } 
                       border-transparent hover:text-gray-800 text-amber-800 relative flex items-center p-2 bg-white rounded-full ml-2
                       `}
                   >
@@ -454,8 +470,9 @@ const Header = () => {
                   <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                     <NavLink
                       to="ApplicationUISignIn"
-                      className={({ isActive }) => `block ${isActive ? "text-amber-800" : "text-gray-700"
-                        } 
+                      className={({ isActive }) => `block ${
+                        isActive ? "text-amber-800" : "text-gray-700"
+                      } 
                       border-transparent hover:text-gray-800 text-amber-800 relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out
                       `}
                     >
@@ -467,8 +484,9 @@ const Header = () => {
                     ></span>
                     <NavLink
                       to="CreateAccount"
-                      className={({ isActive }) => `block ${isActive ? "text-amber-800" : "text-gray-700"
-                        } 
+                      className={({ isActive }) => `block ${
+                        isActive ? "text-amber-800" : "text-gray-700"
+                      } 
                       border-transparent hover:text-gray-800 text-amber-800 relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out
                       `}
                     >

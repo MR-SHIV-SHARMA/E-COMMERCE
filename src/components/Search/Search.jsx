@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Man } from "../../components/Man_Products_Api_Data/Man_Products_Api_Data";
+import { Woman } from "../Woman_Products_Api_Data/Woman_Products_Api_Data";
+import { Kids } from "../Kids_Products_Api_Data/Kids_Products_Api_Data";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -23,19 +25,19 @@ function Search(props) {
   };
 
   return (
-    <div className="container flex flex-col items-center bg-zinc-300">
-      <div className="w-[300px] sm:w-[230px] sm:h-[350px] rounded-t-md overflow-hidden image-container">
+    <div className="container flex flex-col items-center shadow-2xl sm:shadow-none my-2 image-container">
+      <div className="w-[300px] sm:w-[230px] sm:h-[350px] rounded-t-md overflow-hidden">
         <Link to={`/ProductOverviews/${id}`}>
           <div className="flex items-center justify-center h-[350px] w-full rounded-t-md overflow-hidden">
             <img
               src={images}
               alt={title}
-              className="w-full h-full object-cover zoom-image"
+              className="w-full h-full object-contain zoom-image"
             />
           </div>
         </Link>
       </div>
-      <div className="w-[300px] sm:w-[230px] h-[60px] bg-white flex justify-between p-2 rounded-b-md mb-4">
+      <div className="w-[300px] sm:w-[230px] h-[60px] bg-white flex justify-between p-2 rounded-b-md">
         <h1 className="text-sm font-semibold text-black">{title}</h1>
         <div className="flex flex-col justify-start">
           <AiOutlineShoppingCart
@@ -108,9 +110,39 @@ function getProducts() {
     setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
   };
 
+  const [searchQuerySearch, setSearchQuery] = useState("");
+
+  const handleInputChange = (e) => {
+    setSearchQuery(e.target.value);
+    const searchQuerySearch = e.target.value.toLowerCase();
+    const filteredData = [...Man, ...Woman, ...Kids].filter((item) => {
+      if (item) {
+        const title = item.title ? item.title.toLowerCase() : "";
+        const brand = item.brand ? item.brand.toLowerCase() : "";
+        const subCategory = item.sub_category
+          ? item.sub_category.toLowerCase()
+          : "";
+        const category = item.category ? item.category.toLowerCase() : "";
+        return (
+          title.includes(searchQuerySearch) ||
+          brand.includes(searchQuerySearch) ||
+          subCategory.includes(searchQuerySearch) ||
+          category.includes(searchQuerySearch)
+        );
+      }
+      return false;
+    });
+    if (filteredData.length > 0 && e.key === "Enter") {
+      const url = `/search?query=${searchQuerySearch}`; // Redirect to search page with query
+      window.location.href = url;
+    } else if (e.key === "Enter" && filteredData.length === 0) {
+      console.log("No results found.");
+    }
+  };
+
   return (
     <div>
-      <div className="flex flex-col items-center bg-zinc-300">
+      <div className="flex flex-col items-center bg-white">
         <h1 className="text-2xl sm:text-4xl font-extrabold text-center pt-2 sm:mt-4">
           Search
         </h1>
@@ -119,16 +151,18 @@ function getProducts() {
         </p>
       </div>
 
-      <div className="flex items-center justify-center px-5 bg-zinc-300 pt-9">
+      <div className="flex items-center justify-center px-5 bg-white pt-9">
         <input
           type="text"
           placeholder="Search..."
+          value={searchQuerySearch}
+          onChange={handleInputChange}
+          onKeyDown={handleInputChange}
           className="border-2 border-gray-300 bg-white h-10 sm:h-14 px-5 pr-16 rounded-lg text-sm focus:outline-none w-full"
-          onChange={(e) => setSearchQuery(e.target.value)}
         />
       </div>
 
-      <div className="flex flex-wrap justify-around pt-8 pb-4 bg-zinc-300">
+      <div className="flex flex-wrap justify-around pt-8 pb-4 bg-white">
         {currentItems.map((product, Key) => (
           <div
             key={product.id}
@@ -139,7 +173,7 @@ function getProducts() {
         ))}
       </div>
 
-      <div className="flex justify-between items-center bg-zinc-300 space-x-2 pb-4 px-8">
+      <div className="flex justify-between items-center bg-white space-x-2 pb-4 px-8">
         <span className="text-black">
           Page {currentPage} of {totalPages}
         </span>

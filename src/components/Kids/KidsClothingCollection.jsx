@@ -18,19 +18,19 @@ function KidsClothingCollection(props) {
     );
   };
   return (
-    <div className="container flex flex-col items-center">
-      <div className="w-[300px] sm:w-[230px] sm:h-[350px] rounded-t-md overflow-hidden image-container">
+    <div className="container flex flex-col items-center shadow-2xl sm:shadow-none my-2 image-container">
+      <div className="w-[300px] sm:w-[230px] sm:h-[350px] rounded-t-md overflow-hidden">
         <Link to={`/ProductOverviews/${id}`}>
           <div className="flex items-center justify-center h-[350px] w-full rounded-t-md overflow-hidden">
             <img
               src={images}
               alt={title}
-              className="w-full h-full object-cover zoom-image"
+              className="w-full h-full object-contain zoom-image"
             />
           </div>
         </Link>
       </div>
-      <div className="w-[300px] sm:w-[230px] h-[60px] bg-white flex justify-between p-2 rounded-b-md mb-4">
+      <div className="w-[300px] sm:w-[230px] h-[60px] bg-white flex justify-between p-2 rounded-b-md">
         <h1 className="text-sm font-semibold text-black">{title}</h1>
         <div className="flex flex-col justify-start">
           <AiOutlineShoppingCart
@@ -208,7 +208,7 @@ function getProducts() {
 
   return (
     <div>
-      <div className="flex flex-col items-center bg-zinc-300">
+      <div className="flex flex-col items-center bg-white">
         <h1 className="text-2xl sm:text-3xl font-extrabold text-center pt-2 sm:mt-4">
           KIDS CLOTHING COLLECTION
         </h1>
@@ -326,7 +326,7 @@ function getProducts() {
         )}
       </div>
 
-      <div className="flex flex-wrap justify-around pt-8 pb-4 bg-zinc-300">
+      <div className="flex flex-wrap justify-around pt-8 pb-4 bg-white">
         {currentItems.map((product, Key) => (
           <div
             key={product.id}
@@ -337,7 +337,7 @@ function getProducts() {
         ))}
       </div>
 
-      <div className="flex justify-between items-center bg-zinc-300 space-x-2 pb-4 px-8">
+      <div className="flex justify-between items-center bg-white space-x-2 pb-4 px-8">
         <span className="text-black">
           Page {currentPage} of {totalPages}
         </span>
