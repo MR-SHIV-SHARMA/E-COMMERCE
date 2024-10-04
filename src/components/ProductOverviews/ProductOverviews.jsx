@@ -9,7 +9,6 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../stores/cart";
 
 function ProductOverviews() {
-
   const products = [...Man, ...Kids, ...Woman];
 
   const { id } = useParams();
@@ -17,7 +16,9 @@ function ProductOverviews() {
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
   useEffect(() => {
-    const findDetail = products.filter((product) => product.id === parseInt(id));
+    const findDetail = products.filter(
+      (product) => product.id === parseInt(id)
+    );
     if (findDetail.length > 0) {
       setProduct(findDetail[0]);
     } else {

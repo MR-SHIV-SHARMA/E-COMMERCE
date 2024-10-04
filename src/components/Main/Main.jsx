@@ -73,7 +73,8 @@ export default function Main() {
                 to="/ProductDetailPagePage"
                 className="my-4 text-sm sm:text-base lg:text- font-bold leading-6 sm:leading-9 md:leading-9 lg:leading-9 tracking-tight bg-white rounded-full text-black px-4 sm:px-5 md:px-6 lg:px-8 py-1 duration-200 inline-block shadow-lg hover:bg-gray-200"
               >
-                Buy Now
+                {/* Buy Now */}
+                Explore Now
               </NavLink>
             </div>
           </div>

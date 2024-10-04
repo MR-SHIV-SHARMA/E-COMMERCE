@@ -4,8 +4,8 @@ import { Gender } from "../Home_Products_Api_Data/Home_Products_Api_Data";
 
 function GenderCard({ username, thumbnail, btntext }) {
   return (
-    <div className="flex flex-col md:flex-row items-start">
-      <div className="relative h-[400px] md:w-[400px] rounded-md mb-4 md:mb-0 image-container">
+    <div className="flex flex-col md:flex-row">
+      <div className="relative h-[400px] rounded-md mb-4 md:mb-0 image-container">
         <img
           src={thumbnail}
           alt="AirMax Pro"
@@ -31,12 +31,9 @@ function ThreeCardMWC() {
 
   return (
     <div>
-      <div className="flex flex-wrap justify-around my-6">
+      <div className="sm:flex flex-wrap justify-around my-6">
         {users.map((user) => (
-          <div
-            key={user.id}
-            className="sm:w:1/3 p-4 flex flex-wrap justify-around"
-          >
+          <div key={user.id} className="sm:w:1/3 p-4 ">
             <GenderCard
               id={user.id}
               username={user.username}

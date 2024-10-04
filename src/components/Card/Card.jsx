@@ -24,7 +24,7 @@ const Card = (props) => {
   // JSX for rendering the product card
   return (
     <div className="container flex flex-col items-center shadow-2xl sm:shadow-none my-2 image-container">
-      <div className="w-[300px] sm:w-[230px] sm:h-[350px] rounded-t-md overflow-hidden">
+      <div className="h-[350px] rounded-t-md overflow-hidden">
         <Link to={`/ProductOverviews/${id}`}>
           <div className="flex items-center justify-center h-[350px] w-full rounded-t-md overflow-hidden">
             <img
@@ -35,9 +35,9 @@ const Card = (props) => {
           </div>
         </Link>
       </div>
-      <div className="w-[300px] sm:w-[230px] h-[60px] bg-white flex justify-between p-2 rounded-b-md">
+      <div className="w-[300px] sm:w-[230px] h-[60px] bg-white flex justify-between p-2 rounded-b-md shadow-md transition duration-300 ease-in-out transform hover:scale-110">
         <h1 className="text-sm font-semibold text-black">{title}</h1>
-        <div className="flex flex-col justify-start">
+        <div className="flex flex-col justify-start items-end">
           <AiOutlineShoppingCart
             className="text-2xl text-black cursor-pointer"
             onClick={handleAddToCart}

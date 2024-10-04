@@ -112,7 +112,7 @@ const Header = () => {
   };
 
   return (
-    <div className="bg-gray-700 text-white sticky z-50 top-0 w-full">
+    <div className="bg-gray-700 text-black sticky z-50 top-0 w-full">
       <div className="relative z-40" role="dialog" aria-modal="true">
         <div
           className={`fixed  bg-black bg-opacity-25 ${
@@ -120,7 +120,7 @@ const Header = () => {
           }`}
         ></div>
         <div
-          className={`fixed  z-40 flex ${
+          className={`fixed min-h-full z-40 flex ${
             isMenuOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
@@ -128,7 +128,7 @@ const Header = () => {
             <div className="flex px-4 pb-2 pt-4 ml-2">
               <button
                 type="button"
-                className="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
+                className="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-900"
                 onClick={toggleMobileMenu} // Directly call toggleMobileMenu
               >
                 <span className="absolute -inset-0.5"></span>
@@ -165,14 +165,14 @@ const Header = () => {
             <div className="">
               <div className="border-b border-gray-200">
                 <div
-                  className="flex space-x-8 px-4"
+                  className="flex space-x-16 px-4"
                   aria-orientation="horizontal"
                   role="tablist"
                 >
                   <button
                     onClick={toggleMobileMenu}
                     id="tabs-1-tab-1"
-                    className="border-transparent text-gray-900 flex-1 whitespace-nowrap border-b-2 px-1 text-base font-medium"
+                    className="border-transparent text-black flex-1 whitespace-nowrap border-b-2 px-1 text-base font-medium"
                     aria-controls="tabs-1-panel-1"
                     role="tab"
                     type="button"
@@ -180,7 +180,7 @@ const Header = () => {
                     <NavLink
                       to="/WomanStoarNav"
                       className={({ isActive }) => `block ${
-                        isActive ? "text-amber-800" : "text-gray-900"
+                        isActive ? "text-amber-800" : "text-black"
                       } 
                       border-transparent hover:text-gray-800 text-amber-800 relative flex items-center font-medium transition-colors duration-200 ease-out
                       `}
@@ -191,7 +191,7 @@ const Header = () => {
                   <button
                     onClick={toggleMobileMenu}
                     id="tabs-1-tab-2"
-                    className="border-transparent text-gray-900 flex-1 whitespace-nowrap border-b-2 px-1 text-base font-medium"
+                    className="border-transparent text-black flex-1 whitespace-nowrap border-b-2 px-1 text-base font-medium"
                     aria-controls="tabs-1-panel-2"
                     role="tab"
                     type="button"
@@ -199,7 +199,7 @@ const Header = () => {
                     <NavLink
                       to="/ManStoreNav"
                       className={({ isActive }) => `block ${
-                        isActive ? "text-amber-800" : "text-gray-900"
+                        isActive ? "text-amber-800" : "text-black"
                       } 
                       border-transparent hover:text-gray-800 text-amber-800 relative flex items-center font-medium transition-colors duration-200 ease-out
                       `}
@@ -210,7 +210,7 @@ const Header = () => {
                   <button
                     onClick={toggleMobileMenu}
                     id="tabs-1-tab-3" // Unique ID for this button
-                    className="border-transparent text-gray-900 flex-1 whitespace-nowrap border-b-2 px-1 text-base font-medium"
+                    className="border-transparent text-black flex-1 whitespace-nowrap border-b-2 px-1 text-base font-medium"
                     aria-controls="tabs-1-panel-3" // Make sure this matches the corresponding panel
                     role="tab"
                     type="button"
@@ -218,7 +218,7 @@ const Header = () => {
                     <NavLink
                       to="/KidStoreNav"
                       className={({ isActive }) => `block ${
-                        isActive ? "text-amber-800" : "text-gray-900"
+                        isActive ? "text-amber-800" : "text-black"
                       } 
                       border-transparent hover:text-gray-800 text-amber-800 relative flex items-center font-medium transition-colors duration-200 ease-out
                       `}
@@ -230,13 +230,13 @@ const Header = () => {
               </div>
             </div>
 
-            <div className="space-y-2 border-t border-gray-200 px-4 py-2">
+            <div className="space-y-8 border-t border-gray-200 px-4 py-6">
               <div className="flow-root">
                 <NavLink
                   onClick={toggleMobileMenu}
                   to="/ContactPages"
                   className={({ isActive }) => `block ${
-                    isActive ? "text-amber-800" : "text-gray-900"
+                    isActive ? "text-amber-800" : "text-black"
                   } 
                       border-transparent hover:text-gray-800 text-amber-800 relative flex items-center font-medium transition-colors duration-200 ease-out
                       `}
@@ -249,7 +249,7 @@ const Header = () => {
                   onClick={toggleMobileMenu}
                   to="/ProductDetailPagePage"
                   className={({ isActive }) => `block ${
-                    isActive ? "text-amber-800" : "text-gray-900"
+                    isActive ? "text-amber-800" : "text-black"
                   } 
                       border-transparent hover:text-gray-800 text-amber-800 relative flex items-center font-medium transition-colors duration-200 ease-out
                       `}
@@ -259,13 +259,13 @@ const Header = () => {
               </div>
             </div>
 
-            <div className="space-y-2 border-t border-gray-200 px-4 py-2">
+            <div className="space-y-8 border-t border-gray-400 px-4 py-8">
               <div className="flow-root">
                 <NavLink
                   onClick={toggleMobileMenu}
                   to="ApplicationUISignIn"
                   className={({ isActive }) => `block ${
-                    isActive ? "text-amber-800" : "text-gray-900"
+                    isActive ? "text-amber-800" : "text-black"
                   } 
                       border-transparent hover:text-gray-800 text-amber-800 relative flex items-center font-medium transition-colors duration-200 ease-out
                       `}
@@ -278,7 +278,7 @@ const Header = () => {
                   onClick={toggleMobileMenu}
                   to="CreateAccount"
                   className={({ isActive }) => `block ${
-                    isActive ? "text-amber-800" : "text-gray-900"
+                    isActive ? "text-amber-800" : "text-black"
                   } 
                       border-transparent hover:text-gray-800 text-amber-800 relative flex items-center font-medium transition-colors duration-200 ease-out
                       `}
@@ -508,24 +508,30 @@ const Header = () => {
                       />
                     )}
                     <p
-                      className="p-2 text-gray-400 hover:text-gray-500 bg-white rounded-full z-50"
+                      className="p-2 text-black hover:text-gray-500 rounded-full z-50"
                       onClick={handleSearchClick}
                     >
-                      <FaSearch />
+                      <FaSearch className="cursor-pointer" />
                     </p>
                   </div>
 
                   {/* <!-- Cart --> */}
                   <div className="ml-4 flow-root lg:ml-6">
-                    <div
-                      className="w-10 h-10 bg-gray-100 rounded-full flex justify-center items-center relative"
-                      onClick={handleOpenTabCart}
-                    >
-                      <img src={iconCart} alt="" className="w-6" />
-                      <span className="absolute top-2/3 right-1/2 bg-red-500 text-white text-sm w-5 h-5 rounded-full flex justify-center items-center">
-                        {totalQuantity}
-                      </span>
-                    </div>
+                    <Link to="/cartTab">
+                      <div
+                        className="w-10 h-10 rounded-full flex justify-center items-center relative"
+                        // onClick={handleOpenTabCart}
+                      >
+                        <img
+                          src={iconCart}
+                          alt=""
+                          className="w-6 cursor-pointer"
+                        />
+                        <span className="absolute top-2/3 right-1/2 bg-red-500 text-white text-sm w-5 h-5 rounded-full flex justify-center items-center">
+                          {totalQuantity}
+                        </span>
+                      </div>
+                    </Link>
                   </div>
                 </div>
               </div>

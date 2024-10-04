@@ -28,6 +28,7 @@ import ManStoreNav from "./components/Header/ManStoreNav/ManStoreNav.jsx";
 import KidStoreNav from "./components/Header/KidStoreNav/KidStoreNav.jsx";
 import CheckOutPage from "./components/CheckOutPage/CheckOutPage.jsx";
 import Search from "./components/Search/Search.jsx";
+import CartTab from "./components/cartTab.jsx";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <GenderCard />,
+      },
+      {
+        path: "/cartTab",
+        element: <CartTab />,
       },
       {
         path: "/",
@@ -79,7 +84,7 @@ const router = createBrowserRouter([
         element: <ProductDetailPagePage />,
       },
       {
-        path: "/ShoppingCart/OrderDetailsForm",
+        path: "/cartTab/OrderDetailsForm",
         element: <OrderDetailsForm />,
       },
       {
@@ -91,7 +96,7 @@ const router = createBrowserRouter([
         element: <Search />,
       },
       {
-        path: "/ShoppingCart/CheckOutPage",
+        path: "/cartTab/CheckOutPage",
         element: <CheckOutPage />,
       },
       {

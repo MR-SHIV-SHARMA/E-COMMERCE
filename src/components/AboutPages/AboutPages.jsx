@@ -186,7 +186,7 @@ function AboutPages() {
               <p class="w-full px-2 pb-6 text-sm font-semibold text-gray-500">
                 Marketing Lead
               </p>
-            </div>
+            </div> 
             <div class="rounded-md border">
               <img
                 src="https://images.generated.photos/lEhPUYYfYr9IOt13WZZGf2zbXZnCYdU1wUp7gcu_99c/rs:fit:512:512/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/Njg5NTQ5LmpwZw.jpg"
