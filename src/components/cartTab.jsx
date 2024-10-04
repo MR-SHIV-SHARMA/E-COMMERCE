@@ -12,11 +12,14 @@ const CartTab = () => {
   const statusTab = useSelector((store) => store.cart.statusTab);
   const dispatch = useDispatch();
   const [totalAmount, setTotalAmount] = useState(0);
+  const [priceAfterDiscount, setPriceAfterDiscount] = useState(0);
 
   useEffect(() => {
     const apiData = [...Man, ...Woman, ...Kids];
     const total = calculateTotalAmount(carts, apiData);
+    const discount = calculateDiscountAmount(carts, apiData);
     setTotalAmount(total);
+    setPriceAfterDiscount(discount);
   }, [carts]);
 
   const [totalQuantity, setTotalQuantity] = useState(0);
@@ -76,7 +79,7 @@ const CartTab = () => {
                       <span>Discount</span>
                     </dt>
                     <dd class="text-sm font-medium text-green-700">
-                      - ₹ 3,431
+                      - $ {(totalAmount - priceAfterDiscount).toFixed(2)}
                     </dd>
                   </div>
                   <div class="flex items-center justify-between py-4">
@@ -90,12 +93,13 @@ const CartTab = () => {
                       Total Amount
                     </dt>
                     <dd class="text-base font-medium text-gray-900">
-                      $ {totalAmount.toFixed(2)}
+                      ${priceAfterDiscount}
                     </dd>
                   </div>
                 </dl>
                 <div class="px-2 pb-4 font-medium text-green-700">
-                  You will save ₹ 3,431 on this order
+                  You will save ${" "}
+                  {(totalAmount - priceAfterDiscount).toFixed(2)} on this order
                 </div>
               </div>
               <div className="border-t border-gray-200 px-4 sm:px-6">
@@ -135,6 +139,25 @@ export const calculateTotalAmount = (carts, apiData) => {
     const itemDetail = apiData.find((product) => product.id === item.productId);
     return sum + (itemDetail ? itemDetail.price * item.quantity : 0);
   }, 0);
+};
+
+export const calculateDiscountAmount = (carts, apiData) => {
+  return carts
+    .reduce((sum, item) => {
+      const itemDetail = apiData.find(
+        (product) => product.id === item.productId
+      );
+      return (
+        sum +
+        (itemDetail
+          ? (itemDetail.price *
+              item.quantity *
+              (100 - itemDetail.discountPercentage)) /
+            100
+          : 0)
+      );
+    }, 0)
+    .toFixed(2);
 };
 
 export const CartItem = (props) => {
@@ -217,7 +240,10 @@ export const CartItem = (props) => {
                         $ {detail.price * quantity}
                       </p>
                       <p class="text-sm font-medium text-gray-900 px-2">
-                        ₹47,199
+                        {(
+                          detail.price -
+                          (detail.price * detail.discountPercentage) / 100
+                        ).toFixed(2)}
                       </p>
                       <p class="text-sm font-medium text-green-500">
                         {detail.discountPercentage}% Off

@@ -31,7 +31,8 @@ function ProductOverviews() {
   const handlePlusQuantity = () => {
     setQuantity(quantity + 1);
   };
-  const handleAddToCart = () => {
+  const handleAddToCart = (e) => {
+    e.preventDefault();
     dispatch(
       addToCart({
         productId: product.id,

@@ -76,7 +76,14 @@ const Header = () => {
   }, []);
 
   const handleSearchClick = () => {
-    setShowInput(true);
+    setShowInput((prev) => !prev);
+    setTimeout(() => {
+      if (showInput) {
+        inputRef.current?.blur();
+      } else {
+        inputRef.current?.focus();
+      }
+    }, 0);
   };
 
   const handleInputChange = (e) => {
@@ -498,6 +505,7 @@ const Header = () => {
                   <div className="flex lg:ml-6 relative" ref={inputRef}>
                     {showInput && (
                       <input
+                        ref={inputRef}
                         type="text"
                         placeholder="Search items"
                         value={searchQuery}
