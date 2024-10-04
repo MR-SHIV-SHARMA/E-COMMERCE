@@ -1,70 +1,69 @@
-import React from "react";
-import { useState, useEffect, useRef } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { FaSearch } from "react-icons/fa";
-import { FaHome } from "react-icons/fa";
-import iconCart from "../../assets/images/iconCart.png";
-import { useSelector, useDispatch } from "react-redux";
-import { toggleStatusTab } from "../../stores/cart";
-import { Man } from "../../components/Man_Products_Api_Data/Man_Products_Api_Data";
-import { Woman } from "../Woman_Products_Api_Data/Woman_Products_Api_Data";
-import { Kids } from "../Kids_Products_Api_Data/Kids_Products_Api_Data";
+import React, { useState, useEffect, useRef } from "react"; // Importing React and its hooks
+import { Link, NavLink } from "react-router-dom"; // Importing Link and NavLink from React Router
+import { FaSearch } from "react-icons/fa"; // Importing Search icon
+import { FaHome } from "react-icons/fa"; // Importing Home icon
+import iconCart from "../../assets/images/iconCart.png"; // Importing Cart icon
+import { useSelector, useDispatch } from "react-redux"; // Importing useSelector and useDispatch from Redux
+import { toggleStatusTab } from "../../stores/cart"; // Importing toggleStatusTab from cart store
+import { Man } from "../../components/Man_Products_Api_Data/Man_Products_Api_Data"; // Importing Men's Products
+import { Woman } from "../Woman_Products_Api_Data/Woman_Products_Api_Data"; // Importing Women's Products
+import { Kids } from "../Kids_Products_Api_Data/Kids_Products_Api_Data"; // Importing Kids' Products
 
 const Header = () => {
-  const [totalQuantity, setTotalQuantity] = useState(0);
-  const carts = useSelector((store) => store.cart.items);
-  const dispatch = useDispatch();
+  const [totalQuantity, setTotalQuantity] = useState(0); // State for total quantity
+  const carts = useSelector((store) => store.cart.items); // Selector for cart items
+  const dispatch = useDispatch(); // Dispatch for Redux actions
+
   useEffect(() => {
     let total = 0;
     carts.forEach((item) => (total += item.quantity));
     setTotalQuantity(total);
-  }, [carts]);
+  }, [carts]); // Effect to update total quantity based on cart items
+
   const handleOpenTabCart = () => {
-    dispatch(toggleStatusTab());
+    dispatch(toggleStatusTab()); // Dispatching action to toggle cart tab status
   };
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for menu open
   const toggleMobileMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen(!isMenuOpen); // Function to toggle mobile menu
   };
 
   const MobileMenu = () => {
     return (
       <div>
-        <button onClick={toggleMobileMenu}>Toggle Menu</button>
+        <button onClick={toggleMobileMenu}>Toggle Menu</button> // Button to
+        toggle menu
       </div>
     );
   };
 
-  const RenderMobileMenu = MobileMenu;
+  const RenderMobileMenu = MobileMenu; // Render for mobile menu
 
   const handleClick = () => {
-    toggleMobileMenu(); // Call toggleMobileMenu directly
+    toggleMobileMenu(); // Function to toggle mobile menu
   };
 
-  const [isOpen, setIsOpen] = useState(false);
-
+  const [isOpen, setIsOpen] = useState(false); // State for menu open
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setIsOpen(!isOpen); // Function to toggle menu
   };
 
-  const Open = () => {
-    return (
-      <div>
-        <button onClick={toggleMenu}>Toggle Menu</button>
-      </div>
-    );
-  };
-
-  const [showInput, setShowInput] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
-  const inputRef = useRef(null);
+  const [showInput, setShowInput] = useState(false); // State for search input show/hide
+  const [searchQuery, setSearchQuery] = useState(""); // State for search query
+  const inputRef = useRef(null); // Ref for input
+  const searchIconRef = useRef(null); // Ref for search icon
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (inputRef.current && !inputRef.current.contains(event.target)) {
-        setShowInput(false);
+      // Check if the click is outside of the input and search icon
+      if (
+        inputRef.current &&
+        !inputRef.current.contains(event.target) &&
+        searchIconRef.current &&
+        !searchIconRef.current.contains(event.target)
+      ) {
+        setShowInput(false); // Hide input on outside click
       }
     };
 
@@ -76,19 +75,19 @@ const Header = () => {
   }, []);
 
   const handleSearchClick = () => {
-    setShowInput((prev) => !prev);
+    setShowInput((prev) => !prev); // Toggle search input visibility
     setTimeout(() => {
-      if (showInput) {
-        inputRef.current?.blur();
+      if (!showInput) {
+        inputRef.current?.focus(); // Focus input when shown
       } else {
-        inputRef.current?.focus();
+        inputRef.current?.blur(); // Blur input when hidden
       }
     }, 0);
   };
 
   const handleInputChange = (e) => {
-    setSearchQuery(e.target.value);
-    const searchQuery = e.target.value.toLowerCase();
+    setSearchQuery(e.target.value); // Update search query
+    const searchQuery = e.target.value.toLowerCase(); // Convert search query to lowercase
     const filteredData = [...Man, ...Woman, ...Kids].filter((item) => {
       if (item) {
         const title = item.title ? item.title.toLowerCase() : "";
@@ -106,16 +105,17 @@ const Header = () => {
       }
       return false;
     });
+
     if (filteredData.length > 0 && e.key === "Enter") {
       const url = `/search?query=${searchQuery}`; // Redirect to search page with query
       window.location.href = url;
     } else if (e.key === "Enter" && filteredData.length === 0) {
-      console.log("No results found.");
+      console.log("No results found."); // Log message if no results found
     }
   };
 
   const handleInputFocus = () => {
-    setShowInput(true);
+    setShowInput(true); // Show input onFocus
   };
 
   return (

@@ -1,36 +1,65 @@
+// Importing necessary libraries and components
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import Home from "../Home_Products_Api_Data/Home_Products_Api_Data";
 import { Man } from "../Man_Products_Api_Data/Man_Products_Api_Data";
 import { Woman } from "../Woman_Products_Api_Data/Woman_Products_Api_Data";
 import { Kids } from "../Kids_Products_Api_Data/Kids_Products_Api_Data";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../stores/cart";
 
+// Functional component for Product Overviews
 function ProductOverviews() {
+
+  useEffect(() => {
+    // Ensure that scroll always starts at the top
+    window.scrollTo(0, 0);
+  }, []);
+
+  const carts = useSelector((store) => store.cart.items); // Selector for cart items
+
+  // Combining all product data
   const products = [...Man, ...Kids, ...Woman];
 
+  // Getting the id from the URL
   const { id } = useParams();
+  // State for the product details
   const [product, setProduct] = useState([]);
+  // State for the quantity
   const [quantity, setQuantity] = useState(1);
+  // Redux dispatch
   const dispatch = useDispatch();
+
+  // Effect to fetch the product details
   useEffect(() => {
+    // Filtering the product details based on the id
     const findDetail = products.filter(
       (product) => product.id === parseInt(id)
     );
+    // If product details are found, set the product state
     if (findDetail.length > 0) {
       setProduct(findDetail[0]);
     } else {
+      // If no product details are found, redirect to the home page
       window.location.href = "/";
     }
   }, [id]);
-  const handleMinusQuantity = () => {
-    setQuantity(quantity - 1 < 1 ? 1 : quantity - 1);
+
+  // Function to decrease the quantity
+  const handleMinusQuantity = (e) => {
+    e.preventDefault();
+    setQuantity((prevQuantity) =>
+      prevQuantity - 1 < 1 ? 1 : prevQuantity - 1
+    );
   };
-  const handlePlusQuantity = () => {
-    setQuantity(quantity + 1);
+
+  // Function to increase the quantity
+  const handlePlusQuantity = (e) => {
+    e.preventDefault();
+    setQuantity((prevQuantity) => prevQuantity + 1);
   };
+
+  // Function to add the product to the cart
   const handleAddToCart = (e) => {
     e.preventDefault();
     dispatch(

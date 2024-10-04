@@ -29,116 +29,44 @@ import KidStoreNav from "./components/Header/KidStoreNav/KidStoreNav.jsx";
 import CheckOutPage from "./components/CheckOutPage/CheckOutPage.jsx";
 import Search from "./components/Search/Search.jsx";
 import CartTab from "./components/cartTab.jsx";
+import {
+  ScrollToTop,
+  LoadingSpinner,
+  ErrorBoundary,
+  ToastContainer,
+} from "./components/ScrollToTop/ScrollToTop.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
     children: [
-      {
-        path: "/",
-        element: <Main />,
-      },
-      {
-        path: "/",
-        element: <Card />,
-      },
-      {
-        path: "/",
-        element: <Wedding />,
-      },
-      {
-        path: "/",
-        element: <GenderCard />,
-      },
-      {
-        path: "/cartTab",
-        element: <CartTab />,
-      },
-      {
-        path: "/",
-        element: <OrderDetailsForm />,
-      },
-      {
-        path: "/ProductOverviews/:id",
-        element: <ProductOverviews />,
-      },
-      {
-        path: "/Man",
-        element: <Man />,
-      },
-      {
-        path: "/Woman",
-        element: <Woman />,
-      },
-      {
-        path: "/Kids",
-        element: <Kids />,
-      },
-      {
-        path: "/ApplicationUISignIn",
-        element: <ApplicationUISignIn />,
-      },
-      {
-        path: "/ProductDetailPagePage",
-        element: <ProductDetailPagePage />,
-      },
-      {
-        path: "/cartTab/OrderDetailsForm",
-        element: <OrderDetailsForm />,
-      },
-      {
-        path: "/ProductOverviews",
-        element: <ProductOverviews />,
-      },
-      {
-        path: "/search",
-        element: <Search />,
-      },
-      {
-        path: "/cartTab/CheckOutPage",
-        element: <CheckOutPage />,
-      },
-      {
-        path: "/ParentComponent",
-        element: <ParentComponent />,
-      },
-      {
-        path: "/WomanStoarNav",
-        element: <WomanStoarNav />,
-      },
-      {
-        path: "/ManStoreNav",
-        element: <ManStoreNav />,
-      },
-      {
-        path: "/KidStoreNav",
-        element: <KidStoreNav />,
-      },
-      {
-        path: "/CreateAccount",
-        element: <CreateAccount />,
-      },
-      {
-        path: "/EmployeesUI",
-        element: <EmployeesUI />,
-      },
-      {
-        path: "/ShoppingCart",
-        element: <ShoppingCart />,
-      },
-      {
-        path: "/AboutPages",
-        element: <AboutPages />,
-      },
-      {
-        path: "/ContactPages",
-        element: <ContactPages />,
-      },
-      {
-        path: "/MarketingFeatures",
-        element: <MarketingFeatures />,
-      },
+      { path: "/", element: <Main /> },
+      { path: "/", element: <Card /> },
+      { path: "/", element: <Wedding /> },
+      { path: "/", element: <GenderCard /> },
+      { path: "/cartTab", element: <CartTab /> },
+      { path: "/", element: <OrderDetailsForm /> },
+      { path: "/ProductOverviews/:id", element: <ProductOverviews /> },
+      { path: "/Man", element: <Man /> },
+      { path: "/Woman", element: <Woman /> },
+      { path: "/Kids", element: <Kids /> },
+      { path: "/ApplicationUISignIn", element: <ApplicationUISignIn /> },
+      { path: "/ProductDetailPagePage", element: <ProductDetailPagePage /> },
+      { path: "/cartTab/OrderDetailsForm", element: <OrderDetailsForm /> },
+      { path: "/ProductOverviews", element: <ProductOverviews /> },
+      { path: "/search", element: <Search /> },
+      { path: "/cartTab/CheckOutPage", element: <CheckOutPage /> },
+      { path: "/ParentComponent", element: <ParentComponent /> },
+      { path: "/WomanStoarNav", element: <WomanStoarNav /> },
+      { path: "/ManStoreNav", element: <ManStoreNav /> },
+      { path: "/KidStoreNav", element: <KidStoreNav /> },
+      { path: "/CreateAccount", element: <CreateAccount /> },
+      { path: "/EmployeesUI", element: <EmployeesUI /> },
+      { path: "/ShoppingCart", element: <ShoppingCart /> },
+      { path: "/AboutPages", element: <AboutPages /> },
+      { path: "/ContactPages", element: <ContactPages /> },
+      { path: "/MarketingFeatures", element: <MarketingFeatures /> },
     ],
   },
 ]);
@@ -146,7 +74,13 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <RouterProvider router={router}>
+        <ErrorBoundary>
+          <ScrollToTop />
+          <LoadingSpinner />
+          <ToastContainer />
+        </ErrorBoundary>
+      </RouterProvider>
     </Provider>
   </React.StrictMode>
 );

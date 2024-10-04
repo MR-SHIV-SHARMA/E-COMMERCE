@@ -21,11 +21,13 @@ function ProductDetailPage(props) {
     discountPercentage,
   } = props.data;
   const dispatch = useDispatch();
+  const [quantity, setQuantity] = useState(1); // Added state for quantity
+
   const handleAddToCart = () => {
     dispatch(
       addToCart({
         productId: id,
-        quantity: 1,
+        quantity: quantity, // Updated to use state quantity
       })
     );
   };
@@ -97,6 +99,8 @@ function ProductDetailPage(props) {
                   id="quantity"
                   min="1"
                   defaultValue="1"
+                  value={quantity} // Updated to use state quantity
+                  onChange={(e) => setQuantity(Number(e.target.value))} // Updated to update state quantity
                   className="border border-gray-300 rounded-lg px-2 py-1 w-1/4 focus:outline-none text-xs"
                 />
               </div>
