@@ -532,7 +532,7 @@ const Header = () => {
                   </div>
 
                   {/* <!-- Search --> */}
-                  <div className="flex lg:ml-6 relative" ref={inputRef}>
+                  <div className="flex lg:ml-6 relative">
                     {showInput && (
                       <input
                         ref={inputRef}
@@ -546,7 +546,8 @@ const Header = () => {
                       />
                     )}
                     <p
-                      className="p-2 text-black hover:text-gray-500 rounded-full z-50"
+                      ref={searchIconRef} // Attach the ref here
+                      className="p-2 text-black hover:text-gray-500 rounded-full z"
                       onClick={handleSearchClick}
                     >
                       <FaSearch className="cursor-pointer" />
