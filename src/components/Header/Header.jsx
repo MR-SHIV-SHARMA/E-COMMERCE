@@ -8,6 +8,18 @@ import { toggleStatusTab } from "../../stores/cart"; // Importing toggleStatusTa
 import { Man } from "../../components/Man_Products_Api_Data/Man_Products_Api_Data"; // Importing Men's Products
 import { Woman } from "../Woman_Products_Api_Data/Woman_Products_Api_Data"; // Importing Women's Products
 import { Kids } from "../Kids_Products_Api_Data/Kids_Products_Api_Data"; // Importing Kids' Products
+import { BsBoxArrowInRight } from "react-icons/bs";
+import {
+  AiOutlineClose,
+  AiOutlineUser,
+  AiOutlinePhone,
+  AiOutlineShoppingCart,
+  AiOutlineGift,
+  AiOutlineLogout,
+  AiOutlineQuestionCircle,
+  AiOutlineComment,
+  AiOutlineSchedule,
+} from "react-icons/ai";
 
 const Header = () => {
   const [totalQuantity, setTotalQuantity] = useState(0); // State for total quantity
@@ -126,176 +138,194 @@ const Header = () => {
             isMenuOpen ? "opacity-100" : "opacity-0"
           }`}
         ></div>
+
         <div
-          className={`fixed min-h-full z-40 flex ${
+          className={`fixed inset-0 z-40 flex overflow-hidden ${
             isMenuOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
-          <div className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-1 shadow-xl">
+          <div className="relative flex flex-col bg-white shadow-xl w-full max-w-xs h-full">
             <div className="flex px-4 pb-2 pt-4 ml-2">
               <button
                 type="button"
                 className="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-900"
-                onClick={toggleMobileMenu} // Directly call toggleMobileMenu
+                onClick={toggleMobileMenu}
               >
-                <span className="absolute -inset-0.5"></span>
+                <AiOutlineClose className="h-6 w-6" />
                 <span className="sr-only">Close menu</span>
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <line
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    x1="6"
-                    y1="18"
-                    x2="18"
-                    y2="6"
-                  />
-                  <line
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    x1="6"
-                    y1="6"
-                    x2="18"
-                    y2="18"
-                  />
-                </svg>
               </button>
             </div>
 
-            {/* <!-- Links --> */}
-            <div className="">
-              <div className="border-b border-gray-200">
-                <div
-                  className="flex space-x-16 px-4"
-                  aria-orientation="horizontal"
-                  role="tablist"
+            <div className="border-b border-gray-200">
+              <div
+                className="flex space-x-16 px-4"
+                aria-orientation="horizontal"
+                role="tablist"
+              >
+                <button
+                  onClick={toggleMobileMenu}
+                  className="border-transparent text-black flex-1 whitespace-nowrap border-b-2 px-1 text-base font-medium"
                 >
-                  <button
-                    onClick={toggleMobileMenu}
-                    id="tabs-1-tab-1"
-                    className="border-transparent text-black flex-1 whitespace-nowrap border-b-2 px-1 text-base font-medium"
-                    aria-controls="tabs-1-panel-1"
-                    role="tab"
-                    type="button"
+                  <NavLink
+                    to="/WomanStoarNav"
+                    className={({ isActive }) =>
+                      isActive ? "text-amber-800" : "text-black"
+                    }
                   >
-                    <NavLink
-                      to="/WomanStoarNav"
-                      className={({ isActive }) => `block ${
-                        isActive ? "text-amber-800" : "text-black"
-                      } 
-                      border-transparent hover:text-gray-800 text-amber-800 relative flex items-center font-medium transition-colors duration-200 ease-out
-                      `}
-                    >
-                      Women
-                    </NavLink>
-                  </button>
-                  <button
-                    onClick={toggleMobileMenu}
-                    id="tabs-1-tab-2"
-                    className="border-transparent text-black flex-1 whitespace-nowrap border-b-2 px-1 text-base font-medium"
-                    aria-controls="tabs-1-panel-2"
-                    role="tab"
-                    type="button"
+                    Women
+                  </NavLink>
+                </button>
+                <button
+                  onClick={toggleMobileMenu}
+                  className="border-transparent text-black flex-1 whitespace-nowrap border-b-2 px-1 text-base font-medium"
+                >
+                  <NavLink
+                    to="/ManStoreNav"
+                    className={({ isActive }) =>
+                      isActive ? "text-amber-800" : "text-black"
+                    }
                   >
-                    <NavLink
-                      to="/ManStoreNav"
-                      className={({ isActive }) => `block ${
-                        isActive ? "text-amber-800" : "text-black"
-                      } 
-                      border-transparent hover:text-gray-800 text-amber-800 relative flex items-center font-medium transition-colors duration-200 ease-out
-                      `}
-                    >
-                      Men
-                    </NavLink>
-                  </button>
-                  <button
-                    onClick={toggleMobileMenu}
-                    id="tabs-1-tab-3" // Unique ID for this button
-                    className="border-transparent text-black flex-1 whitespace-nowrap border-b-2 px-1 text-base font-medium"
-                    aria-controls="tabs-1-panel-3" // Make sure this matches the corresponding panel
-                    role="tab"
-                    type="button"
+                    Men
+                  </NavLink>
+                </button>
+                <button
+                  onClick={toggleMobileMenu}
+                  className="border-transparent text-black flex-1 whitespace-nowrap border-b-2 px-1 text-base font-medium"
+                >
+                  <NavLink
+                    to="/KidStoreNav"
+                    className={({ isActive }) =>
+                      isActive ? "text-amber-800" : "text-black"
+                    }
                   >
-                    <NavLink
-                      to="/KidStoreNav"
-                      className={({ isActive }) => `block ${
-                        isActive ? "text-amber-800" : "text-black"
-                      } 
-                      border-transparent hover:text-gray-800 text-amber-800 relative flex items-center font-medium transition-colors duration-200 ease-out
-                      `}
-                    >
-                      Kids
-                    </NavLink>
-                  </button>
+                    Kids
+                  </NavLink>
+                </button>
+              </div>
+            </div>
+
+            <div className="flex flex-col space-y-4 px-4 pt-4">
+              <button className="text-left text-gray-800 flex hover:text-gray-900">
+                <AiOutlinePhone className="h-6 w-6 mr-2" />
+                <NavLink
+                  onClick={toggleMobileMenu}
+                  to="/ContactPages"
+                  className={({ isActive }) =>
+                    isActive ? "text-amber-800" : "text-black"
+                  }
+                >
+                  Contact Us
+                </NavLink>
+              </button>
+              <button className="text-left text-gray-800 flex hover:text-gray-900">
+                <AiOutlineShoppingCart className="h-6 w-6 mr-2" />
+                <NavLink
+                  onClick={toggleMobileMenu}
+                  to="/ProductDetailPagePage"
+                  className={({ isActive }) =>
+                    isActive ? "text-amber-800" : "text-black"
+                  }
+                >
+                  Collections
+                </NavLink>
+              </button>
+              <button className="text-left text-gray-800 flex hover:text-gray-900">
+                <AiOutlineSchedule className="h-6 w-6 mr-2" />
+                <NavLink
+                  to="/UpcomingOrders"
+                  className={({ isActive }) =>
+                    isActive ? "text-amber-800" : "text-black"
+                  }
+                >
+                  Upcoming Orders
+                </NavLink>
+              </button>
+              <button className="text-left text-gray-800 flex hover:text-gray-900">
+                <AiOutlineGift className="h-6 w-6 mr-2" />
+                <NavLink
+                  to="/OfferZone"
+                  className={({ isActive }) =>
+                    isActive ? "text-amber-800" : "text-black"
+                  }
+                >
+                  Offer Zone
+                </NavLink>
+              </button>
+              <button className="text-left text-gray-800 flex hover:text-gray-900">
+                <AiOutlineUser className="h-6 w-6 mr-2" />
+                <NavLink
+                  to="/MyAccount"
+                  className={({ isActive }) =>
+                    isActive ? "text-amber-800" : "text-black"
+                  }
+                >
+                  My Account
+                </NavLink>
+              </button>
+              <button className="text-left text-gray-800 flex hover:text-gray-900">
+                <AiOutlineComment className="h-6 w-6 mr-2" />
+                <NavLink
+                  to="/MyChats"
+                  className={({ isActive }) =>
+                    isActive ? "text-amber-800" : "text-black"
+                  }
+                >
+                  My Chats
+                </NavLink>
+              </button>
+              <button className="text-left text-gray-800 flex hover:text-gray-900">
+                <AiOutlineQuestionCircle className="h-6 w-6 mr-2" />
+                <NavLink
+                  to="/Help"
+                  className={({ isActive }) =>
+                    isActive ? "text-amber-800" : "text-black"
+                  }
+                >
+                  Help
+                </NavLink>
+              </button>
+              <div className="space-y-2 border-t border-gray-400 py-2">
+                <div className="flow-root">
+                  <NavLink
+                    onClick={toggleMobileMenu}
+                    to="ApplicationUISignIn"
+                    className={({ isActive }) =>
+                      isActive ? "text-amber-800" : "text-black"
+                    }
+                  >
+                    <div className="flex">
+                      <BsBoxArrowInRight className="h-6 w-6 mr-2" />
+                      <span>Sign in</span>
+                    </div>
+                  </NavLink>
+                </div>
+                <div className="flow-root">
+                  <NavLink
+                    onClick={toggleMobileMenu}
+                    to="CreateAccount"
+                    className={({ isActive }) =>
+                      isActive ? "text-amber-800" : "text-black"
+                    }
+                  >
+                    <div className="flex">
+                      <AiOutlineUser className="h-6 w-6 mr-2" />
+                      <span>Create account</span>
+                    </div>
+                  </NavLink>
                 </div>
               </div>
             </div>
 
-            <div className="space-y-8 border-t border-gray-200 px-4 py-6">
-              <div className="flow-root">
-                <NavLink
-                  onClick={toggleMobileMenu}
-                  to="/ContactPages"
-                  className={({ isActive }) => `block ${
-                    isActive ? "text-amber-800" : "text-black"
-                  } 
-                      border-transparent hover:text-gray-800 text-amber-800 relative flex items-center font-medium transition-colors duration-200 ease-out
-                      `}
-                >
-                  Contact Us
-                </NavLink>
-              </div>
-              <div className="flow-root">
-                <NavLink
-                  onClick={toggleMobileMenu}
-                  to="/ProductDetailPagePage"
-                  className={({ isActive }) => `block ${
-                    isActive ? "text-amber-800" : "text-black"
-                  } 
-                      border-transparent hover:text-gray-800 text-amber-800 relative flex items-center font-medium transition-colors duration-200 ease-out
-                      `}
-                >
-                  Collections
-                </NavLink>
-              </div>
-            </div>
-
-            <div className="space-y-8 border-t border-gray-400 px-4 py-8">
-              <div className="flow-root">
-                <NavLink
-                  onClick={toggleMobileMenu}
-                  to="ApplicationUISignIn"
-                  className={({ isActive }) => `block ${
-                    isActive ? "text-amber-800" : "text-black"
-                  } 
-                      border-transparent hover:text-gray-800 text-amber-800 relative flex items-center font-medium transition-colors duration-200 ease-out
-                      `}
-                >
-                  Sign in
-                </NavLink>
-              </div>
-              <div className="flow-root">
-                <NavLink
-                  onClick={toggleMobileMenu}
-                  to="CreateAccount"
-                  className={({ isActive }) => `block ${
-                    isActive ? "text-amber-800" : "text-black"
-                  } 
-                      border-transparent hover:text-gray-800 text-amber-800 relative flex items-center font-medium transition-colors duration-200 ease-out
-                      `}
-                >
-                  Create account
-                </NavLink>
-              </div>
+            <div className="absolute bottom-0 w-full text-center p-4">
+              <hr className="w-full my-2 border-t border-gray-400" />
+              <button className="flex items-center justify-center text-black font-bold px-4 rounded">
+                <AiOutlineLogout className="h-6 w-6 mr-2" />
+                Sign Out
+              </button>
             </div>
           </div>
         </div>
+
         <header className="relative text-white bg-gray-300">
           <nav
             aria-label="Top"
