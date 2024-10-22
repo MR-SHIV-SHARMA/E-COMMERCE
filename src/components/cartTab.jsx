@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleStatusTab } from "../stores/cart";
+import {Home} from "../components/Home_Products_Api_Data/Home_Products_Api_Data"
 import { Man } from "../components/Man_Products_Api_Data/Man_Products_Api_Data";
 import { Woman } from "../components/Woman_Products_Api_Data/Woman_Products_Api_Data";
 import { Kids } from "../components/Kids_Products_Api_Data/Kids_Products_Api_Data";
@@ -15,7 +16,7 @@ const CartTab = () => {
   const [priceAfterDiscount, setPriceAfterDiscount] = useState(0);
 
   useEffect(() => {
-    const apiData = [...Man, ...Woman, ...Kids];
+    const apiData = [...Man, ...Woman, ...Kids, ...Home];
     const total = calculateTotalAmount(carts, apiData);
     const discount = calculateDiscountAmount(carts, apiData);
     setTotalAmount(total);
@@ -161,7 +162,7 @@ export const calculateDiscountAmount = (carts, apiData) => {
 };
 
 export const CartItem = (props) => {
-  const apiData = [...Man, ...Woman, ...Kids];
+  const apiData = [...Man, ...Woman, ...Kids, ...Home];
   const { productId, quantity } = props.data;
   const [detail, setDetail] = useState(null);
   const dispatch = useDispatch();

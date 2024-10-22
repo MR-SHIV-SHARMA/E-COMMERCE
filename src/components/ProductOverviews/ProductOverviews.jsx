@@ -1,6 +1,7 @@
 // Importing necessary libraries and components
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Home } from "../Home_Products_Api_Data/Home_Products_Api_Data";
 import { Man } from "../Man_Products_Api_Data/Man_Products_Api_Data";
 import { Woman } from "../Woman_Products_Api_Data/Woman_Products_Api_Data";
 import { Kids } from "../Kids_Products_Api_Data/Kids_Products_Api_Data";
@@ -10,7 +11,6 @@ import { addToCart } from "../../stores/cart";
 
 // Functional component for Product Overviews
 function ProductOverviews() {
-
   useEffect(() => {
     // Ensure that scroll always starts at the top
     window.scrollTo(0, 0);
@@ -19,7 +19,7 @@ function ProductOverviews() {
   const carts = useSelector((store) => store.cart.items); // Selector for cart items
 
   // Combining all product data
-  const products = [...Man, ...Kids, ...Woman];
+  const products = [...Man, ...Kids, ...Woman, ...Home];
 
   // Getting the id from the URL
   const { id } = useParams();

@@ -1,6 +1,6 @@
 export const Kids = [
   {
-    id: 76,
+    id: 1729520685637,
     title: "Women's Sheepskin Coats Archives",
     description: "An apple mobile which is nothing like apple",
     price: 549,
@@ -21,7 +21,7 @@ export const Kids = [
     ],
   },
   {
-    id: 77,
+    id: 1729520685638,
     title: "Rayane Ketlyn Stylish Fashion Outfits",
     description:
       "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
@@ -41,7 +41,7 @@ export const Kids = [
     ],
   },
   {
-    id: 78,
+    id: 1729520685639,
     title: "Tokyo Talkies",
     description:
       "Samsung's new variant which goes beyond Galaxy to the Universe",
@@ -58,7 +58,7 @@ export const Kids = [
     ],
   },
   {
-    id: 79,
+    id: 1729520685640,
     title: "DressBerry",
     description: "OPPO F19 is officially announced on April 2021.",
     price: 280,
@@ -78,7 +78,7 @@ export const Kids = [
     ],
   },
   {
-    id: 80,
+    id: 1729520685641,
     title: "Zara leather jacket",
     description:
       "Huawei's re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
@@ -97,7 +97,7 @@ export const Kids = [
     ],
   },
   {
-    id: 81,
+    id: 1729520685642,
     title: "Faux Fur",
     description:
       "MacBook Pro 2021 with mini-LED display may launch between September, November",
@@ -110,14 +110,14 @@ export const Kids = [
     category: "hoodie",
     thumbnail: "https://cdn.dummyjson.com/product-images/6/thumbnail.png",
     images: [
-      "https://images.pexels.com/photos/1187954/pexels-photo-1187954.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "https://images.pexels.com/photos/1187954/pexels-photo-1187954.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
       "https://cdn.dummyjson.com/product-images/6/2.jpg",
       "https://cdn.dummyjson.com/product-images/6/3.png",
       "https://cdn.dummyjson.com/product-images/6/4.jpg",
     ],
   },
   {
-    id: 82,
+    id: 1729520685643,
     title: "Ripped Jeans",
     description:
       "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
@@ -137,7 +137,7 @@ export const Kids = [
     ],
   },
   {
-    id: 83,
+    id: 1729520685644,
     title: "Jewel Strappy Bralette Top",
     description:
       "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
@@ -158,7 +158,7 @@ export const Kids = [
     ],
   },
   {
-    id: 84,
+    id: 1729520685645,
     title: "Infinix INBOOK",
     description:
       "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
@@ -179,7 +179,7 @@ export const Kids = [
     ],
   },
   {
-    id: 85,
+    id: 1729520685646,
     title: "HP Pavilion 15-DK1056WM",
     description:
       "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
@@ -199,7 +199,7 @@ export const Kids = [
     ],
   },
   {
-    id: 86,
+    id: 1729520685647,
     title: "perfume Oil",
     description:
       "Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil",
@@ -219,7 +219,7 @@ export const Kids = [
     ],
   },
   {
-    id: 87,
+    id: 1729520685648,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -239,7 +239,7 @@ export const Kids = [
     ],
   },
   {
-    id: 88,
+    id: 1729520685649,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -259,7 +259,7 @@ export const Kids = [
     ],
   },
   {
-    id: 89,
+    id: 1729520685650,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -279,7 +279,7 @@ export const Kids = [
     ],
   },
   {
-    id: 90,
+    id: 1729520685651,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -299,7 +299,7 @@ export const Kids = [
     ],
   },
   {
-    id: 91,
+    id: 1729520685652,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -319,7 +319,7 @@ export const Kids = [
     ],
   },
   {
-    id: 92,
+    id: 1729520685653,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -339,7 +339,7 @@ export const Kids = [
     ],
   },
   {
-    id: 93,
+    id: 1729520685654,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -359,7 +359,7 @@ export const Kids = [
     ],
   },
   {
-    id: 94,
+    id: 1729520685655,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -379,27 +379,7 @@ export const Kids = [
     ],
   },
   {
-    id: 95,
-    title: "Brown Perfume",
-    description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
-    price: 40,
-    discountPercentage: 55.66,
-    rating: 4,
-    stock: 52,
-    brand: "Nike",
-    sub_category: "Man",
-    category: "jackets",
-    thumbnail: "https://cdn.dummyjson.com/product-images/12/thumbnail.jpg",
-    images: [
-      "https://images.pexels.com/photos/16380835/pexels-photo-16380835/free-photo-of-woman-in-green-suit.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-      "https://cdn.dummyjson.com/product-images/12/2.jpg",
-      "https://cdn.dummyjson.com/product-images/12/3.png",
-      "https://cdn.dummyjson.com/product-images/12/4.jpg",
-      "https://cdn.dummyjson.com/product-images/12/thumbnail.jpg",
-    ],
-  },
-  {
-    id: 96,
+    id: 1729520685656,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -419,7 +399,7 @@ export const Kids = [
     ],
   },
   {
-    id: 97,
+    id: 1729520685657,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -439,7 +419,7 @@ export const Kids = [
     ],
   },
   {
-    id: 98,
+    id: 1729520685658,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -459,7 +439,7 @@ export const Kids = [
     ],
   },
   {
-    id: 99,
+    id: 1729520685659,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -479,7 +459,7 @@ export const Kids = [
     ],
   },
   {
-    id: 100,
+    id: 1729520685660,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -499,7 +479,7 @@ export const Kids = [
     ],
   },
   {
-    id: 101,
+    id: 1729520685661,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -519,7 +499,7 @@ export const Kids = [
     ],
   },
   {
-    id: 102,
+    id: 1729520685662,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -539,7 +519,7 @@ export const Kids = [
     ],
   },
   {
-    id: 103,
+    id: 1729520685663,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -559,7 +539,7 @@ export const Kids = [
     ],
   },
   {
-    id: 104,
+    id: 1729520685664,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -579,7 +559,7 @@ export const Kids = [
     ],
   },
   {
-    id: 105,
+    id: 1729520685665,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -599,7 +579,7 @@ export const Kids = [
     ],
   },
   {
-    id: 106,
+    id: 1729520685666,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -619,7 +599,7 @@ export const Kids = [
     ],
   },
   {
-    id: 107,
+    id: 1729520685667,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -639,7 +619,7 @@ export const Kids = [
     ],
   },
   {
-    id: 108,
+    id: 1729520685668,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -658,7 +638,7 @@ export const Kids = [
     ],
   },
   {
-    id: 109,
+    id: 1729520685669,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -677,7 +657,7 @@ export const Kids = [
     ],
   },
   {
-    id: 110,
+    id: 1729520685670,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -696,13 +676,13 @@ export const Kids = [
     ],
   },
   {
-    id: 111,
+    id: 1729520685671,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
     discountPercentage: 55.66,
     rating: 4,
-    stock: 52,  
+    stock: 52,
     brand: "My-Way",
     sub_category: "Man",
     thumbnail: "https://cdn.dummyjson.com/product-images/12/thumbnail.jpg",
@@ -715,7 +695,7 @@ export const Kids = [
     ],
   },
   {
-    id: 112,
+    id: 1729520685672,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -735,7 +715,7 @@ export const Kids = [
     ],
   },
   {
-    id: 113,
+    id: 1729520685673,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,

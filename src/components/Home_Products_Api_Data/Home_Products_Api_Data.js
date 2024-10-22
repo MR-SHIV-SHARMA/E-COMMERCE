@@ -1,22 +1,22 @@
 export const Gender = [
   {
-    id: 1,
+    id: 1729520685575,
     username: "MAN",
-    btntext: "ManClothingCollection",
+    btntext: "Man",
     thumbnail:
       "https://images.pexels.com/photos/6050430/pexels-photo-6050430.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
   },
   {
-    id: 2,
+    id: 1729520685576,
     username: "WOMAN",
-    btntext: "WomanClothingCollection",
+    btntext: "Woman",
     thumbnail:
       "https://images.pexels.com/photos/5418889/pexels-photo-5418889.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
   },
   {
-    id: 3,
+    id: 1729520685577,
     username: "KIDS",
-    btntext: "KidsClothingCollection",
+    btntext: "Kids",
     thumbnail:
       "https://images.pexels.com/photos/1619815/pexels-photo-1619815.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
@@ -24,7 +24,7 @@ export const Gender = [
 
 export const Home = [
   {
-    id: 1,
+    id: 1729520685578,
     title: "Zara leather jacket",
     description:
       "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
@@ -45,7 +45,7 @@ export const Home = [
     ],
   },
   {
-    id: 2,
+    id: 1729520685579,
     title: "Faux Fur",
     description:
       "MacBook Pro 2021 with mini-LED display may launch between September, November",
@@ -66,7 +66,7 @@ export const Home = [
     ],
   },
   {
-    id: 3,
+    id: 1729520685580,
     title: "Ripped Jeans",
     description:
       "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
@@ -87,7 +87,7 @@ export const Home = [
     ],
   },
   {
-    id: 4,
+    id: 1729520685581,
     title: "Jewel Strappy Bralette Top",
     description:
       "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
@@ -108,7 +108,7 @@ export const Home = [
     ],
   },
   {
-    id: 5,
+    id: 1729520685582,
     title: "Infinix INBOOK",
     description:
       "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
@@ -129,7 +129,7 @@ export const Home = [
     ],
   },
   {
-    id: 6,
+    id: 1729520685583,
     title: "HP Pavilion 15-DK1056WM",
     description:
       "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
@@ -150,7 +150,7 @@ export const Home = [
     ],
   },
   {
-    id: 7,
+    id: 1729520685584,
     title: "perfume Oil",
     description:
       "Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil",
@@ -171,7 +171,7 @@ export const Home = [
     ],
   },
   {
-    id: 8,
+    id: 1729520685585,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -191,7 +191,7 @@ export const Home = [
     ],
   },
   {
-    id: 9,
+    id: 1729520685586,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -211,7 +211,7 @@ export const Home = [
     ],
   },
   {
-    id: 10,
+    id: 1729520685587,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -231,27 +231,7 @@ export const Home = [
     ],
   },
   {
-    id: 11,
-    title: "Brown Perfume",
-    description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
-    price: 40,
-    discountPercentage: 55.66,
-    rating: 4,
-    stock: 52,
-    brand: "puma",
-    sub_category: "Man",
-    category: "shirt",
-    thumbnail:
-      "https://images-cdn.ubuy.co.in/65292b1ee1c939337775d316-alimens-gentle-short-sleeve-dress.jpg",
-    images: [
-      "https://images-cdn.ubuy.co.in/65292b1ee1c939337775d316-alimens-gentle-short-sleeve-dress.jpg",
-      "https://images-cdn.ubuy.co.in/635d625b569c3f567536f07a-alimens-gentle-short-sleeve-dress.jpg",
-      "https://images-cdn.ubuy.co.in/635525e3ae8e0810050484a7-alimens-gentle-men-s-short-sleeve.jpg",
-      "https://images-cdn.ubuy.co.in/635d625b569c3f567536f07c-alimens-gentle-short-sleeve-dress.jpg",
-    ],
-  },
-  {
-    id: 12,
+    id: 1729520685588,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -271,7 +251,7 @@ export const Home = [
     ],
   },
   {
-    id: 13,
+    id: 1729520685589,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -291,7 +271,7 @@ export const Home = [
     ],
   },
   {
-    id: 14,
+    id: 1729520685590,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -311,7 +291,7 @@ export const Home = [
     ],
   },
   {
-    id: 15,
+    id: 1729520685591,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -331,7 +311,7 @@ export const Home = [
     ],
   },
   {
-    id: 16,
+    id: 1729520685593,
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -351,7 +331,7 @@ export const Home = [
     ],
   },
   {
-    id: 17,
+    id: 1729520685594,
     title: "Wrist watch for men",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
@@ -372,7 +352,7 @@ export const Home = [
     ],
   },
   {
-    id: 18,
+    id: 1729520685595,
     title: "OLEVS Amazon Watches",
     description:
       "OLEVS Amazon Watches,Brown Leather Watch for Men,Men Day Date Watch,Men's Luminous Watch,Dress Watch for Men,Rose Gold Watch for Men,Men's Fashion Quartz Watch,Waterproof Brown Man Watches",
@@ -394,7 +374,7 @@ export const Home = [
     ],
   },
   {
-    id: 19,
+    id: 1729520685596,
     title: "OLEVS Men's Automatic Watch",
     description:
       "OLEVS Men's Automatic Watch, Classic Rotatable Bezel, Luminous, 30M Waterproof, Stainless Steel Band, Timeless Design",
@@ -416,7 +396,7 @@ export const Home = [
     ],
   },
   {
-    id: 20,
+    id: 1729520685597,
     title: "OLEVS Amazon Watches",
     description:
       "OLEVS Amazon Watches,Brown Leather Watch for Men,Men Day Date Watch,Men's Luminous Watch,Dress Watch for Men,Rose Gold Watch for Men,Men's Fashion Quartz Watch,Waterproof Brown Man Watches",
@@ -438,7 +418,7 @@ export const Home = [
     ],
   },
   {
-    id: 21,
+    id: 1729520685598,
     title: "PROLIFIC WATCH for Men",
     description: "Bling Master PROLIFIC WATCH for Men",
     price: 40,
