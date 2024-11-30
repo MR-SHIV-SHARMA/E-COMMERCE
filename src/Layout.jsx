@@ -14,14 +14,13 @@ import {
 
 function Layout() {
   const location = useLocation();
-
   const isHomePage = location.pathname === "/";
-
+  const footer = location.pathname === "/cartTab";
   return (
     <>
       <Header />
       <main>
-        <ScrollToTop /> {/* Ensure this is at the top level */}
+        <ScrollToTop />
         <Outlet />
       </main>
       {isHomePage && (
@@ -33,8 +32,8 @@ function Layout() {
           <MarketingFeatures />
         </>
       )}
-      <Footer />
-      <BackToTopButton /> {/* Place the button at the bottom */}
+      {footer ? null : <Footer />}
+      <BackToTopButton />
     </>
   );
 }

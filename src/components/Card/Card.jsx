@@ -1,27 +1,42 @@
-import React from "react"; // Importing React for building UI components
-import { AiOutlineShoppingCart } from "react-icons/ai"; // Importing the shopping cart icon for adding to cart functionality
-import { Link } from "react-router-dom"; // Importing Link for routing to product overview page
-import { useSelector, useDispatch } from "react-redux"; // Importing useSelector and useDispatch for state management
-import { addToCart } from "../../stores/cart"; // Importing the action creator for adding to cart
+import React from "react"; // React ko UI components banane ke liye import kiya gaya hai
+import { AiOutlineShoppingCart } from "react-icons/ai"; // Shopping cart icon ko import kiya gaya hai, jo cart mein product add karne ke liye use hota hai
+import { Link } from "react-router-dom"; // Product overview page par routing ke liye Link ko import kiya gaya hai
+
+import { useSelector, useDispatch } from "react-redux"; // Redux store se state management ke liye useSelector aur useDispatch ko import kiya gaya hai
+
+import { addToCart } from "../../stores/cart"; // Cart mein product add karne ke liye action creator ko import kiya gaya hai
 
 const Card = (props) => {
-  // Using useSelector to get the cart items from the Redux store
-  const carts = useSelector((store) => store.cart.items);
-  // Destructuring props.data to get product details
-  const { id, title, price, images, slug } = props.data;
-  // Using useDispatch to get the dispatch function for dispatching actions
-  const dispatch = useDispatch();
-  // Function to handle adding a product to the cart
+  // Card component ko define kiya gaya hai, jo product details ko display karega
+
+  // // Redux store se cart items ko prapt karne ke liye useSelector ka istemal kiya gaya hai
+
+  // const carts = useSelector((store) => store.cart.items); // Cart items ko store se prapt karne ka code comment kiya gaya hai
+
+  // props.data se product details ko destructure kiya gaya hai
+
+  const { id, title, price, images, slug } = props.data; // Product ke id, title, price, images, aur slug ko prapt kiya gaya hai
+
+  // Dispatch function ko prapt karne ke liye useDispatch ka istemal kiya gaya hai
+
+  const dispatch = useDispatch(); // Dispatch function ko prapt kiya gaya hai, jo actions ko dispatch karne ke liye use hota hai
+  // Cart mein product add karne ke liye function define kiya gaya hai
+
   const handleAddToCart = () => {
-    // Dispatching the addToCart action with product ID and quantity
+    // handleAddToCart function ko define kiya gaya hai
+
+    // Product ID aur quantity ke saath addToCart action ko dispatch kiya gaya hai
     dispatch(
       addToCart({
-        productId: id,
-        quantity: 1,
+        // addToCart action ko call kiya gaya hai
+
+        productId: id, // Product ID ko pass kiya gaya hai
+
+        quantity: 1, // Quantity ko 1 set kiya gaya hai
       })
     );
   };
-  // JSX for rendering the product card
+
   return (
     <div className="container flex flex-col items-center shadow-2xl sm:shadow-none my-2 image-container">
       <div className="h-[350px] rounded-t-md overflow-hidden">

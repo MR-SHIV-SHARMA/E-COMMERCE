@@ -1,36 +1,66 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleStatusTab } from "../stores/cart";
-import {Home} from "../components/Home_Products_Api_Data/Home_Products_Api_Data"
+import { Home } from "../components/Home_Products_Api_Data/Home_Products_Api_Data";
 import { Man } from "../components/Man_Products_Api_Data/Man_Products_Api_Data";
 import { Woman } from "../components/Woman_Products_Api_Data/Woman_Products_Api_Data";
 import { Kids } from "../components/Kids_Products_Api_Data/Kids_Products_Api_Data";
 import { changeQuantity } from "../stores/cart";
 import { Link } from "react-router-dom";
 
+// ... existing code ...
 const CartTab = () => {
+  // Redux store se cart items aur statusTab ko select karna
+  // 'carts' variable mein store se cart ki items ko lete hain
   const carts = useSelector((store) => store.cart.items);
+
+  // 'statusTab' variable mein store se current tab status ko lete hain
   const statusTab = useSelector((store) => store.cart.statusTab);
+
+  // Redux dispatch function ko use karne ke liye hook
   const dispatch = useDispatch();
+
+  // Total amount aur discount ke liye state variables
+  // 'totalAmount' ko initial value 0 se set karte hain
   const [totalAmount, setTotalAmount] = useState(0);
+
+  // 'priceAfterDiscount' ko initial value 0 se set karte hain
   const [priceAfterDiscount, setPriceAfterDiscount] = useState(0);
 
+  // Effect hook jo cart items ya apiData change hone par total amount aur discount calculate karta hai
   useEffect(() => {
+    // 'apiData' mein sabhi product data ko ek array mein store karte hain
     const apiData = [...Man, ...Woman, ...Kids, ...Home];
+
+    // 'calculateTotalAmount' function ko call karke total amount calculate karte hain
     const total = calculateTotalAmount(carts, apiData);
+
+    // 'calculateDiscountAmount' function ko call karke discount calculate karte hain
     const discount = calculateDiscountAmount(carts, apiData);
+
+    // Total amount ko state mein update karte hain
     setTotalAmount(total);
+
+    // Discounted price ko state mein update karte hain
     setPriceAfterDiscount(discount);
-  }, [carts]);
+  }, [carts]); // 'carts' ke change hone par ye effect chalega
 
+  // Total quantity ke liye state variable
   const [totalQuantity, setTotalQuantity] = useState(0);
-  useEffect(() => {
-    let total = 0;
-    carts.forEach((item) => (total += item.quantity));
-    setTotalQuantity(total);
-  }, [carts]);
 
+  // Effect hook jo cart items change hone par total quantity calculate karta hai
+  useEffect(() => {
+    let total = 0; // Total quantity ko track karne ke liye variable
+    // Har item ki quantity ko add karte hain
+    carts.forEach((item) => (total += item.quantity));
+
+    // Total quantity ko state mein update karte hain
+    setTotalQuantity(total);
+  }, [carts]); // 'carts' ke change hone par ye effect chalega
+
+  // Cart tab ko close karne ke liye function
   const handleCloseTabCart = () => {
+    // Redux action dispatch karte hain jo tab status ko toggle karega
     dispatch(toggleStatusTab());
   };
 
@@ -135,71 +165,103 @@ const CartTab = () => {
 
 export default CartTab;
 
+// Total amount calculate karne ke liye function
 export const calculateTotalAmount = (carts, apiData) => {
+  // 'carts' array ko reduce method se iterate karte hain
   return carts.reduce((sum, item) => {
+    // 'apiData' se item ki details ko dhoondte hain
     const itemDetail = apiData.find((product) => product.id === item.productId);
+
+    // Agar itemDetail milta hai, to uski price aur quantity ka multiplication karte hain
+    // Agar nahi milta, to 0 return karte hain
     return sum + (itemDetail ? itemDetail.price * item.quantity : 0);
-  }, 0);
+  }, 0); // Initial sum ki value 0 hai
 };
 
+// Discount amount calculate karne ke liye function
 export const calculateDiscountAmount = (carts, apiData) => {
+  // 'carts' array ko reduce method se iterate karte hain
   return carts
     .reduce((sum, item) => {
+      // 'apiData' se item ki details ko dhoondte hain
       const itemDetail = apiData.find(
         (product) => product.id === item.productId
       );
+
+      // Agar itemDetail milta hai, to discount calculate karte hain
       return (
         sum +
         (itemDetail
           ? (itemDetail.price *
               item.quantity *
               (100 - itemDetail.discountPercentage)) /
-            100
-          : 0)
+            100 // Discounted price calculate karna
+          : 0) // Agar nahi milta, to 0 return karte hain
       );
-    }, 0)
-    .toFixed(2);
+    }, 0) // Initial sum ki value 0 hai
+    .toFixed(2); // Result ko 2 decimal places tak round karte hain
 };
 
+// Cart item ko represent karne ke liye component
 export const CartItem = (props) => {
+  // API se product data ko ek array mein store karte hain
   const apiData = [...Man, ...Woman, ...Kids, ...Home];
+
+  // Props se productId aur quantity ko destructure karte hain
   const { productId, quantity } = props.data;
+
+  // Item detail ko store karne ke liye state variable
   const [detail, setDetail] = useState(null);
+
+  // Redux dispatch function ko use karne ke liye hook
   const dispatch = useDispatch();
+
+  // Redux store se cart items ko select karna
   const carts = useSelector((store) => store.cart.items);
 
+  // Effect hook jo productId change hone par item detail ko dhoondta hai
   useEffect(() => {
+    // 'apiData' se product ki detail ko dhoondte hain
     const findDetail = apiData.find((product) => product.id === productId);
-    setDetail(findDetail || {});
-  }, [productId]);
 
+    // Detail ko state mein set karte hain
+    setDetail(findDetail || {}); // Agar nahi milta, to empty object set karte hain
+  }, [productId]); // productId ke change hone par ye effect chalega
+
+  // Effect hook jo cart items ya apiData change hone par total amount ko update karta hai
   useEffect(() => {
+    // Total amount calculate karte hain
     const total = calculateTotalAmount(carts, apiData);
-    props.setTotalAmount(total);
-  }, [carts, apiData]);
 
+    // Parent component ko total amount update karne ke liye call karte hain
+    props.setTotalAmount(total);
+  }, [carts, apiData]); // carts ya apiData ke change hone par ye effect chalega
+
+  // Quantity ko kam karne ke liye function
   const handleMinusQuantity = () => {
     dispatch(
       changeQuantity({
-        productId: productId,
-        quantity: quantity - 1,
+        productId: productId, // Product ID ko pass karte hain
+        quantity: quantity - 1, // Quantity ko 1 se kam karte hain
       })
     );
   };
 
+  // Quantity ko remove karne ke liye function
   const handleRemoveQuantity = () => {
     dispatch(
       changeQuantity({
-        productId: productId,
+        productId: productId, // Product ID ko pass karte hain
       })
     );
   };
 
+  // Quantity ko badhane ke liye function
   const handlePlusQuantity = () => {
     dispatch(
       changeQuantity({
-        productId: productId,
-        quantity: quantity + 1,
+        productId: productId, // Product ID ko pass karte hain
+        quantity: quantity + 1, // Quantity ko 1 se badhate hain
       })
     );
   };

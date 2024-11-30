@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
@@ -31,10 +32,10 @@ import Search from "./components/Search/Search.jsx";
 import CartTab from "./components/cartTab.jsx";
 import {
   ScrollToTop,
-  LoadingSpinner,
   ErrorBoundary,
   ToastContainer,
 } from "./components/ScrollToTop/ScrollToTop.jsx";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 const router = createBrowserRouter([
   {
@@ -71,16 +72,37 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+const RootComponent = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 5000); // Adjust the duration as needed
+    return () => clearTimeout(timer); // Cleanup timer on unmount
+  }, []);
+
+  return loading ? (
+    <div className="flex justify-center items-center w-full h-screen overflow-hidden">
+      <DotLottieReact
+        className="w-full h-full"
+        src="https://lottie.host/9b9efbc5-33e3-4517-a667-7ab567527149/CIXRyyRQRI.lottie"
+        loop
+        autoplay
+      />
+    </div>
+  ) : (
     <Provider store={store}>
       <RouterProvider router={router}>
         <ErrorBoundary>
           <ScrollToTop />
-          <LoadingSpinner />
           <ToastContainer />
         </ErrorBoundary>
       </RouterProvider>
     </Provider>
+  );
+};
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <RootComponent />
   </React.StrictMode>
 );

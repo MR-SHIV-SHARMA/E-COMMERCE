@@ -62,14 +62,6 @@ export const BackToTopButton = () => {
   );
 };
 
-// LoadingSpinner Component: Displays a loading spinner
-export const LoadingSpinner = () => (
-  <div style={styles.spinner}>
-    <div className="loader"></div>{" "}
-    {/* Loader class for custom spinner styles */}
-  </div>
-);
-
 // Error Boundary Component: Catches JavaScript errors in child components
 export class ErrorBoundary extends React.Component {
   constructor(props) {
