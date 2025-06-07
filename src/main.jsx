@@ -36,6 +36,11 @@ import {
   ToastContainer,
 } from "./components/ScrollToTop/ScrollToTop.jsx";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import SuperAdminLayout from "./components/SuperAdminLayout/SuperAdminLayout.jsx";
+import SuperAdminDashboard from "./components/SuperAdminDashboard/SuperAdminDashboard.jsx";
+import SuperAdminLogin from "./components/SuperAdminLogin/SuperAdminLogin.jsx";
+// import SuperAdminRegister from "./components/SuperAdminRegister/SuperAdminRegister.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -70,13 +75,55 @@ const router = createBrowserRouter([
       { path: "/MarketingFeatures", element: <MarketingFeatures /> },
     ],
   },
+  // 🔐 Admin Routes
+  // {
+  //   path: "/admin",
+  //   element: <AdminLayout />,
+  //   children: [
+  //     { index: true, element: <AdminDashboard /> },
+  //     { path: "users", element: <AdminUsersPage /> },
+  //     { path: "orders", element: <AdminOrdersPage /> },
+  //     // Add more admin routes
+  //   ],
+  // },
+
+  // 🔐 Super Admin Routes
+  {
+    path: "/admin",
+    element: <SuperAdminLogin />,
+  },
+
+  {
+    path: "/super-admin/super-admin-dashboard",
+    element: <SuperAdminLayout />,
+    children: [
+      { index: true, element: <SuperAdminDashboard /> },
+      // { path: "manage-admins", element: <ManageAdmins /> },
+      // { path: "create-super-admin", element: <CreateSuperAdmin /> },
+      // { path: "delete-super-admin", element: <DeleteSuperAdmin /> },
+      // { path: "create-admin", element: <CreateAdmin /> },
+      // { path: "delete-admin", element: <DeleteAdmin /> },
+    ],
+  },
+
+  // 🔐 Merchant Routes
+  // {
+  //   path: "/merchant",
+  //   element: <MerchantLayout />,
+  //   children: [
+  //     { index: true, element: <MerchantDashboard /> },
+  //     { path: "products", element: <MerchantProducts /> },
+  //     { path: "orders", element: <MerchantOrders /> },
+  //     // Add more merchant routes
+  //   ],
+  // },
 ]);
 
 const RootComponent = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 5000); // Adjust the duration as needed
+    const timer = setTimeout(() => setLoading(false), 1000); // Adjust the duration as needed
     return () => clearTimeout(timer); // Cleanup timer on unmount
   }, []);
 
