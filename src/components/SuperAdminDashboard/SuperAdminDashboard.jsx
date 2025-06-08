@@ -7,17 +7,22 @@ export default function SuperAdminDashboard() {
   const [admins, setAdmins] = useState([]);
   const [message, setMessage] = useState("");
   const [showCreateForm, setShowCreateForm] = useState(false);
+  const [showRegisterForm, setShowRegisterForm] = useState(false);
   const [newAdmin, setNewAdmin] = useState({
     email: "",
     password: "",
     role: "admin",
+  });
+  const [newSuperAdmin, setNewSuperAdmin] = useState({
+    email: "",
+    password: "",
   });
 
   const fetchData = async () => {
     try {
       setStatus("loading");
       const superAdminRes = await axios.get("/api/v1/super-admin/super-admin");
-      setSuperAdmin(superAdminRes.data?.data?.[0]);
+      setSuperAdmin(superAdminRes.data?.data);
 
       const adminsRes = await axios.get("/api/v1/super-admin/admins");
       setAdmins(adminsRes.data?.data || []);
@@ -44,7 +49,7 @@ export default function SuperAdminDashboard() {
       setMessage("Admin created successfully.");
       setShowCreateForm(false);
       setNewAdmin({ email: "", password: "", role: "admin" });
-      fetchData(); // Refresh
+      fetchData();
     } catch (error) {
       console.error(error);
       setMessage("Failed to create admin.");
@@ -55,10 +60,37 @@ export default function SuperAdminDashboard() {
     try {
       await axios.delete(`/api/v1/super-admin/super-admin/delete-admin/${id}`);
       setMessage("Admin deleted successfully.");
-      fetchData(); // Refresh
+      fetchData();
     } catch (error) {
       console.error(error);
       setMessage("Failed to delete admin.");
+    }
+  };
+
+  const handleRegisterSuperAdmin = async () => {
+    try {
+      await axios.post(
+        "/api/v1/super-admin/super-admin/register",
+        newSuperAdmin
+      );
+      setMessage("Super admin registered successfully.");
+      setShowRegisterForm(false);
+      setNewSuperAdmin({ email: "", password: "" });
+      fetchData();
+    } catch (error) {
+      console.error(error);
+      setMessage("Failed to register super admin.");
+    }
+  };
+
+  const handleDeleteSuperAdmin = async (id) => {
+    try {
+      await axios.delete(`/api/v1/super-admin/super-admin/delete/${id}`);
+      setMessage("Super admin deleted successfully.");
+      fetchData();
+    } catch (error) {
+      console.error(error);
+      setMessage("Failed to delete super admin.");
     }
   };
 
@@ -74,7 +106,6 @@ export default function SuperAdminDashboard() {
       {status === "loading" && (
         <p className="text-center text-blue-500">Loading...</p>
       )}
-
       {status === "error" && (
         <p className="text-center text-red-500">{message}</p>
       )}
@@ -82,42 +113,70 @@ export default function SuperAdminDashboard() {
       {status === "success" && (
         <>
           {/* Super Admin Info */}
-          {superAdmin && (
+          {superAdmin.length > 0 && (
             <div className="bg-white shadow-md rounded-xl p-6 mt-4 border">
-              <h2 className="text-xl font-semibold mb-2 text-gray-800">
-                Default Super Admin Info
+              <h2 className="text-xl font-semibold mb-4 text-gray-800 text-center">
+                Super Admins
               </h2>
-              <p>
-                <strong>Email:</strong> {superAdmin.email}
-              </p>
-              <p>
-                <strong>Role:</strong> {superAdmin.role}
-              </p>
-              <p>
-                <strong>Active:</strong> {superAdmin.isActive ? "Yes" : "No"}
-              </p>
-              <p>
-                <strong>Default Super Admin:</strong>{" "}
-                {superAdmin.isDefaultSuperAdmin ? "True" : "False"}
-              </p>
-              <p>
-                <strong>Created At:</strong>{" "}
-                {new Date(superAdmin.createdAt).toLocaleString()}
-              </p>
-              <p>
-                <strong>Updated At:</strong>{" "}
-                {new Date(superAdmin.updatedAt).toLocaleString()}
-              </p>
+              <div className="space-y-4">
+                {superAdmin.map((sa) => (
+                  <div key={sa._id} className="border p-4 rounded-md">
+                    <p>
+                      <strong>Email:</strong> {sa.email}
+                    </p>
+                    <p>
+                      <strong>Role:</strong> {sa.role}
+                    </p>
+                    <p>
+                      <strong>Active:</strong> {sa.isActive ? "Yes" : "No"}
+                    </p>
+                    <p>
+                      <strong>Default Super Admin:</strong>{" "}
+                      {sa.isDefaultSuperAdmin ? "True" : "False"}
+                    </p>
+                    <p>
+                      <strong>Created At:</strong>{" "}
+                      {new Date(sa.createdAt).toLocaleString()}
+                    </p>
+                    <p>
+                      <strong>Updated At:</strong>{" "}
+                      {new Date(sa.updatedAt).toLocaleString()}
+                    </p>
+
+                    {superAdmin?.isDefaultSuperAdmin &&
+                      !sa.isDefaultSuperAdmin && (
+                        <button
+                          onClick={() => handleDeleteSuperAdmin(sa._id)}
+                          className="mt-2 bg-red-600 text-white px-4 py-1 rounded hover:bg-red-700"
+                        >
+                          Delete
+                        </button>
+                      )}
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 
-          {/* Create Admin Button */}
-          <div className="mt-6">
+          {/* Action Buttons */}
+          <div className="mt-6 space-x-4">
             <button
               className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-              onClick={() => setShowCreateForm(!showCreateForm)}
+              onClick={() => {
+                setShowCreateForm((prev) => !prev);
+                setShowRegisterForm(false);
+              }}
             >
               {showCreateForm ? "Cancel" : "➕ Create New Admin"}
+            </button>
+            <button
+              className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700"
+              onClick={() => {
+                setShowRegisterForm((prev) => !prev);
+                setShowCreateForm(false);
+              }}
+            >
+              {showRegisterForm ? "Cancel" : "🔐 Register Super Admin"}
             </button>
           </div>
 
@@ -160,6 +219,47 @@ export default function SuperAdminDashboard() {
                   onClick={handleCreateAdmin}
                 >
                   Create Admin
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Register Super Admin Form */}
+          {showRegisterForm && (
+            <div className="bg-gray-100 p-6 rounded-lg mt-4 shadow-md border">
+              <h3 className="text-lg font-semibold mb-4">
+                Register Super Admin
+              </h3>
+              <div className="space-y-4">
+                <input
+                  type="email"
+                  placeholder="Email"
+                  className="w-full border px-4 py-2 rounded"
+                  value={newSuperAdmin.email}
+                  onChange={(e) =>
+                    setNewSuperAdmin({
+                      ...newSuperAdmin,
+                      email: e.target.value,
+                    })
+                  }
+                />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  className="w-full border px-4 py-2 rounded"
+                  value={newSuperAdmin.password}
+                  onChange={(e) =>
+                    setNewSuperAdmin({
+                      ...newSuperAdmin,
+                      password: e.target.value,
+                    })
+                  }
+                />
+                <button
+                  className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700"
+                  onClick={handleRegisterSuperAdmin}
+                >
+                  Register Super Admin
                 </button>
               </div>
             </div>

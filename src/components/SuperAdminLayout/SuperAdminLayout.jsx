@@ -22,7 +22,7 @@ export default function SuperAdminLayout() {
         <h2 className="text-2xl font-bold text-blue-600 mb-4">Super Admin</h2>
         <nav className="flex flex-col space-y-2">
           <NavLink
-            to="/super-admin"
+            to="/admin"
             end
             className={({ isActive }) =>
               isActive ? "text-blue-600 font-semibold" : "text-gray-700"
