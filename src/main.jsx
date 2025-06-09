@@ -40,7 +40,10 @@ import SuperAdminLayout from "./components/SuperAdminLayout/SuperAdminLayout.jsx
 import SuperAdminDashboard from "./components/SuperAdminDashboard/SuperAdminDashboard.jsx";
 import SuperAdminLogin from "./components/SuperAdminLogin/SuperAdminLogin.jsx";
 // import SuperAdminRegister from "./components/SuperAdminRegister/SuperAdminRegister.jsx";
-import ProtectedRoute from "./components/ProtectedRoute.jsx";
+// import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import Activity from "./components/Activity/Activity.jsx";
+import Category from "./components/category.jsx";
+import Brand from "./components/brand.jsx";
 
 const router = createBrowserRouter([
   {
@@ -94,14 +97,14 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "/super-admin/super-admin-dashboard",
+    path: "/super-admin",
     element: <SuperAdminLayout />,
     children: [
       { index: true, element: <SuperAdminDashboard /> },
       // { path: "manage-admins", element: <ManageAdmins /> },
-      // { path: "create-super-admin", element: <CreateSuperAdmin /> },
-      // { path: "delete-super-admin", element: <DeleteSuperAdmin /> },
-      // { path: "create-admin", element: <CreateAdmin /> },
+      { path: "/super-admin/activity", element: <Activity /> },
+      { path: "/super-admin/category", element: <Category /> },
+      { path: "/super-admin/brand", element: <Brand /> },
       // { path: "delete-admin", element: <DeleteAdmin /> },
     ],
   },

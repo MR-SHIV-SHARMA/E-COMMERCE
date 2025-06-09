@@ -28,6 +28,15 @@ export default function SuperAdminLayout() {
               isActive ? "text-blue-600 font-semibold" : "text-gray-700"
             }
           >
+            Login
+          </NavLink>
+          <NavLink
+            to="/super-admin"
+            end
+            className={({ isActive }) =>
+              isActive ? "text-blue-600 font-semibold" : "text-gray-700"
+            }
+          >
             Dashboard
           </NavLink>
 
@@ -38,6 +47,30 @@ export default function SuperAdminLayout() {
             }
           >
             Manage Admins
+          </NavLink>
+          <NavLink
+            to="/super-admin/activity"
+            className={({ isActive }) =>
+              isActive ? "text-blue-600 font-semibold" : "text-gray-700"
+            }
+          >
+            Activity
+          </NavLink>
+          <NavLink
+            to="/super-admin/category"
+            className={({ isActive }) =>
+              isActive ? "text-blue-600 font-semibold" : "text-gray-700"
+            }
+          >
+            category
+          </NavLink>
+          <NavLink
+            to="/super-admin/brand"
+            className={({ isActive }) =>
+              isActive ? "text-blue-600 font-semibold" : "text-gray-700"
+            }
+          >
+            brand
           </NavLink>
 
           {/* Logout Button */}

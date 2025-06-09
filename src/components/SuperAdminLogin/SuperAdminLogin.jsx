@@ -12,10 +12,13 @@ export default function SuperAdminLogin() {
     e.preventDefault();
     setError("");
     try {
-      const response = await axios.post("/api/v1/auth/login", { email, password });
+      const response = await axios.post("/api/v1/auth/login", {
+        email,
+        password,
+      });
       if (response.data?.token || response.data?.success) {
         localStorage.setItem("superAdminAuth", "true");
-        navigate("/super-admin/super-admin-dashboard");
+        navigate("/super-admin");
       } else {
         setError("Invalid credentials");
       }
@@ -30,7 +33,9 @@ export default function SuperAdminLogin() {
         onSubmit={handleLogin}
         className="bg-white p-6 rounded-lg shadow-md w-full max-w-md"
       >
-        <h2 className="text-2xl font-bold mb-6 text-center">Super Admin Login</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center">
+          Super Admin Login
+        </h2>
         {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
         <div className="mb-4">
           <label className="block mb-1 text-sm font-medium">Email</label>
