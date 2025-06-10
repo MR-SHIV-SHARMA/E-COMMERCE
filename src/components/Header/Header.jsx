@@ -131,7 +131,7 @@ const Header = () => {
   };
 
   return (
-    <div className="bg-gray-700 text-black sticky z-50 top-0 w-full">
+    <div className="mx-auto max-w-7xl bg-gray-700 text-black sticky z-50 top-0 w-full">
       <div className="relative z-40" role="dialog" aria-modal="true">
         <div
           className={`fixed  bg-black bg-opacity-25 ${

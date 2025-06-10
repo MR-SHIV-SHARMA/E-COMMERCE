@@ -1,131 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Home } from "../Home_Products_Api_Data/Home_Products_Api_Data";
-import { useSelector, useDispatch } from "react-redux";
-import { addToCart } from "../../stores/cart";
-import { Link } from "react-router-dom";
-
-function ProductDetailPage(props) {
-  const carts = useSelector((store) => store.cart.items);
-  const {
-    id,
-    title,
-    price,
-    images,
-    slug,
-    sub_category,
-    category,
-    brand,
-    rating,
-    description,
-    stock,
-    discountPercentage,
-  } = props.data;
-  const dispatch = useDispatch();
-  const [quantity, setQuantity] = useState(1); // Added state for quantity
-
-  const handleAddToCart = () => {
-    dispatch(
-      addToCart({
-        productId: id,
-        quantity: quantity, // Updated to use state quantity
-      })
-    );
-  };
-
-  return (
-    <>
-      <div className="w-full p-2">
-        <div className="flex flex-col md:flex-row gap-4 rounded-lg shadow-lg p-3 border-r border-l border-t border-b border-gray-300">
-          <div className="w-full md:w-1/2">
-            <Link to={`/ProductOverviews/${id}`}>
-              <div className="image-container">
-                <img
-                  src={images}
-                  alt={title}
-                  className="w-full h-[350px] object-contain rounded-lg shadow-lg zoom-image"
-                />
-              </div>
-            </Link>
-          </div>
-          <div className="w-full md:w-1/2 p-4">
-            <div className="flex flex-col space-y-2 h-[300px]">
-              <div className="flex items-center">
-                <span className="text-gray-600 text-xs font-medium pr-1">
-                  {sub_category}
-                </span>
-              </div>
-              <div className="flex items-center">
-                <span className="text-gray-600 text-xs font-medium pr-1">
-                  Category:
-                </span>
-                <span
-                  className="border border-gray-300 px-2 py-0.5 text-center rounded-full text-gray-800 font-semibold text-xs"
-                  style={{ width: "fit-content" }}
-                >
-                  {category}
-                </span>
-              </div>
-              <h2 className="text-sm font-bold text-gray-900">{title}</h2>
-              <div className="text-gray-800 font-semibold text-xs">
-                Brand: {brand}
-              </div>
-              <div className="text-gray-800 font-semibold text-xs">
-                Rating: {rating} reviews
-              </div>
-              <div className="text-gray-800 font-semibold text-xs line-clamp-2">
-                Description: {description}
-              </div>
-              <p className="text-sm font-bold text-gray-900">${price}</p>
-              <div className="flex items-center gap-2">
-                <label htmlFor="color" className="text-xs font-medium w-1/4">
-                  Color:
-                </label>
-                <select
-                  id="color"
-                  className="border border-gray-300 rounded-lg px-2 py-1 focus:outline-none text-xs w-3/4"
-                >
-                  <option value="gray">Gray</option>
-                  <option value="brown">Brown</option>
-                  <option value="black">Black</option>
-                </select>
-              </div>
-              <p className="text-xs font-medium">Stock: {stock}%</p>
-              <div className="flex items-center gap-2">
-                <label htmlFor="quantity" className="text-xs font-medium w-1/4">
-                  Quantity:
-                </label>
-                <input
-                  type="number"
-                  id="quantity"
-                  min="1"
-                  defaultValue="1"
-                  value={quantity} // Updated to use state quantity
-                  onChange={(e) => setQuantity(Number(e.target.value))} // Updated to update state quantity
-                  className="border border-gray-300 rounded-lg px-2 py-1 w-1/4 focus:outline-none text-xs"
-                />
-              </div>
-              <p className="text-xs font-medium">
-                Discount: {discountPercentage}%
-              </p>
-              <div className="flex gap-3">
-                <button
-                  onClick={handleAddToCart}
-                  className="bg-gradient-to-r from-blue-500 to-blue-700 text-white px-3 py-2 rounded-lg hover:from-blue-600 hover:to-blue-800 transition-all duration-300 text-xs w-1/2 font-semibold shadow-md transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-                >
-                  Add to Cart
-                </button>
-                <button className="bg-gradient-to-r from-green-500 to-green-700 text-white px-3 py-2 rounded-lg hover:from-green-600 hover:to-green-800 transition-all duration-300 text-xs w-1/2 font-semibold shadow-md transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
-                  Buy Now
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <hr className="border-t border-gray-500 my-4 mx-6" />
-    </>
-  );
-}
+import Card from "../Card/Card";
 
 function ProductDetailPagePage() {
   // State for selected filters
@@ -269,6 +144,7 @@ function ProductDetailPagePage() {
 
   return (
     <>
+    <div className="mx-auto max-w-7xl">
       <div className="flex flex-col items-center pb-4">
         <h1 className="text-2xl sm:text-3xl font-extrabold text-center pt-2 sm:mt-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 animate-pulse font-['Playfair_Display']">
           Clothing Collection
@@ -388,14 +264,11 @@ function ProductDetailPagePage() {
         )}
       </div>
 
-      <div className="container mx-auto">
-        <div className="flex flex-wrap justify-center">
-          {filteredProducts.map((product, Key) => (
-            <div key={product.id} className="w-full lg:w-1/2">
-              <ProductDetailPage key={Key} data={product} />
-            </div>
-          ))}
-        </div>
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 px-4 pb-8">
+        {filteredProducts.map((product) => (
+          <Card key={product.id} data={product} />
+        ))}
+      </div>
       </div>
     </>
   );

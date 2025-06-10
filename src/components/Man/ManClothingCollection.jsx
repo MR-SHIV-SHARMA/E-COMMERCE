@@ -1,48 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Man } from "../../components/Man_Products_Api_Data/Man_Products_Api_Data";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { Link, useLocation } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { addToCart } from "../../stores/cart";
-
-function ManClothingCollection(props) {
-  const carts = useSelector((store) => store.cart.items);
-  const { id, title, price, images, slug } = props.data;
-  const dispatch = useDispatch();
-  const handleAddToCart = () => {
-    dispatch(
-      addToCart({
-        productId: id,
-        quantity: 1,
-      })
-    );
-  };
-  return (
-    <div className="container flex flex-col items-center shadow-2xl sm:shadow-none my-2 image-container">
-      <div className="w-[300px] sm:w-[230px] sm:h-[350px] rounded-t-md overflow-hidden">
-        <Link to={`/ProductOverviews/${id}`}>
-          <div className="flex items-center justify-center h-[350px] w-full rounded-t-md overflow-hidden">
-            <img
-              src={images}
-              alt={title}
-              className="w-full h-full object-contain zoom-image"
-            />
-          </div>
-        </Link>
-      </div>
-      <div className="w-[300px] sm:w-[230px] h-[60px] bg-white flex justify-between p-2 rounded-b-md">
-        <h1 className="text-sm font-semibold text-black">{title}</h1>
-        <div className="flex flex-col justify-start">
-          <AiOutlineShoppingCart
-            className="text-2xl text-black cursor-pointer"
-            onClick={handleAddToCart}
-          />
-          <p className="text-base font-semibold text-black">${price}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
+import { useLocation } from "react-router-dom";
+import Card from "../Card/Card";
 
 function getProducts() {
   const location = useLocation();
@@ -160,10 +119,7 @@ function getProducts() {
   ]);
 
   const shuffleArray = (array) => {
-    return array
-      .map((item) => ({ item, sort: Math.random() }))
-      .sort((a, b) => a.sort - b.sort)
-      .map(({ item }) => item);
+    return array.map((item) => item);
   };
 
   const handleCategoryChange = (event) => {
@@ -207,7 +163,7 @@ function getProducts() {
   };
 
   return (
-    <div>
+    <div className="mx-auto max-w-7xl">
       <div className="flex flex-col items-center bg-white">
         <h1 className="text-2xl sm:text-3xl font-extrabold text-center pt-2 sm:mt-4">
           MAN CLOTHING COLLECTION
@@ -328,14 +284,9 @@ function getProducts() {
         )}
       </div>
 
-      <div className="flex flex-wrap justify-around pt-8 pb-4 bg-white">
-        {currentItems.map((product, Key) => (
-          <div
-            key={product.id}
-            className="sm:w-11/12 md:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/6"
-          >
-            <ManClothingCollection key={Key} data={product} />
-          </div>
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 px-4 pb-8">
+        {currentItems.map((product) => (
+          <Card key={product.id} data={product} />
         ))}
       </div>
 

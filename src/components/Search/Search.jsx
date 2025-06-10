@@ -1,64 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Man } from "../../components/Man_Products_Api_Data/Man_Products_Api_Data";
 import { Woman } from "../Woman_Products_Api_Data/Woman_Products_Api_Data";
 import { Kids } from "../Kids_Products_Api_Data/Kids_Products_Api_Data";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { Link, useLocation } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { addToCart } from "../../stores/cart";
-
-// Function to handle the search functionality
-function Search(props) {
-  // Get the current page location using React Router's useLocation hook.
-  const location = useLocation();
-  // Extract the URL parameters using URLSearchParams.
-  const queryParams = new URLSearchParams(location.search);
-  // Get the search query parameter from the URL, defaulting to an empty string if not found.
-  const searchQuery = queryParams.get("query") || "";
-  // Retrieve the cart items from the Redux store.
-  const carts = useSelector((store) => store.cart.items);
-  // Destructure the props data into individual properties.
-  const { id, title, price, images, slug, brand, sub_category, category } =
-    props.data;
-  // Get the dispatch function from Redux to dispatch actions.
-  const dispatch = useDispatch();
-  // Define a handler function to add a product to the cart.
-  const handleAddToCart = () => {
-    // Dispatch the addToCart action with the product ID and quantity.
-    dispatch(
-      addToCart({
-        productId: id, // The product ID
-        quantity: 1, // The quantity is set to 1
-      })
-    );
-  };
-
-  return (
-    <div className="container flex flex-col items-center shadow-2xl sm:shadow-none my-2 image-container">
-      <div className="w-[300px] sm:w-[230px] sm:h-[350px] rounded-t-md overflow-hidden">
-        <Link to={`/ProductOverviews/${id}`}>
-          <div className="flex items-center justify-center h-[350px] w-full rounded-t-md overflow-hidden">
-            <img
-              src={images}
-              alt={title}
-              className="w-full h-full object-contain zoom-image"
-            />
-          </div>
-        </Link>
-      </div>
-      <div className="w-[300px] sm:w-[230px] h-[60px] bg-white flex justify-between p-2 rounded-b-md">
-        <h1 className="text-sm font-semibold text-black">{title}</h1>
-        <div className="flex flex-col justify-start">
-          <AiOutlineShoppingCart
-            className="text-2xl text-black cursor-pointer"
-            onClick={handleAddToCart}
-          />
-          <p className="text-base font-semibold text-black">${price}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
+import { useLocation } from "react-router-dom";
+import Card from "../Card/Card";
 
 // Function to get products based on search query
 function getProducts() {
@@ -184,7 +129,7 @@ function getProducts() {
   };
 
   return (
-    <div>
+    <div className="mx-auto max-w-7xl">
       <div className="flex flex-col items-center bg-white">
         <h1 className="text-2xl sm:text-4xl font-extrabold text-center pt-2 sm:mt-4">
           Search
@@ -211,7 +156,7 @@ function getProducts() {
             key={product.id}
             className="sm:w-11/12 md:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/6"
           >
-            <Search key={Key} data={product} />
+            <Card key={Key} data={product} />
           </div>
         ))}
       </div>

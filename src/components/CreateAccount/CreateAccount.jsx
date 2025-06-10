@@ -33,7 +33,7 @@ function CreateAccount() {
   };
   return (
     <>
-      <section>
+      <section className="mx-auto max-w-7xl">
         <div class="grid grid-cols-1 lg:grid-cols-2">
           <Toaster position="top-right" reverseOrder={false} />
           <div class="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
