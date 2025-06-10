@@ -13,20 +13,18 @@ export default function Merchant() {
 
   const fetchData = async () => {
     try {
-      setStatus("loading");
       const { data } = await axios.get(
         "/api/v1/merchants/super-admin/getAll-merchant"
       );
       setMerchant(data?.merchants || []);
-      setMessage({ text: "Data fetched successfully", type: "success" });
       setStatus("success");
     } catch (error) {
       console.error(error);
+      setStatus("error");
       setMessage({
-        text: error.response?.data?.message || "Failed to fetch data",
+        text: error.response?.data?.message || "Failed to fetch merchants",
         type: "error",
       });
-      setStatus("error");
     }
   };
 
@@ -50,18 +48,54 @@ export default function Merchant() {
       );
 
       const newMerchantId = response.data?.merchant?._id;
-      setMessage({ text: "Merchant account created", type: "success" });
-      setStatus("success");
+      setMessage({
+        text: "Merchant account created successfully",
+        type: "success",
+      });
       setShowUpdateForm({ show: true, id: newMerchantId });
       setFormValues({});
-      fetchData();
+      e.target.reset();
+      await fetchData();
     } catch (error) {
       console.error(error);
       setMessage({
         text: error.response?.data?.message || "Failed to create merchant",
         type: "error",
       });
-      setStatus("error");
+    } finally {
+      setStatus("success");
+    }
+  };
+
+  const updateMerchant = async (e, id) => {
+    e.preventDefault();
+    try {
+      setStatus("loading");
+      const payload = {
+        ...formValues,
+        fabricTypes: formValues.fabricTypes?.split(",").map((x) => x.trim()),
+        deliveryOptions: formValues.deliveryOptions
+          ?.split(",")
+          .map((x) => x.trim()),
+      };
+
+      await axios.patch(
+        `/api/v1/merchants/super-admin/update-merchant/${id}`,
+        payload
+      );
+
+      setMessage({ text: "Merchant updated successfully", type: "success" });
+      setShowUpdateForm({ show: false, id: null });
+      setFormValues({});
+      await fetchData();
+    } catch (error) {
+      console.error(error);
+      setMessage({
+        text: error.response?.data?.message || "Failed to update merchant",
+        type: "error",
+      });
+    } finally {
+      setStatus("success");
     }
   };
 
@@ -88,10 +122,10 @@ export default function Merchant() {
     try {
       await axios.delete(`/api/v1/merchants/super-admin/delete-merchant/${id}`);
       setMessage({ text: "Merchant deleted successfully", type: "success" });
-      fetchData();
-    } catch (err) {
+      await fetchData();
+    } catch (error) {
       setMessage({
-        text: err.response?.data?.message || "Failed to delete merchant",
+        text: error.response?.data?.message || "Failed to delete merchant",
         type: "error",
       });
     }
@@ -107,6 +141,7 @@ export default function Merchant() {
 
   return (
     <div className="p-4 md:p-8 max-w-6xl mx-auto">
+      {/* Message */}
       {message.text && (
         <div
           className={`fixed top-4 right-4 z-50 px-6 py-3 rounded-lg shadow-lg transition-all ${
@@ -124,14 +159,125 @@ export default function Merchant() {
           </button>
         </div>
       )}
-
+      {/* Loader */}
       {status === "loading" && (
         <div className="flex justify-center items-center h-64">
           <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
         </div>
       )}
+      {/* Create Form */}
+      <div className="bg-white rounded-xl shadow-md mb-8 p-6">
+        <h2 className="text-xl font-semibold mb-4 text-indigo-600">
+          Create Merchant Account
+        </h2>
+        <form
+          onSubmit={createMerchant}
+          className="grid grid-cols-1 md:grid-cols-2 gap-4"
+        >
+          <input
+            name="email"
+            placeholder="Email"
+            required
+            className="border px-3 py-2 rounded w-full"
+          />
+          <input
+            name="password"
+            placeholder="Password"
+            type="password"
+            required
+            className="border px-3 py-2 rounded w-full"
+          />
+          <div className="col-span-1 md:col-span-2">
+            <button
+              type="submit"
+              className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-4 py-2 rounded"
+            >
+              ➕ Create Merchant
+            </button>
+          </div>
+        </form>
+      </div>
+      {/* Update Form */}
+      {showUpdateForm.show && (
+        <form
+          onSubmit={(e) => updateMerchant(e, showUpdateForm.id)}
+          className="p-6 bg-white rounded-xl shadow-md mb-8 space-y-4 border-2 border-green-400"
+        >
+          <div className="flex items-center justify-between">
+            <h2 className="text-xl font-semibold text-green-700">
+              Update Merchant Details
+            </h2>
+            <button
+              type="button"
+              onClick={() => setShowUpdateForm({ show: false, id: null })}
+              className="text-red-600 hover:underline"
+            >
+              Cancel ✖️
+            </button>
+          </div>
 
-      {/* Merchant List */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {[
+              ["name", "Merchant Name"],
+              ["phone", "Phone"],
+              ["panCard", "PAN Card"],
+              ["aadhaarCard", "Aadhaar Card"],
+              ["companyName", "Company Name"],
+              ["ownerName", "Owner Name"],
+              ["fabricTypes", "Fabric Types (comma-separated)"],
+              ["deliveryOptions", "Delivery Options (comma-separated)"],
+            ].map(([name, placeholder]) => (
+              <input
+                key={name}
+                name={name}
+                value={formValues[name] || ""}
+                placeholder={placeholder}
+                onChange={handleInputChange}
+                className="border px-3 py-2 rounded w-full"
+              />
+            ))}
+
+            <label className="flex items-center space-x-2">
+              <input
+                type="checkbox"
+                name="isSustainable"
+                checked={formValues.isSustainable}
+                onChange={handleInputChange}
+              />
+              <span>Sustainable</span>
+            </label>
+            <label className="flex items-center space-x-2">
+              <input
+                type="checkbox"
+                name="isWholesaleAvailable"
+                checked={formValues.isWholesaleAvailable}
+                onChange={handleInputChange}
+              />
+              <span>Wholesale Available</span>
+            </label>
+            <label className="flex items-center space-x-2">
+              <input
+                type="checkbox"
+                name="isVerified"
+                checked={formValues.isVerified}
+                onChange={handleInputChange}
+              />
+              <span>Verified</span>
+            </label>
+          </div>
+
+          <div className="flex justify-end gap-4">
+            <button
+              type="submit"
+              className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded"
+            >
+              ✅ Update Merchant
+            </button>
+          </div>
+        </form>
+      )}
+
+      {/* Merchant List Section */}
       {status === "success" && (
         <>
           <section className="bg-white rounded-xl shadow-md overflow-hidden mb-8">
@@ -316,131 +462,6 @@ export default function Merchant() {
             </div>
           </section>
         </>
-      )}
-
-      {/* Create Merchant Form */}
-      <div className="bg-white rounded-xl shadow-md mb-8 p-6">
-        <h2 className="text-xl font-semibold mb-4 text-indigo-600">
-          Create Merchant Account
-        </h2>
-        <form
-          onSubmit={createMerchant}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4"
-        >
-          <input
-            name="email"
-            placeholder="Email"
-            required
-            className="border px-3 py-2 rounded w-full"
-          />
-          <input
-            name="password"
-            placeholder="Password"
-            required
-            type="password"
-            className="border px-3 py-2 rounded w-full"
-          />
-          <div className="col-span-1 md:col-span-2">
-            <button
-              type="submit"
-              className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-4 py-2 rounded"
-            >
-              ➕ Create Merchant
-            </button>
-          </div>
-        </form>
-      </div>
-
-      {/* Update Merchant Form */}
-      {showUpdateForm.show && (
-        <form
-          onSubmit={(e) => updateMerchant(e, showUpdateForm.id)}
-          className="p-6 bg-white rounded-xl shadow-md mb-8 space-y-4 border-2 border-green-400"
-        >
-          <div className="flex items-center justify-between">
-            <h2 className="text-xl font-semibold text-green-700">
-              Update Merchant Details
-            </h2>
-            <button
-              type="button"
-              onClick={() => setShowUpdateForm({ show: false, id: null })}
-              className="text-red-600 hover:underline"
-            >
-              Cancel ✖️
-            </button>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <input
-              name="name"
-              placeholder="Merchant Name"
-              required
-              className="border px-3 py-2 rounded w-full"
-            />
-            <input
-              name="phone"
-              placeholder="Phone"
-              required
-              className="border px-3 py-2 rounded w-full"
-            />
-            <input
-              name="panCard"
-              placeholder="PAN Card"
-              required
-              className="border px-3 py-2 rounded w-full"
-            />
-            <input
-              name="aadhaarCard"
-              placeholder="Aadhaar Card"
-              required
-              className="border px-3 py-2 rounded w-full"
-            />
-            <input
-              name="companyName"
-              placeholder="Company Name"
-              required
-              className="border px-3 py-2 rounded w-full"
-            />
-            <input
-              name="ownerName"
-              placeholder="Owner Name"
-              required
-              className="border px-3 py-2 rounded w-full"
-            />
-            <input
-              name="fabricTypes"
-              placeholder="Fabric Types (comma-separated)"
-              className="border px-3 py-2 rounded w-full"
-            />
-            <input
-              name="deliveryOptions"
-              placeholder="Delivery Options (comma-separated)"
-              className="border px-3 py-2 rounded w-full"
-            />
-
-            <label className="flex items-center space-x-2">
-              <input type="checkbox" name="isSustainable" />
-              <span>Sustainable</span>
-            </label>
-            <label className="flex items-center space-x-2">
-              <input type="checkbox" name="isWholesaleAvailable" />
-              <span>Wholesale Available</span>
-            </label>
-            <label className="flex items-center space-x-2">
-              <input type="checkbox" name="isVerified" />
-              <span>Verified</span>
-            </label>
-          </div>
-
-          <div className="flex justify-end gap-4">
-            <button
-              type="submit"
-              className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded"
-            >
-              ✅ Update Merchant
-            </button>
-          </div>
-        </form>
       )}
     </div>
   );
