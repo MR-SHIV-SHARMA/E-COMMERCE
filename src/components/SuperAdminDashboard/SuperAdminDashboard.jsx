@@ -4,6 +4,7 @@ import axios from "axios";
 export default function SuperAdminDashboard() {
   const [status, setStatus] = useState("loading");
   const [superAdmin, setSuperAdmin] = useState([]);
+  const [merchant, setMerchant] = useState([]);
   const [admins, setAdmins] = useState([]);
   const [message, setMessage] = useState({ text: "", type: "" });
   const [showCreateForm, setShowCreateForm] = useState(false);
@@ -27,13 +28,15 @@ export default function SuperAdminDashboard() {
   const fetchData = async () => {
     try {
       setStatus("loading");
-      const [superAdminRes, adminsRes] = await Promise.all([
+      const [superAdminRes, adminsRes, merchantRes] = await Promise.all([
         axios.get("/api/v1/super-admin/super-admin"),
         axios.get("/api/v1/super-admin/admins"),
+        axios.get("/api/v1/merchants/super-admin/getAll-merchant"),
       ]);
 
       setSuperAdmin(superAdminRes.data?.data || []);
       setAdmins(adminsRes.data?.data || []);
+      setMerchant(merchantRes.data?.merchants || []);
       setMessage({ text: "Data fetched successfully", type: "success" });
       setStatus("success");
     } catch (error) {
@@ -215,6 +218,67 @@ export default function SuperAdminDashboard() {
 
       {status === "success" && (
         <>
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-8">
+            <button
+              onClick={toggleCreateForm}
+              className={`px-6 py-3 rounded-lg transition-all flex-1 ${
+                showCreateForm
+                  ? "bg-gray-200 text-gray-800 hover:bg-gray-300"
+                  : "bg-blue-600 text-white hover:bg-blue-700"
+              } flex items-center justify-center`}
+            >
+              {showCreateForm ? (
+                "Cancel Create Admin"
+              ) : (
+                <>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 mr-2"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  Create New Admin
+                </>
+              )}
+            </button>
+
+            <button
+              onClick={toggleRegisterForm}
+              className={`px-6 py-3 rounded-lg transition-all flex-1 ${
+                showRegisterForm
+                  ? "bg-gray-200 text-gray-800 hover:bg-gray-300"
+                  : "bg-purple-600 text-white hover:bg-purple-700"
+              } flex items-center justify-center`}
+            >
+              {showRegisterForm ? (
+                "Cancel Super Admin Registration"
+              ) : (
+                <>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 mr-2"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  Register Super Admin
+                </>
+              )}
+            </button>
+          </div>
+
           {/* Super Admin Section */}
           <section className="bg-white rounded-xl shadow-md overflow-hidden mb-8">
             <div className="px-6 py-4 bg-gradient-to-r from-purple-600 to-indigo-700 text-white">
@@ -315,66 +379,104 @@ export default function SuperAdminDashboard() {
             </div>
           </section>
 
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-8">
-            <button
-              onClick={toggleCreateForm}
-              className={`px-6 py-3 rounded-lg transition-all flex-1 ${
-                showCreateForm
-                  ? "bg-gray-200 text-gray-800 hover:bg-gray-300"
-                  : "bg-blue-600 text-white hover:bg-blue-700"
-              } flex items-center justify-center`}
-            >
-              {showCreateForm ? (
-                "Cancel Create Admin"
+          <section className="bg-white rounded-xl shadow-md overflow-hidden mb-8">
+            <div className="px-6 py-4 bg-gradient-to-r from-purple-600 to-indigo-700 text-white">
+              <h2 className="text-xl font-semibold">Merchant</h2>
+            </div>
+            <div className="p-6">
+              {merchant.length === 0 ? (
+                <div className="text-center py-8 text-gray-500">
+                  No merchant found
+                </div>
               ) : (
-                <>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 mr-2"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  Create New Admin
-                </>
-              )}
-            </button>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {merchant.map((sa) => (
+                    <div
+                      key={sa._id}
+                      className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+                    >
+                      <div className="flex items-start mb-2">
+                        <div className="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16" />
+                        <div className="ml-4 flex-1">
+                          <h3 className="font-medium text-gray-800">
+                            {sa.email}
+                          </h3>
+                          <div className="flex flex-wrap gap-2 mt-2">
+                            <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">
+                              {sa.role}
+                            </span>
+                            <span
+                              className={`${
+                                sa.isActive
+                                  ? "bg-green-100 text-green-800"
+                                  : "bg-red-100 text-red-800"
+                              } text-xs px-2 py-1 rounded`}
+                            >
+                              {sa.isActive ? "Active" : "Inactive"}
+                            </span>
+                            {sa.isDefaultSuperAdmin && (
+                              <span className="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">
+                                Default
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      </div>
 
-            <button
-              onClick={toggleRegisterForm}
-              className={`px-6 py-3 rounded-lg transition-all flex-1 ${
-                showRegisterForm
-                  ? "bg-gray-200 text-gray-800 hover:bg-gray-300"
-                  : "bg-purple-600 text-white hover:bg-purple-700"
-              } flex items-center justify-center`}
-            >
-              {showRegisterForm ? (
-                "Cancel Super Admin Registration"
-              ) : (
-                <>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 mr-2"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  Register Super Admin
-                </>
+                      <div className="grid grid-cols-2 gap-2 mt-4 text-sm text-gray-600">
+                        <div>
+                          <span className="font-medium">Created:</span>{" "}
+                          {new Date(sa.createdAt).toLocaleDateString()}
+                        </div>
+                        <div>
+                          <span className="font-medium">Updated:</span>{" "}
+                          {new Date(sa.updatedAt).toLocaleDateString()}
+                        </div>
+                      </div>
+
+                      {!sa.isDefaultSuperAdmin && (
+                        <div className="mt-4 flex justify-end">
+                          <button
+                            onClick={() => handleDeleteSuperAdmin(sa._id)}
+                            disabled={processing.deleteSuper === sa._id}
+                            className="px-3 py-1 bg-red-100 text-red-700 rounded-md hover:bg-red-200 disabled:opacity-50 flex items-center"
+                          >
+                            {processing.deleteSuper === sa._id ? (
+                              <>
+                                <svg
+                                  className="animate-spin -ml-1 mr-2 h-4 w-4 text-red-700"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <circle
+                                    className="opacity-25"
+                                    cx="12"
+                                    cy="12"
+                                    r="10"
+                                    stroke="currentColor"
+                                    strokeWidth="4"
+                                  ></circle>
+                                  <path
+                                    className="opacity-75"
+                                    fill="currentColor"
+                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                  ></path>
+                                </svg>
+                                Deleting...
+                              </>
+                            ) : (
+                              "Delete"
+                            )}
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
               )}
-            </button>
-          </div>
+            </div>
+          </section>
 
           {/* Create Admin Form */}
           {showCreateForm && (

@@ -72,6 +72,14 @@ export default function SuperAdminLayout() {
           >
             brand
           </NavLink>
+          <NavLink
+            to="/super-admin/merchant"
+            className={({ isActive }) =>
+              isActive ? "text-blue-600 font-semibold" : "text-gray-700"
+            }
+          >
+            Merchant
+          </NavLink>
 
           {/* Logout Button */}
           <button

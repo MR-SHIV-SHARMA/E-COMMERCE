@@ -44,6 +44,7 @@ import SuperAdminLogin from "./components/SuperAdminLogin/SuperAdminLogin.jsx";
 import Activity from "./components/Activity/Activity.jsx";
 import Category from "./components/category.jsx";
 import Brand from "./components/brand.jsx";
+import Merchant from "./components/merchant/merchant.jsx";
 
 const router = createBrowserRouter([
   {
@@ -105,7 +106,7 @@ const router = createBrowserRouter([
       { path: "/super-admin/activity", element: <Activity /> },
       { path: "/super-admin/category", element: <Category /> },
       { path: "/super-admin/brand", element: <Brand /> },
-      // { path: "delete-admin", element: <DeleteAdmin /> },
+      { path: "/super-admin/merchant", element: <Merchant /> },
     ],
   },
 
