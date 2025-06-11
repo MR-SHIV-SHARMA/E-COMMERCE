@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 export default function SuperAdminLogin() {
   const [email, setEmail] = useState("superadmin@gmail.com");
@@ -16,11 +17,24 @@ export default function SuperAdminLogin() {
         email,
         password,
       });
-      if (response.data?.token || response.data?.success) {
+
+      const accessToken = response.data?.data?.accessToken;
+      const refreshToken = response.data?.data?.refreshToken;
+      const adminId = response.data?.data?.admin?._id;
+
+      if (accessToken && refreshToken && adminId) {
+        // ✅ Save tokens and user ID in cookies
+        Cookies.set("accessToken", accessToken, { expires: 7 });
+        Cookies.set("refreshToken", refreshToken, { expires: 7 });
+        Cookies.set("userId", adminId, { expires: 7 });
+
+        // ✅ Save auth state in localStorage
         localStorage.setItem("superAdminAuth", "true");
+
+        // ✅ Navigate
         navigate("/super-admin");
       } else {
-        setError("Invalid credentials");
+        setError("Invalid response from server");
       }
     } catch (err) {
       setError(err.response?.data?.message || "Login failed");
