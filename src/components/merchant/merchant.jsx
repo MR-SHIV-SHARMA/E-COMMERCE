@@ -93,7 +93,7 @@ export default function Merchant() {
         `/api/v1/merchants/super-admin/delete-merchant/${userId}`
       );
       setMessage({ text: "Merchant deleted successfully", type: "success" });
-      await fetchData();
+      navigate("/admin");
     } catch (error) {
       setMessage({
         text: error.response?.data?.message || "Failed to delete merchant",

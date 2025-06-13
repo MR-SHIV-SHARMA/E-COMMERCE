@@ -30,7 +30,8 @@ export default function MerchantCreate() {
       );
 
       setMessage({
-        text: "Merchant account created successfully!",
+        text:
+          response.data?.message || "Merchant account created successfully!",
         type: "success",
       });
 
