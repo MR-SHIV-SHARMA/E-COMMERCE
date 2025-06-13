@@ -80,6 +80,14 @@ export default function SuperAdminLayout() {
           >
             Merchant
           </NavLink>
+          <NavLink
+            to="/super-admin/merchant-create"
+            className={({ isActive }) =>
+              isActive ? "text-blue-600 font-semibold" : "text-gray-700"
+            }
+          >
+            Merchant create
+          </NavLink>
 
           {/* Logout Button */}
           <button

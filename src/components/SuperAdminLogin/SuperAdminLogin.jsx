@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Cookies from "js-cookie";
 
 export default function SuperAdminLogin() {
@@ -12,6 +12,7 @@ export default function SuperAdminLogin() {
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
+
     try {
       const response = await axios.post("/api/v1/auth/login", {
         email,
@@ -23,15 +24,11 @@ export default function SuperAdminLogin() {
       const adminId = response.data?.data?.admin?._id;
 
       if (accessToken && refreshToken && adminId) {
-        // ✅ Save tokens and user ID in cookies
         Cookies.set("accessToken", accessToken, { expires: 7 });
         Cookies.set("refreshToken", refreshToken, { expires: 7 });
         Cookies.set("userId", adminId, { expires: 7 });
 
-        // ✅ Save auth state in localStorage
         localStorage.setItem("superAdminAuth", "true");
-
-        // ✅ Navigate
         navigate("/super-admin");
       } else {
         setError("Invalid response from server");
@@ -42,44 +39,67 @@ export default function SuperAdminLogin() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
-      <form
-        onSubmit={handleLogin}
-        className="bg-white p-6 rounded-lg shadow-md w-full max-w-md"
-      >
-        <h2 className="text-2xl font-bold mb-6 text-center">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 to-blue-100 px-4 py-8">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8 sm:p-10">
+        <h2 className="text-3xl font-bold text-center mb-6 text-blue-700">
           Super Admin Login
         </h2>
-        {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
-        <div className="mb-4">
-          <label className="block mb-1 text-sm font-medium">Email</label>
-          <input
-            type="email"
-            className="w-full border px-3 py-2 rounded"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            placeholder="Enter your super admin email"
-          />
+
+        {error && (
+          <div className="bg-red-100 text-red-600 text-sm p-3 rounded mb-4 text-center">
+            {error}
+          </div>
+        )}
+
+        <form onSubmit={handleLogin} className="space-y-5">
+          <div>
+            <label className="block mb-1 text-sm font-medium text-gray-700">
+              Email
+            </label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              placeholder="Enter your email"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <div>
+            <label className="block mb-1 text-sm font-medium text-gray-700">
+              Password
+            </label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              placeholder="Enter your password"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white font-medium py-2 rounded-lg hover:bg-blue-700 transition duration-200"
+          >
+            Login
+          </button>
+        </form>
+
+        <div className="mt-6 text-center">
+          <p className="text-sm text-gray-600">
+            Don't have a merchant?{" "}
+            <Link
+              to="/super-admin/merchant-create"
+              className="text-blue-600 font-semibold hover:underline"
+            >
+              Register Merchant
+            </Link>
+          </p>
         </div>
-        <div className="mb-6">
-          <label className="block mb-1 text-sm font-medium">Password</label>
-          <input
-            type="password"
-            className="w-full border px-3 py-2 rounded"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            placeholder="Enter password"
-          />
-        </div>
-        <button
-          type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
-        >
-          Login
-        </button>
-      </form>
+      </div>
     </div>
   );
 }

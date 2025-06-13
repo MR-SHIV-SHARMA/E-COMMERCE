@@ -45,6 +45,7 @@ import Activity from "./components/Activity/Activity.jsx";
 import Category from "./components/category.jsx";
 import Brand from "./components/brand.jsx";
 import Merchant from "./components/merchant/merchant.jsx";
+import MerchantCreate from "./components/merchant/MerchantCreate.jsx";
 
 const router = createBrowserRouter([
   {
@@ -107,6 +108,7 @@ const router = createBrowserRouter([
       { path: "/super-admin/category", element: <Category /> },
       { path: "/super-admin/brand", element: <Brand /> },
       { path: "/super-admin/merchant", element: <Merchant /> },
+      { path: "/super-admin/merchant-create", element: <MerchantCreate /> },
     ],
   },
 
