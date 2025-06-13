@@ -89,10 +89,14 @@ export default function Merchant() {
     if (!window.confirm("Are you sure you want to delete this merchant?"))
       return;
     try {
-      await axios.delete(
+      const response = await axios.delete(
         `/api/v1/merchants/super-admin/delete-merchant/${userId}`
       );
-      setMessage({ text: "Merchant deleted successfully", type: "success" });
+      setMessage({
+        text:
+          response.data?.message || "Merchant account deleted successfully!",
+        type: "success",
+      });
       navigate("/admin");
     } catch (error) {
       setMessage({
@@ -321,284 +325,238 @@ export default function Merchant() {
       {/* Merchant List Section */}
       {status === "success" && (
         <section className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-          <div className="px-5 py-4 bg-gradient-to-r from-indigo-600 to-purple-700 text-white">
-            <h2 className="text-xl font-semibold flex items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 mr-2"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              Merchant Accounts
-              <span className="ml-2 bg-indigo-800 text-xs font-medium px-2 py-1 rounded-full">
-                {merchant.length}
-              </span>
-            </h2>
-          </div>
-
           <div className="p-4 md:p-5">
-            {merchant.length === 0 ? (
-              <div className="text-center py-10">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-16 w-16 mx-auto text-gray-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                <h3 className="mt-4 text-lg font-medium text-gray-700">
-                  No merchants found
-                </h3>
-                <p className="mt-1 text-gray-500">
-                  Create your first merchant account to get started
-                </p>
+            <div className="border border-gray-200 rounded-xl p-5 transition-all hover:shadow-md">
+              <div className="flex justify-between items-start">
+                <div>
+                  <h3 className="text-lg font-bold text-gray-800">
+                    {merchant.companyName}
+                  </h3>
+                  <p className="text-gray-600">{merchant.name}</p>
+                </div>
+                <div className="flex space-x-2">
+                  <button
+                    onClick={() => handleEdit(merchant)}
+                    className="text-indigo-600 hover:text-indigo-800 transition-colors"
+                    title="Edit"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                    </svg>
+                  </button>
+                </div>
               </div>
-            ) : (
-              <div className="border border-gray-200 rounded-xl p-5 transition-all hover:shadow-md">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-800">
-                      {merchant.companyName}
-                    </h3>
-                    <p className="text-gray-600">{merchant.name}</p>
-                  </div>
-                  <div className="flex space-x-2">
-                    <button
-                      onClick={() => handleEdit(merchant)}
-                      className="text-indigo-600 hover:text-indigo-800 transition-colors"
-                      title="Edit"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
 
-                <div className="mt-4 text-sm text-gray-600 space-y-2">
-                  <div className="flex items-start">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-4 w-4 mt-0.5 mr-2 text-gray-500"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                    </svg>
-                    <span className="break-all">{merchant.email}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-4 w-4 mr-2 text-gray-500"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                    </svg>
-                    <span>{merchant.phone || "Not provided"}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-4 w-4 mr-2 text-gray-500"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <span>{merchant.ownerName || "Not provided"}</span>
-                  </div>
-                </div>
-
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {merchant.isWholesaleAvailable && (
-                    <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium">
-                      Wholesale
-                    </span>
-                  )}
-                  {merchant.isSustainable && (
-                    <span className="bg-emerald-100 text-emerald-800 px-2 py-1 rounded text-xs font-medium">
-                      Sustainable
-                    </span>
-                  )}
-                  {merchant.isVerified && (
-                    <span className="bg-indigo-100 text-indigo-800 px-2 py-1 rounded text-xs font-medium">
-                      Verified
-                    </span>
-                  )}
-                </div>
-
-                <div className="mt-4 flex justify-between items-center text-xs text-gray-500">
-                  <span>
-                    Created: {new Date(merchant.createdAt).toLocaleDateString()}
-                  </span>
-                  <span>
-                    Updated: {new Date(merchant.updatedAt).toLocaleDateString()}
-                  </span>
-                </div>
-
-                {/* Expandable details */}
-                <button
-                  onClick={() => toggleCardExpand(merchant._id)}
-                  className="mt-4 w-full text-center text-sm text-indigo-600 hover:text-indigo-800 flex items-center justify-center"
-                >
-                  {expandedCards[merchant._id] ? "Show Less" : "Show More"}
+              <div className="mt-4 text-sm text-gray-600 space-y-2">
+                <div className="flex items-start">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className={`h-4 w-4 ml-1 transition-transform ${
-                      expandedCards[merchant._id] ? "rotate-180" : ""
-                    }`}
+                    className="h-4 w-4 mt-0.5 mr-2 text-gray-500"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                  </svg>
+                  <span className="break-all">{merchant.email}</span>
+                </div>
+                <div className="flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 mr-2 text-gray-500"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                  </svg>
+                  <span>{merchant.phone || "Not provided"}</span>
+                </div>
+                <div className="flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 mr-2 text-gray-500"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
                     <path
                       fillRule="evenodd"
-                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
                       clipRule="evenodd"
                     />
                   </svg>
-                </button>
+                  <span>{merchant.ownerName || "Not provided"}</span>
+                </div>
+              </div>
 
-                {expandedCards[merchant._id] && (
-                  <div className="mt-4 pt-4 border-t border-gray-100 space-y-4">
-                    <div>
-                      <h4 className="text-sm font-medium text-gray-700 mb-2 flex items-center">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-4 w-4 mr-1"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                        Store Location
-                      </h4>
-                      <div className="text-sm text-gray-600 space-y-1">
-                        <div>
-                          {merchant.storeLocation?.address || "Not provided"}
-                        </div>
-                        <div>
-                          {merchant.storeLocation?.city &&
-                            `${merchant.storeLocation.city}, `}
-                          {merchant.storeLocation?.state}{" "}
-                          {merchant.storeLocation?.postalCode}
-                        </div>
-                      </div>
-                    </div>
-
-                    {merchant.fabricTypes?.length > 0 && (
-                      <div>
-                        <h4 className="text-sm font-medium text-gray-700 mb-2">
-                          Fabric Types
-                        </h4>
-                        <div className="flex flex-wrap gap-2">
-                          {merchant.fabricTypes.map((type, i) => (
-                            <span
-                              key={i}
-                              className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded"
-                            >
-                              {type}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {merchant.deliveryOptions?.length > 0 && (
-                      <div>
-                        <h4 className="text-sm font-medium text-gray-700 mb-2">
-                          Delivery Options
-                        </h4>
-                        <div className="flex flex-wrap gap-2">
-                          {merchant.deliveryOptions.map((opt, i) => (
-                            <span
-                              key={i}
-                              className="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded"
-                            >
-                              {opt}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {merchant.products?.length > 0 && (
-                      <div>
-                        <h4 className="text-sm font-medium text-gray-700 mb-2">
-                          Products
-                        </h4>
-                        <div className="grid grid-cols-2 gap-2 text-xs text-gray-600">
-                          {merchant.products.slice(0, 4).map((pid, i) => (
-                            <div
-                              key={i}
-                              className="bg-gray-100 px-2 py-1 rounded break-words truncate"
-                            >
-                              {pid}
-                            </div>
-                          ))}
-                          {merchant.products.length > 4 && (
-                            <div className="bg-gray-100 px-2 py-1 rounded text-xs text-gray-500">
-                              +{merchant.products.length - 4} more
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    )}
-
-                    {merchant.brands?.length > 0 && (
-                      <div>
-                        <h4 className="text-sm font-medium text-gray-700 mb-2">
-                          Brands
-                        </h4>
-                        <div className="flex flex-wrap gap-2 text-xs">
-                          {merchant.brands.slice(0, 4).map((bid, i) => (
-                            <span
-                              key={i}
-                              className="bg-pink-100 text-pink-800 px-2 py-1 rounded"
-                            >
-                              {bid}
-                            </span>
-                          ))}
-                          {merchant.brands.length > 4 && (
-                            <span className="bg-gray-100 text-gray-500 px-2 py-1 rounded text-xs">
-                              +{merchant.brands.length - 4} more
-                            </span>
-                          )}
-                        </div>
-                      </div>
-                    )}
-                  </div>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {merchant.isWholesaleAvailable && (
+                  <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium">
+                    Wholesale
+                  </span>
+                )}
+                {merchant.isSustainable && (
+                  <span className="bg-emerald-100 text-emerald-800 px-2 py-1 rounded text-xs font-medium">
+                    Sustainable
+                  </span>
+                )}
+                {merchant.isVerified && (
+                  <span className="bg-indigo-100 text-indigo-800 px-2 py-1 rounded text-xs font-medium">
+                    Verified
+                  </span>
                 )}
               </div>
-            )}
+
+              <div className="mt-4 flex justify-between items-center text-xs text-gray-500">
+                <span>
+                  Created: {new Date(merchant.createdAt).toLocaleDateString()}
+                </span>
+                <span>
+                  Updated: {new Date(merchant.updatedAt).toLocaleDateString()}
+                </span>
+              </div>
+
+              {/* Expandable details */}
+              <button
+                onClick={() => toggleCardExpand(merchant._id)}
+                className="mt-4 w-full text-center text-sm text-indigo-600 hover:text-indigo-800 flex items-center justify-center"
+              >
+                {expandedCards[merchant._id] ? "Show Less" : "Show More"}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className={`h-4 w-4 ml-1 transition-transform ${
+                    expandedCards[merchant._id] ? "rotate-180" : ""
+                  }`}
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+
+              {expandedCards[merchant._id] && (
+                <div className="mt-4 pt-4 border-t border-gray-100 space-y-4">
+                  <div>
+                    <h4 className="text-sm font-medium text-gray-700 mb-2 flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4 mr-1"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Store Location
+                    </h4>
+                    <div className="text-sm text-gray-600 space-y-1">
+                      <div>
+                        {merchant.storeLocation?.address || "Not provided"}
+                      </div>
+                      <div>
+                        {merchant.storeLocation?.city &&
+                          `${merchant.storeLocation.city}, `}
+                        {merchant.storeLocation?.state}{" "}
+                        {merchant.storeLocation?.postalCode}
+                      </div>
+                    </div>
+                  </div>
+
+                  {merchant.fabricTypes?.length > 0 && (
+                    <div>
+                      <h4 className="text-sm font-medium text-gray-700 mb-2">
+                        Fabric Types
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {merchant.fabricTypes.map((type, i) => (
+                          <span
+                            key={i}
+                            className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded"
+                          >
+                            {type}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {merchant.deliveryOptions?.length > 0 && (
+                    <div>
+                      <h4 className="text-sm font-medium text-gray-700 mb-2">
+                        Delivery Options
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {merchant.deliveryOptions.map((opt, i) => (
+                          <span
+                            key={i}
+                            className="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded"
+                          >
+                            {opt}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {merchant.products?.length > 0 && (
+                    <div>
+                      <h4 className="text-sm font-medium text-gray-700 mb-2">
+                        Products
+                      </h4>
+                      <div className="grid grid-cols-2 gap-2 text-xs text-gray-600">
+                        {merchant.products.slice(0, 4).map((pid, i) => (
+                          <div
+                            key={i}
+                            className="bg-gray-100 px-2 py-1 rounded break-words truncate"
+                          >
+                            {pid}
+                          </div>
+                        ))}
+                        {merchant.products.length > 4 && (
+                          <div className="bg-gray-100 px-2 py-1 rounded text-xs text-gray-500">
+                            +{merchant.products.length - 4} more
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+
+                  {merchant.brands?.length > 0 && (
+                    <div>
+                      <h4 className="text-sm font-medium text-gray-700 mb-2">
+                        Brands
+                      </h4>
+                      <div className="flex flex-wrap gap-2 text-xs">
+                        {merchant.brands.slice(0, 4).map((bid, i) => (
+                          <span
+                            key={i}
+                            className="bg-pink-100 text-pink-800 px-2 py-1 rounded"
+                          >
+                            {bid}
+                          </span>
+                        ))}
+                        {merchant.brands.length > 4 && (
+                          <span className="bg-gray-100 text-gray-500 px-2 py-1 rounded text-xs">
+                            +{merchant.brands.length - 4} more
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
           </div>
         </section>
       )}
