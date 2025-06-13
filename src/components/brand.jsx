@@ -3,15 +3,15 @@ import axios from "axios";
 
 export default function Brand() {
   const [brands, setBrands] = useState([]);
-  const [form, setForm] = useState({ brandName: "", logo: "" });
-  const [merchantId, setMerchantId] = useState(""); // ID required for creating brand
+  const [form, setForm] = useState({ name: "", logo: "" }); // FIXED: 'brandName' -> 'name'
+  const [merchantId, setMerchantId] = useState("");
   const [selectedBrandId, setSelectedBrandId] = useState(null);
 
   // Fetch all brands
   const fetchBrands = async () => {
     try {
-      const res = await axios.get(`/api/v1/merchants/brands`);
-      setBrands(Array.isArray(res.data) ? res.data : []);
+      const res = await axios.get(`/api/v1/brands`);
+      setBrands(res.data?.data || []); // FIXED: use res.data.data
     } catch (err) {
       console.error("Failed to fetch brands", err);
     }
@@ -30,7 +30,7 @@ export default function Brand() {
         form
       );
       fetchBrands();
-      setForm({ brandName: "", logo: "" });
+      setForm({ name: "", logo: "" });
     } catch (err) {
       console.error("Failed to create brand", err);
     }
@@ -46,7 +46,7 @@ export default function Brand() {
       );
       fetchBrands();
       setSelectedBrandId(null);
-      setForm({ brandName: "", logo: "" });
+      setForm({ name: "", logo: "" });
     } catch (err) {
       console.error("Failed to update brand", err);
     }
@@ -77,8 +77,8 @@ export default function Brand() {
         <input
           type="text"
           placeholder="Brand Name"
-          value={form.brandName}
-          onChange={(e) => setForm({ ...form, brandName: e.target.value })}
+          value={form.name}
+          onChange={(e) => setForm({ ...form, name: e.target.value })}
           className="border p-2 mr-2"
         />
         <input
@@ -103,35 +103,36 @@ export default function Brand() {
       </div>
 
       <div className="grid grid-cols-1 gap-4">
-        {brands.map((brand) => (
-          <div
-            key={brand._id}
-            className="border rounded p-4 flex justify-between items-center"
-          >
-            <div>
-              <h2 className="font-semibold">{brand.brandName}</h2>
-              <img src={brand.logo} alt="logo" className="h-10 mt-1" />
-              <p className="text-sm text-gray-500">{brand._id}</p>
+        {Array.isArray(brands) &&
+          brands.map((brand) => (
+            <div
+              key={brand._id}
+              className="border rounded p-4 flex justify-between items-center"
+            >
+              <div>
+                <h2 className="font-semibold">{brand.name}</h2> {/* FIXED */}
+                <img src={brand.logo} alt="logo" className="h-10 mt-1" />
+                <p className="text-sm text-gray-500">{brand._id}</p>
+              </div>
+              <div>
+                <button
+                  className="bg-yellow-400 text-black px-3 py-1 mr-2"
+                  onClick={() => {
+                    setSelectedBrandId(brand._id);
+                    setForm({ name: brand.name, logo: brand.logo }); // FIXED
+                  }}
+                >
+                  Edit
+                </button>
+                <button
+                  className="bg-red-500 text-white px-3 py-1"
+                  onClick={() => handleDelete(brand._id)}
+                >
+                  Delete
+                </button>
+              </div>
             </div>
-            <div>
-              <button
-                className="bg-yellow-400 text-black px-3 py-1 mr-2"
-                onClick={() => {
-                  setSelectedBrandId(brand._id);
-                  setForm({ brandName: brand.brandName, logo: brand.logo });
-                }}
-              >
-                Edit
-              </button>
-              <button
-                className="bg-red-500 text-white px-3 py-1"
-                onClick={() => handleDelete(brand._id)}
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        ))}
+          ))}
       </div>
     </div>
   );
