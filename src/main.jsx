@@ -36,16 +36,16 @@ import {
   ToastContainer,
 } from "./components/ScrollToTop/ScrollToTop.jsx";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-import SuperAdminLayout from "./components/SuperAdminLayout/SuperAdminLayout.jsx";
-import SuperAdminDashboard from "./components/SuperAdminDashboard/SuperAdminDashboard.jsx";
-import SuperAdminLogin from "./components/SuperAdminLogin/SuperAdminLogin.jsx";
+import SuperAdminLayout from "./components/admin/SuperAdminLayout/SuperAdminLayout.jsx";
+import SuperAdminDashboard from "./components/admin/SuperAdminDashboard/SuperAdminDashboard.jsx";
+import SuperAdminLogin from "./components/admin/SuperAdminLogin/SuperAdminLogin.jsx";
 // import SuperAdminRegister from "./components/SuperAdminRegister/SuperAdminRegister.jsx";
 // import ProtectedRoute from "./components/ProtectedRoute.jsx";
-import Activity from "./components/Activity/Activity.jsx";
-import Category from "./components/category.jsx";
-import Brand from "./components/brand.jsx";
-import Merchant from "./components/merchant/merchant.jsx";
-import MerchantCreate from "./components/merchant/MerchantCreate.jsx";
+import Activity from "./components/admin/Activity/Activity.jsx";
+import Category from "./components/admin/category.jsx";
+import Brand from "./components/admin/brand.jsx";
+import Merchant from "./components/admin/merchant/merchant.jsx";
+import MerchantCreate from "./components/admin/merchant/MerchantCreate.jsx";
 
 const router = createBrowserRouter([
   {
