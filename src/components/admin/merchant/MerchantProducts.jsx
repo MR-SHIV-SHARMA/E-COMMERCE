@@ -6,7 +6,7 @@ export default function MerchantProducts() {
 
   useEffect(() => {
     axios
-      .get("/api/v1/product")
+      .get("/api/v1/content/getAllProductsbyMerchant") // Correct route
       .then((res) => setProducts(res.data?.data || []))
       .catch((err) => console.error("Error fetching products:", err));
   }, []);
