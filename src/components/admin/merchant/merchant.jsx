@@ -64,23 +64,6 @@ export default function Merchant() {
     }
   };
 
-  // const handleEdit = (merchant) => {
-  //   setShowUpdateForm({ show: true, id: merchant._id });
-  //   setFormValues({
-  //     name: merchant.name || "",
-  //     phone: merchant.phone || "",
-  //     panCard: merchant.panCard || "",
-  //     aadhaarCard: merchant.aadhaarCard || "",
-  //     companyName: merchant.companyName || "",
-  //     ownerName: merchant.ownerName || "",
-  //     fabricTypes: (merchant.fabricTypes || []).join(", "),
-  //     deliveryOptions: (merchant.deliveryOptions || []).join(", "),
-  //     isSustainable: merchant.isSustainable || false,
-  //     isWholesaleAvailable: merchant.isWholesaleAvailable || false,
-  //     isVerified: merchant.isVerified || false,
-  //   });
-  // };
-
   const handleDelete = async () => {
     if (
       !window.confirm("Are you sure you want to delete this merchant account?")
@@ -488,6 +471,57 @@ export default function Merchant() {
                           {merchant.aadhaarCard || "Not provided"}
                         </span>
                       </li>
+                      <li className="flex justify-between">
+                        <span className="text-gray-600">Gst Number</span>
+                        <span className="text-gray-900 font-medium">
+                          {merchant.gstNumber || "Not provided"}
+                        </span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span className="text-gray-600">companyName</span>
+                        <span className="text-gray-900 font-medium">
+                          {merchant.companyName || "Not provided"}
+                        </span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span className="text-gray-600">ownerName</span>
+                        <span className="text-gray-900 font-medium">
+                          {merchant.ownerName || "Not provided"}
+                        </span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span className="text-gray-600">
+                          isWholesaleAvailable
+                        </span>
+                        <span className="text-gray-900 font-medium">
+                          {merchant.isWholesaleAvailable === true
+                            ? "True"
+                            : merchant.isWholesaleAvailable === false
+                            ? "False"
+                            : "Not provided"}
+                        </span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span className="text-gray-600">isVerified</span>
+                        <span className="text-gray-900 font-medium">
+                          {merchant.isVerified === true
+                            ? "True"
+                            : merchant.isVerified === false
+                            ? "False"
+                            : "Not provided"}
+                        </span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span className="text-gray-600">isSustainable</span>
+                        <span className="text-gray-900 font-medium">
+                          {merchant.isSustainable === true
+                            ? "True"
+                            : merchant.isSustainable === false
+                            ? "False"
+                            : "Not provided"}
+                        </span>
+                      </li>
+
                       <li className="flex justify-between">
                         <span className="text-gray-600">Account Created</span>
                         <span className="text-gray-900 font-medium">
