@@ -36,12 +36,12 @@ import {
   ToastContainer,
 } from "./components/ScrollToTop/ScrollToTop.jsx";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-import SuperAdminLayout from "./components/admin/SuperAdminLayout/SuperAdminLayout.jsx";
-import SuperAdminDashboard from "./components/admin/SuperAdminDashboard/SuperAdminDashboard.jsx";
-import SuperAdminLogin from "./components/admin/SuperAdminLogin/SuperAdminLogin.jsx";
+import SuperAdminLayout from "./components/admin/SuperAdmin/SuperAdminLayout.jsx";
+import SuperAdminDashboard from "./components/admin/SuperAdmin/SuperAdminDashboard.jsx";
+import SuperAdminLogin from "./components/admin/SuperAdmin/SuperAdminLogin.jsx";
 // import SuperAdminRegister from "./components/SuperAdminRegister/SuperAdminRegister.jsx";
 // import ProtectedRoute from "./components/ProtectedRoute.jsx";
-import Activity from "./components/admin/Activity/Activity.jsx";
+import Activity from "./components/admin/SuperAdmin/Activity/Activity.jsx";
 import Category from "./components/admin/category.jsx";
 import Brand from "./components/admin/brand.jsx";
 import Merchant from "./components/admin/merchant/merchant.jsx";
