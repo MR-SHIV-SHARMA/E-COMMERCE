@@ -39,7 +39,7 @@ export default function MerchantCreate() {
       setFormValues({});
       e.target.reset();
 
-      setTimeout(() => navigate("/admin"), 1500);
+      setTimeout(() => navigate("/merchant/merchant-login"), 1500);
     } catch (error) {
       console.error(error);
       setMessage({
@@ -171,7 +171,7 @@ export default function MerchantCreate() {
 
         <div className="mt-6 text-center">
           <Link
-            to="/admin"
+            to="/merchant/merchant-login"
             className="text-indigo-600 font-medium hover:underline transition"
           >
             Already have an account? Login

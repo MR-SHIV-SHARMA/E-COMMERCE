@@ -1,14 +1,26 @@
 import React from "react";
-import { Outlet, NavLink, useLocation } from "react-router-dom";
+import { Outlet, NavLink, useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function MerchantLayout() {
   const location = useLocation();
-
+  const navigate = useNavigate();
   const navLinks = [
     { path: "/merchant", label: "Dashboard" },
+    { path: "/merchant/products", label: "Products" },
+    { path: "/merchant/orders", label: "Orders" },
     { path: "/merchant/merchant-create", label: "Create Merchant" },
-    // Add more links if needed
+    { path: "/merchant/merchant-login", label: "Login Merchant" },
   ];
+
+  const handleLogout = async () => {
+    try {
+      await axios.post("/api/v1/auth/logout");
+      navigate("/merchant/merchant-login"); // Redirect after logout
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
 
   return (
     <div className="min-h-screen flex bg-gray-100">
@@ -34,6 +46,13 @@ export default function MerchantLayout() {
               {link.label}
             </NavLink>
           ))}
+          {/* Logout Button */}
+          <button
+            onClick={handleLogout}
+            className="text-left text-red-600 font-semibold hover:underline"
+          >
+            Logout
+          </button>
         </nav>
       </aside>
 
