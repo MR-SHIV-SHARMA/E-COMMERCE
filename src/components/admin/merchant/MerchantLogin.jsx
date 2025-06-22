@@ -26,7 +26,7 @@ export default function MerchantLogin() {
       if (accessToken && refreshToken && adminId) {
         Cookies.set("accessToken", accessToken, { expires: 7 });
         Cookies.set("refreshToken", refreshToken, { expires: 7 });
-        Cookies.set("userId", adminId, { expires: 7 });
+        Cookies.set("merchantId", adminId, { expires: 7 });
 
         localStorage.setItem("merchant", "true");
         navigate("/merchant");
