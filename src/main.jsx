@@ -44,8 +44,11 @@ import SuperAdminLogin from "./components/admin/SuperAdmin/SuperAdminLogin.jsx";
 import Activity from "./components/admin/SuperAdmin/Activity/Activity.jsx";
 import Category from "./components/admin/category.jsx";
 import Brand from "./components/admin/brand.jsx";
-import Merchant from "./components/admin/merchant/merchant.jsx";
+import MerchantDashboard from "./components/admin/merchant/MerchantDashboard.jsx";
 import MerchantCreate from "./components/admin/merchant/MerchantCreate.jsx";
+import MerchantLayout from "./components/admin/merchant/MerchantLayout.jsx";
+// import MerchantProducts from "./components/admin/merchant/MerchantProducts.jsx";
+// import MerchantOrders from "./components/admin/merchant/MerchantOrders.jsx";
 
 const router = createBrowserRouter([
   {
@@ -107,22 +110,23 @@ const router = createBrowserRouter([
       { path: "/super-admin/activity", element: <Activity /> },
       { path: "/super-admin/category", element: <Category /> },
       { path: "/super-admin/brand", element: <Brand /> },
-      { path: "/super-admin/merchant", element: <Merchant /> },
+      // { path: "/super-admin/merchant", element: <Merchant /> },
       { path: "/super-admin/merchant-create", element: <MerchantCreate /> },
     ],
   },
 
   // 🔐 Merchant Routes
-  // {
-  //   path: "/merchant",
-  //   element: <MerchantLayout />,
-  //   children: [
-  //     { index: true, element: <MerchantDashboard /> },
-  //     { path: "products", element: <MerchantProducts /> },
-  //     { path: "orders", element: <MerchantOrders /> },
-  //     // Add more merchant routes
-  //   ],
-  // },
+  {
+    path: "/merchant",
+    element: <MerchantLayout />,
+    children: [
+      { index: true, element: <MerchantDashboard /> },
+      // { path: "products", element: <MerchantProducts /> },
+      // { path: "orders", element: <MerchantOrders /> },
+      { path: "merchant-create", element: <MerchantCreate /> },
+      // Add more merchant routes
+    ],
+  },
 ]);
 
 const RootComponent = () => {

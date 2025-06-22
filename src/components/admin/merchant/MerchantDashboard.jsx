@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-export default function Merchant() {
+export default function MerchantDashboard() {
   const [status, setStatus] = useState("loading");
   const [merchant, setMerchant] = useState(null);
   const [message, setMessage] = useState({ text: "", type: "" });
