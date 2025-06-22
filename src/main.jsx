@@ -50,6 +50,8 @@ import MerchantLayout from "./components/admin/merchant/MerchantLayout.jsx";
 import MerchantProducts from "./components/admin/merchant/MerchantProducts.jsx";
 import MerchantOrders from "./components/admin/merchant/MerchantOrders.jsx";
 import MerchantLogin from "./components/admin/merchant/MerchantLogin.jsx";
+import MerchantCreateProduct from "./components/admin/merchant/MerchantCreateProduct.jsx";
+import MerchantUpdateProduct from "./components/admin/merchant/MerchantUpdateProduct.jsx";
 
 const router = createBrowserRouter([
   {
@@ -123,6 +125,9 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <MerchantDashboard /> },
       { path: "products", element: <MerchantProducts /> },
+      { path: "create-product", element: <MerchantCreateProduct /> },
+      { path: "update-product/:id", element: <MerchantUpdateProduct /> },
+
       { path: "orders", element: <MerchantOrders /> },
       { path: "merchant-create", element: <MerchantCreate /> },
       { path: "merchant-login", element: <MerchantLogin /> },

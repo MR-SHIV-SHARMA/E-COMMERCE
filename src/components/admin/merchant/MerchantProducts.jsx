@@ -1,15 +1,30 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function MerchantProducts() {
   const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get("/api/v1/content/getAllProductsbyMerchant") // Correct route
+      .get("/api/v1/content/getAllProductsbyMerchant")
       .then((res) => setProducts(res.data?.data || []))
       .catch((err) => console.error("Error fetching products:", err));
   }, []);
+
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`/api/v1/content/product/${id}`, {
+        headers: {
+          Authorization: `Bearer ${yourAuthToken}`,
+        },
+      });
+      setProducts(products.filter((p) => p._id !== id));
+    } catch (err) {
+      console.error("Delete failed:", err);
+    }
+  };
 
   return (
     <div>
@@ -122,6 +137,21 @@ export default function MerchantProducts() {
 
               {/* MongoDB __v */}
               <p className="text-xs text-gray-400">__v: {product.__v}</p>
+              <button
+                onClick={() => handleDelete(product._id)}
+                className="text-red-500 mt-2"
+              >
+                Delete
+              </button>
+
+              <button
+                onClick={() =>
+                  navigate(`/merchant/update-product/${product._id}`)
+                }
+                className="text-blue-500 mt-2"
+              >
+                Edit
+              </button>
             </div>
           ))}
         </div>

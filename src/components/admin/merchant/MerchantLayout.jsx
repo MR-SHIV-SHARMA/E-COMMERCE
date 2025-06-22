@@ -56,6 +56,12 @@ export default function MerchantLayout() {
   const navLinks = [
     { path: "/merchant", label: "Dashboard", private: true },
     { path: "/merchant/products", label: "Products", private: true },
+    {
+      path: "/merchant/create-product",
+      label: "Create Product",
+      private: true,
+    },
+
     { path: "/merchant/orders", label: "Orders", private: true },
     {
       path: "/merchant/merchant-create",
