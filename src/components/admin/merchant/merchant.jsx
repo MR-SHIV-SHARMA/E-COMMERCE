@@ -97,6 +97,12 @@ export default function Merchant() {
       aadhaarCard: merchant.aadhaarCard || "",
       companyName: merchant.companyName || "",
       ownerName: merchant.ownerName || "",
+      storeLocation: {
+        address: merchant.storeLocation?.address || "",
+        city: merchant.storeLocation?.city || "",
+        state: merchant.storeLocation?.state || "",
+        postalCode: merchant.storeLocation?.postalCode || "",
+      },
       fabricTypes: (merchant.fabricTypes || []).join(", "),
       deliveryOptions: (merchant.deliveryOptions || []).join(", "),
       isSustainable: merchant.isSustainable || false,
@@ -294,6 +300,35 @@ export default function Merchant() {
                     />
                   </div>
                 ))}
+
+                <div className="col-span-2 pt-4">
+                  <h3 className="text-sm font-medium text-gray-700 mb-2">
+                    Store Location
+                  </h3>
+
+                  {["address", "city", "state", "postalCode"].map((field) => (
+                    <div key={field} className="mb-4">
+                      <label className="block text-sm font-medium text-gray-700 mb-1 capitalize">
+                        {field}
+                      </label>
+                      <input
+                        name={field}
+                        type="text"
+                        value={formValues.storeLocation?.[field] || ""}
+                        onChange={(e) =>
+                          setFormValues((prev) => ({
+                            ...prev,
+                            storeLocation: {
+                              ...prev.storeLocation,
+                              [field]: e.target.value,
+                            },
+                          }))
+                        }
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                      />
+                    </div>
+                  ))}
+                </div>
 
                 <div className="space-y-4 pt-2">
                   <h3 className="text-sm font-medium text-gray-700">
