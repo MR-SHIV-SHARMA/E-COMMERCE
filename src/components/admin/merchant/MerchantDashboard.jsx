@@ -9,7 +9,7 @@ export default function MerchantDashboard() {
   const [showUpdateForm, setShowUpdateForm] = useState(false);
   const [formValues, setFormValues] = useState({});
   const [expanded, setExpanded] = useState(false);
-  const userId = Cookies.get("userId");
+  const userId = Cookies.get("merchantId");
 
   const fetchData = async () => {
     try {
