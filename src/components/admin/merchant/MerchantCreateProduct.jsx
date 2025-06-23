@@ -121,24 +121,9 @@ export default function MerchantCreateProduct() {
       if (key !== "images") payload.append(key, val);
     });
 
-    sizes.forEach((s) => {
-      if (s.size && s.stock !== "") {
-        payload.append(
-          "sizes[]",
-          JSON.stringify({ size: s.size, stock: Number(s.stock) })
-        );
-      }
-    });
-
-    colors.forEach((c) => {
-      if (c.color && c.stock !== "") {
-        payload.append(
-          "colors[]",
-          JSON.stringify({ color: c.color, stock: Number(c.stock) })
-        );
-      }
-    });
-
+    payload.append("sizes", JSON.stringify(sizes));
+    payload.append("colors", JSON.stringify(colors));
+    
     formData.availabilityZones.forEach((zone) => {
       payload.append("availabilityZones[]", zone);
     });

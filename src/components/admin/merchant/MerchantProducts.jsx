@@ -15,11 +15,7 @@ export default function MerchantProducts() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`/api/v1/content/product/${id}`, {
-        headers: {
-          Authorization: `Bearer ${yourAuthToken}`,
-        },
-      });
+      await axios.delete(`/api/v1/content/product/${id}`);
       setProducts(products.filter((p) => p._id !== id));
     } catch (err) {
       console.error("Delete failed:", err);
