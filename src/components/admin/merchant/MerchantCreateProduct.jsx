@@ -27,11 +27,66 @@ export default function MerchantCreateProduct() {
     discountStartDate: "",
     discountEndDate: "",
     images: [],
-    sizes: "",
-    colors: "",
   });
 
   const [categories, setCategories] = useState([]);
+  const [sizes, setSizes] = useState([]);
+  const [colors, setColors] = useState([]);
+
+  const predefinedSizes = [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL",
+    "XXXL",
+    "28",
+    "30",
+    "32",
+    "34",
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46",
+    "Free Size",
+    "Custom",
+  ];
+
+  const predefinedColors = [
+    "Red",
+    "Blue",
+    "Green",
+    "Yellow",
+    "Black",
+    "White",
+    "Orange",
+    "Purple",
+    "Pink",
+    "Brown",
+    "Gray",
+    "Beige",
+    "Maroon",
+    "Navy",
+    "Cyan",
+    "Magenta",
+    "Olive",
+    "Teal",
+    "Silver",
+    "Gold",
+    "Peach",
+    "Turquoise",
+    "Lavender",
+    "Mustard",
+    "Coral",
+    "Mint",
+    "Ivory",
+    "Charcoal",
+    "Khaki",
+    "Sky Blue",
+  ];
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -58,50 +113,34 @@ export default function MerchantCreateProduct() {
     e.preventDefault();
     const payload = new FormData();
 
-    // Images
     for (let img of formData.images) {
       payload.append("images", img);
     }
 
-    // Fields
-    payload.append("name", formData.name);
-    payload.append("price", formData.price);
-    payload.append("stock", formData.stock);
-    payload.append("description", formData.description);
-    payload.append("gender", formData.gender);
-    payload.append("category", formData.category);
-    payload.append("material", formData.material);
-    payload.append("origin", formData.origin);
-    payload.append("style", formData.style);
-    payload.append("fabric", formData.fabric);
-    payload.append("pattern", formData.pattern);
-    payload.append("fit", formData.fit);
-    payload.append("season", formData.season);
-    payload.append("occasion", formData.occasion);
-    payload.append("availabilityZones", formData.availabilityZones);
-    payload.append("manufacturer[name]", formData.manufacturerName);
-    payload.append("manufacturer[address]", formData.manufacturerAddress);
-    payload.append("manufacturer[contact]", formData.manufacturerContact);
-    payload.append("warranty[period]", formData.warrantyPeriod);
-    payload.append("warranty[details]", formData.warrantyDetails);
-    payload.append("discount[percentage]", formData.discountPercentage);
-    payload.append("discount[startDate]", formData.discountStartDate);
-    payload.append("discount[endDate]", formData.discountEndDate);
-    payload.append("sizes", JSON.stringify(sizes));
+    Object.entries(formData).forEach(([key, val]) => {
+      if (key !== "images") payload.append(key, val);
+    });
 
-    // Sizes & Colors (comma separated: size:stock)
-    formData.sizes.split(",").forEach((pair) => {
-      const [size, stock] = pair.split(":");
-      if (size && stock) {
-        payload.append("sizes[]", JSON.stringify({ size, stock }));
+    sizes.forEach((s) => {
+      if (s.size && s.stock !== "") {
+        payload.append(
+          "sizes[]",
+          JSON.stringify({ size: s.size, stock: Number(s.stock) })
+        );
       }
     });
 
-    formData.colors.split(",").forEach((pair) => {
-      const [color, stock] = pair.split(":");
-      if (color && stock) {
-        payload.append("colors[]", JSON.stringify({ color, stock }));
+    colors.forEach((c) => {
+      if (c.color && c.stock !== "") {
+        payload.append(
+          "colors[]",
+          JSON.stringify({ color: c.color, stock: Number(c.stock) })
+        );
       }
+    });
+
+    formData.availabilityZones.forEach((zone) => {
+      payload.append("availabilityZones[]", zone);
     });
 
     try {
@@ -111,28 +150,22 @@ export default function MerchantCreateProduct() {
       console.error("Create product error:", err);
     }
   };
-  const [sizes, setSizes] = useState([]);
 
-  const predefinedSizes = [
-    "XS",
-    "S",
-    "M",
-    "L",
-    "XL",
-    "XXL",
-    "XXXL",
-    "28",
-    "30",
-    "32",
-    "34",
-    "36",
-    "38",
-    "40",
-    "42",
-    "44",
-    "46",
-    "Free Size",
-    "Custom",
+  const zoneOptions = [
+    "All India",
+    "North India",
+    "South India",
+    "East India",
+    "West India",
+    "Central India",
+    "Delhi",
+    "Mumbai",
+    "Bangalore",
+    "Hyderabad",
+    "Kolkata",
+    "Chennai",
+    "Pune",
+    "Ahmedabad",
   ];
 
   return (
@@ -194,16 +227,122 @@ export default function MerchantCreateProduct() {
       </select>
 
       <input name="style" onChange={handleChange} placeholder="Style" />
-      <input name="fabric" onChange={handleChange} placeholder="Fabric" />
-      <input name="material" onChange={handleChange} placeholder="Material" />
-      <input name="origin" onChange={handleChange} placeholder="Origin" />
-      <input
+      <select name="fabric" value={formData.fabric} onChange={handleChange}>
+        <option value="">Select Fabric</option>
+        {[
+          "Cotton",
+          "Polyester",
+          "Linen",
+          "Silk",
+          "Wool",
+          "Rayon",
+          "Nylon",
+          "Denim",
+          "Leather",
+          "Lycra",
+          "Satin",
+          "Georgette",
+          "Velvet",
+          "Chiffon",
+          "Crepe",
+          "Terrycot",
+          "Acrylic",
+          "Viscose",
+          "Tweed",
+          "Khadi",
+          "Fleece",
+          "Jersey",
+          "Net",
+          "Organza",
+          "Mesh",
+          "Canvas",
+          "Suede",
+          "Taffeta",
+          "Batiste",
+        ].map((fab) => (
+          <option key={fab} value={fab}>
+            {fab}
+          </option>
+        ))}
+      </select>
+      <select name="material" value={formData.material} onChange={handleChange}>
+        <option value="">Select Material</option>
+        {[
+          "Cotton",
+          "Linen",
+          "Polyester",
+          "Silk",
+          "Wool",
+          "Denim",
+          "Nylon",
+          "Spandex",
+          "Rayon",
+          "Viscose",
+          "Leather",
+          "Faux Leather",
+          "Canvas",
+          "Suede",
+          "Jute",
+          "Rubber",
+          "Plastic",
+          "Metal",
+          "Stainless Steel",
+          "Alloy",
+          "Ceramic",
+          "Wood",
+          "Glass",
+        ].map((mat) => (
+          <option key={mat} value={mat}>
+            {mat}
+          </option>
+        ))}
+      </select>
+      <select name="origin" value={formData.origin} onChange={handleChange}>
+        <option value="">Select Origin</option>
+        {[
+          "India",
+          "China",
+          "Bangladesh",
+          "Vietnam",
+          "Sri Lanka",
+          "Pakistan",
+          "Indonesia",
+          "Turkey",
+          "USA",
+          "UK",
+          "Italy",
+          "Germany",
+          "France",
+          "Japan",
+          "South Korea",
+          "Made in India",
+          "Designed in Italy",
+          "Imported from China",
+          "Locally Manufactured",
+        ].map((origin) => (
+          <option key={origin} value={origin}>
+            {origin}
+          </option>
+        ))}
+      </select>
+      <select
+        multiple
         name="availabilityZones"
-        onChange={handleChange}
-        placeholder="Availability Zones (comma separated)"
-      />
+        value={formData.availabilityZones}
+        onChange={(e) => {
+          const selected = Array.from(e.target.selectedOptions).map(
+            (opt) => opt.value
+          );
+          setFormData((prev) => ({ ...prev, availabilityZones: selected }));
+        }}
+      >
+        {zoneOptions.map((zone) => (
+          <option key={zone} value={zone}>
+            {zone}
+          </option>
+        ))}
+      </select>
 
-      {/* Manufacturer Info */}
       <input
         name="manufacturerName"
         onChange={handleChange}
@@ -220,7 +359,6 @@ export default function MerchantCreateProduct() {
         placeholder="Manufacturer Contact"
       />
 
-      {/* Warranty Info */}
       <input
         name="warrantyPeriod"
         onChange={handleChange}
@@ -232,7 +370,6 @@ export default function MerchantCreateProduct() {
         placeholder="Warranty Details"
       />
 
-      {/* Discount */}
       <input
         name="discountPercentage"
         onChange={handleChange}
@@ -241,7 +378,7 @@ export default function MerchantCreateProduct() {
       <input name="discountStartDate" type="date" onChange={handleChange} />
       <input name="discountEndDate" type="date" onChange={handleChange} />
 
-      {/* Sizes and Colors */}
+      {/* ✅ Sizes Section */}
       <div>
         <label className="font-semibold">Sizes</label>
         <div className="grid grid-cols-2 gap-3">
@@ -264,7 +401,6 @@ export default function MerchantCreateProduct() {
                   }}
                 />
                 <label>{sizeOption}</label>
-
                 {isChecked && (
                   <input
                     type="number"
@@ -272,12 +408,12 @@ export default function MerchantCreateProduct() {
                     placeholder="Stock"
                     value={stockValue}
                     onChange={(e) => {
-                      const updatedSizes = sizes.map((s) =>
+                      const updated = sizes.map((s) =>
                         s.size === sizeOption
                           ? { ...s, stock: e.target.value }
                           : s
                       );
-                      setSizes(updatedSizes);
+                      setSizes(updated);
                     }}
                     className="border px-2 py-1 w-20"
                   />
@@ -288,11 +424,51 @@ export default function MerchantCreateProduct() {
         </div>
       </div>
 
-      <input
-        name="colors"
-        onChange={handleChange}
-        placeholder="Colors (Red:10,Blue:5)"
-      />
+      {/* ✅ Colors Section */}
+      <div>
+        <label className="font-semibold">Colors</label>
+        <div className="grid grid-cols-2 gap-3">
+          {predefinedColors.map((colorOption) => {
+            const isChecked = colors.some((c) => c.color === colorOption);
+            const stockValue =
+              colors.find((c) => c.color === colorOption)?.stock || "";
+
+            return (
+              <div key={colorOption} className="flex items-center space-x-2">
+                <input
+                  type="checkbox"
+                  checked={isChecked}
+                  onChange={(e) => {
+                    if (e.target.checked) {
+                      setColors([...colors, { color: colorOption, stock: "" }]);
+                    } else {
+                      setColors(colors.filter((c) => c.color !== colorOption));
+                    }
+                  }}
+                />
+                <label>{colorOption}</label>
+                {isChecked && (
+                  <input
+                    type="number"
+                    min={0}
+                    placeholder="Stock"
+                    value={stockValue}
+                    onChange={(e) => {
+                      const updated = colors.map((c) =>
+                        c.color === colorOption
+                          ? { ...c, stock: e.target.value }
+                          : c
+                      );
+                      setColors(updated);
+                    }}
+                    className="border px-2 py-1 w-20"
+                  />
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
 
       <input type="file" multiple onChange={handleFileChange} />
       <button type="submit">Create Product</button>
