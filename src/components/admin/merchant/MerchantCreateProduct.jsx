@@ -1,17 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function MerchantCreateProduct() {
   const [formData, setFormData] = useState({
     name: "",
     price: "",
-    category: "",
+    category: "", // This will hold category ID
     stock: "",
     description: "",
     gender: "",
     images: [],
   });
 
+  const [categories, setCategories] = useState([]);
+
+  // ✅ Fetch all categories on mount
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const res = await axios.get("/api/v1/categories");
+        setCategories(res.data.data); // Assuming API returns { data: [...] }
+      } catch (err) {
+        console.error("Failed to fetch categories:", err);
+      }
+    };
+    fetchCategories();
+  }, []);
+
+  // ✅ Handle input change
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -21,6 +37,7 @@ export default function MerchantCreateProduct() {
     setFormData((prev) => ({ ...prev, images: e.target.files }));
   };
 
+  // ✅ Submit form
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = new FormData();
@@ -35,12 +52,7 @@ export default function MerchantCreateProduct() {
     }
 
     try {
-      const res = await axios.post("/api/v1/content/createProduct", payload, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${yourAuthToken}`,
-        },
-      });
+      const res = await axios.post("/api/v1/content/createProduct", payload);
       alert("Product created!");
     } catch (err) {
       console.error("Create product error:", err);
@@ -48,14 +60,9 @@ export default function MerchantCreateProduct() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="space-y-4">
       <input name="name" onChange={handleChange} placeholder="Product Name" />
       <input name="price" onChange={handleChange} placeholder="Price" />
-      <input
-        name="category"
-        onChange={handleChange}
-        placeholder="Category ID"
-      />
       <input name="stock" onChange={handleChange} placeholder="Stock" />
       <input
         name="description"
@@ -63,6 +70,17 @@ export default function MerchantCreateProduct() {
         placeholder="Description"
       />
       <input name="gender" onChange={handleChange} placeholder="Gender" />
+
+      {/* ✅ Dropdown for category selection */}
+      <select name="category" value={formData.category} onChange={handleChange}>
+        <option value="">Select Category</option>
+        {categories.map((cat) => (
+          <option key={cat._id} value={cat._id}>
+            {cat.name} ({cat?.parent?.name})
+          </option>
+        ))}
+      </select>
+
       <input type="file" multiple onChange={handleFileChange} />
       <button type="submit">Create Product</button>
     </form>
