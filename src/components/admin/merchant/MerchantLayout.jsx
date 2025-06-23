@@ -42,9 +42,9 @@ export default function MerchantLayout() {
   // ✅ Handle logout
   const handleLogout = async () => {
     try {
+      Cookies.remove("merchantId");
       await axios.post("/api/v1/auth/logout");
       Cookies.remove("merchantToken");
-      Cookies.remove("merchantId");
       setIsAuthenticated(false);
       navigate("/merchant/merchant-login");
     } catch (error) {
