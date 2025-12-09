@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../stores/cart";
 
 const Card = (props) => {
-  const { _id, name, price, images, slug } = props.data;
+  const { id, name, price, images, slug } = props.data;
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
@@ -19,7 +19,7 @@ const Card = (props) => {
   return (
     <div className="flex flex-col items-center shadow-lg sm:shadow-none my-2 w-full max-w-xs mx-auto">
       <div className="w-full aspect-square md:aspect-[3/4] rounded-t-lg overflow-hidden">
-        <Link to={`/ProductOverviews/${_id}`}>
+        <Link to={`/ProductOverviews/${id}`}>
           <div className="flex items-center justify-center h-full w-full">
             <img
               src={images}
