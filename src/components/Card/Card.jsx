@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../stores/cart";
 
 const Card = (props) => {
-  const { id, name, price, images, slug } = props.data;
+  const { id, title, price, images } = props.data;
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
@@ -23,7 +23,7 @@ const Card = (props) => {
           <div className="flex items-center justify-center h-full w-full">
             <img
               src={images}
-              alt={name}
+              alt={title}
               className="w-full h-full object-contain transition-transform duration-300 hover:scale-105"
             />
           </div>
@@ -31,7 +31,7 @@ const Card = (props) => {
       </div>
       <div className="w-full bg-white flex justify-between items-center p-3 rounded-b-lg shadow-md">
         <h1 className="text-sm sm:text-base font-medium text-black truncate max-w-[60%]">
-          {name}
+          {title}
         </h1>
         <div className="flex items-center space-x-2">
           <p className="text-base font-semibold text-black">${price}</p>
