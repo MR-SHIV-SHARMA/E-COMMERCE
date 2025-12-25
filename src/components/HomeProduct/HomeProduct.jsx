@@ -1,27 +1,30 @@
 import React, { useEffect, useState } from "react";
 import Card from "../Card/Card";
+import { Home } from "../Home_Products_Api_Data/Home_Products_Api_Data";
 
 function HomeProduct() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const fetchProducts = async () => {
-    try {
-      const response = await fetch("/api/v1/product");
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      const data = await response.json();
-      setProducts(data.data || []);
-    } catch (error) {
-      setError(error.message);
-    }
-    setLoading(false);
-  };
+  // const fetchProducts = async () => {
+  //   try {
+  //     const response = await fetch("/api/v1/product");
+  //     if (!response.ok) {
+  //       throw new Error("Network response was not ok");
+  //     }
+  //     const data = await response.json();
+  //     setProducts(data.data || []);
+  //   } catch (error) {
+  //     setError(error.message);
+  //   }
+  //   setLoading(false);
+  // };
 
   useEffect(() => {
-    fetchProducts();
+    // fetchProducts();
+    setProducts(Home);
+    setLoading(false); // ✅ YE ADD KARO
   }, []);
 
   if (loading) return <p className="text-center">Loading...</p>;
